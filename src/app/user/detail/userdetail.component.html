@@ -1,0 +1,462 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "user" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "admin" | translate }}</a>
+      </li>
+      <li class="active">{{ "user" | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">{{ "user_detail" | translate }}</h3>
+      </div>
+      <!-- /.box-header -->
+
+      <div class="box-body">
+        <app-alert></app-alert>
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <form [formGroup]="userdetailForm" autocomplete="off">
+              <input
+                type="hidden"
+                [(ngModel)]="user.csrfNonce"
+                formControlName="csrfNonce"
+              />
+              <div class="form-group">
+                <label
+                  >{{ "user_uniqueCode" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.uniqueCode"
+                  formControlName="uniqueCode"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.uniqueCode.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.uniqueCode.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.uniqueCode.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_uniqueCode" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  >{{ "user_firstName" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.firstName"
+                  formControlName="firstName"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.firstName.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.firstName.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_firstName" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  >{{ "user_lastName" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.lastName"
+                  formControlName="lastName"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.lastName.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.lastName.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_lastName" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  >{{ "user_password" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="password"
+                  [(ngModel)]="user.password"
+                  formControlName="password"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.password.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_password" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  >{{ "user_confirmPassword" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="password"
+                  [(ngModel)]="user.confirmPassword"
+                  formControlName="confirmPassword"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.confirmPassword.errors
+                  }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.confirmPassword.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.confirmPassword.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_confirmPassword" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label
+                  >{{ "user_email" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.email"
+                  formControlName="email"
+                  class="form-control"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.email.errors.required" class="required-field">
+                    {{ "user_email" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+
+                <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <p class="required-field">
+                    {{ "user_email" | translate }}
+                    {{ "is_invalid" | translate }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label
+                  >{{ "user_contactNo" | translate
+                  }}<b><font color="red">* </font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.contactNo"
+                  formControlName="contactNo"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.contactNo.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.contactNo.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_contactNo" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label
+                  >{{ "user_territory" | translate
+                  }}<b><font color="red">*</font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.territory"
+                  formControlName="territory"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.territory.errors }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.territory.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.territory.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_territory" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- @author Jewel Rana
+							@this div is added for designation field
+							@version V1
+							@since 9th august 2020 -->
+
+              <div class="form-group">
+                <label
+                  >{{ "user_designation" | translate
+                  }}<b><font color="red">*</font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.designation"
+                  formControlName="designation"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.designation.errors
+                  }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.designation.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.designation.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_designation" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+				<label
+				>{{ "user_userType" | translate
+				}}<b><font color="red">*</font></b></label
+			  >
+			  &nbsp;
+                <select formControlName="userType" [(ngModel)]="user.userType">
+                  <!-- <option value="">Choose User Type</option> -->
+                  <option value="Robi">Robi</option>
+                  <option value="Vendor">Vendor</option>
+                </select>
+<!-- 
+                <div
+                  class="error-block"
+                  *ngIf="submitted && handleError('userType', 'required')"
+                >
+                  You must provide a value!
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label
+                  >{{ "user_vendorName" | translate
+                  }}<b><font color="red">*</font></b></label
+                >
+                <input
+                  type="text"
+                  [(ngModel)]="user.vendorName"
+                  formControlName="vendorName"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.vendorName.errors
+                  }"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="submitted && f.designation.errors"
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="f.vendorName.errors.required"
+                    class="required-field"
+                  >
+                    {{ "user_designation" | translate }}
+                    {{ "is_required" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="form-group"
+                *ngIf="
+                  user.componentId >= 0 &&
+                  user.attachFileId != null &&
+                  user.attachFileId.trim() != ''
+                "
+              >
+                <label
+                  >{{ "user_attachFileName" | translate }} :
+                  {{ user.attachFileName }}</label
+                >
+                &nbsp;
+                <button
+                  class="btn btn-primary text-right"
+                  (click)="onDownload()"
+                >
+                  <i class="fa fa-download"></i>
+                  {{ "btn_download_text" | translate }}
+                </button>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <input
+                      type="file"
+                      (change)="onFileChange($event)"
+                      placeholder="{{ 'select_file' | translate }}"
+                      accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+                      #inputFile
+                    />
+                    <span *ngIf="fileUploadExecutionDone">
+                      <small *ngIf="fileAttached"
+                        ><font color="green">{{
+                          fileAttachedMessage
+                        }}</font></small
+                      >
+                      <small *ngIf="!fileAttached"
+                        ><font color="red">{{
+                          fileAttachedMessage
+                        }}</font></small
+                      >
+                    </span>
+                  </div>
+                  <!--<div class="col-md-2">
+										<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+									</div>-->
+                </div>
+              </div>
+
+              <div *ngIf="user.componentId < 0" class="form-group">
+                <button
+                  [disabled]="loading"
+                  class="btn btn-primary"
+                  (click)="onSubmit()"
+                >
+                  {{ "btn_save_text" | translate }}
+                </button>
+              </div>
+
+              <div *ngIf="user.componentId >= 0" class="form-group">
+                <div *ngIf="user.status == 0">
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onSubmit()"
+                  >
+                    {{ "btn_save_text" | translate }}
+                  </button>
+                  &nbsp;
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onUnLock()"
+                  >
+                    {{ "btn_unlock_text" | translate }}
+                  </button>
+                  &nbsp;
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onDelete()"
+                  >
+                    {{ "btn_delete_text" | translate }}
+                  </button>
+                </div>
+                <div *ngIf="user.status == 1">
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onSubmit()"
+                  >
+                    {{ "btn_save_text" | translate }}
+                  </button>
+                  &nbsp;
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onLock()"
+                  >
+                    {{ "btn_lock_text" | translate }}
+                  </button>
+                  &nbsp;
+                  <button
+                    [disabled]="loading"
+                    class="btn btn-primary"
+                    (click)="onDelete()"
+                  >
+                    {{ "btn_delete_text" | translate }}
+                  </button>
+                </div>
+                &nbsp;
+              </div>
+            </form>
+            <button class="btn btn-primary" (click)="goBack()">
+              {{ "btn_go_back_text" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

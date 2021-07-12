@@ -1,0 +1,76 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'fileupload' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'fileupload' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'fileupload_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">	
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="fileuploaddetailForm"  autocomplete="off">
+						<div>
+							<input type="file" (change)="onFileChange($event)" placeholder="{{ 'select_file' | translate }}" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+							&nbsp;<button class="btn btn-primary" (click)="onUpload()">{{ 'btn_upload_text' | translate }}</button>
+						</div>
+
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_uniqueCode' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.uniqueCode" formControlName="uniqueCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.uniqueCode.errors }" autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_component' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.component" formControlName="component" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_recordId' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.recordId" formControlName="recordId" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_fileName' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.fileName" formControlName="fileName" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_fileSize' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.fileSize" formControlName="fileSize" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_fileType' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.fileType" formControlName="fileType" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<label>{{ 'fileupload_fileStorePath' | translate }}</label>
+							<input type="text" [(ngModel)]="fileupload.fileStorePath" formControlName="fileStorePath" class="form-control"  autocomplete="off" />
+						</div>
+						<div *ngIf="fileupload.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" (click)="onDelete()">{{ 'btn_delete_text' | translate }}</button>
+							&nbsp; <button class="btn btn-primary" (click)="onDownload()">{{ 'btn_download_text' | translate }}</button>
+						</div>
+					
+					</form>											
+					<button class="btn btn-primary" (click)="goBack()">{{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+  </section>
+</div>
+
+		

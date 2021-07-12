@@ -1,0 +1,76 @@
+fullpage{
+    max-height: 840px;;
+    width: 100% ;
+    overflow: scroll;
+}
+.mat-stepper-vertical {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  
+.customFont{
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(148, 10, 51);
+  font-size: large;
+}
+
+/* .required-field {
+	color: red;
+}
+
+.is-invalid {
+	border: solid 1px red;
+} */
+
+
+.example-full-width {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1px;
+}
+.table-responsive-md tr td{
+  border: 1px solid #ddd;
+}
+
+.table-responsive-md tr th{
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f3f3f3;
+}
+
+
+#myModal tr td{
+  color:#000;
+  padding: 7px;
+}
+
+.table td, .table th {
+  padding: .25rem;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

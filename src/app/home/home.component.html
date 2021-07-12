@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <app-left-side></app-left-side>
+
+  <!-- Content Wrapper. Contains page content -->
+  <router-outlet></router-outlet>
+  <!-- /.content-wrapper -->
+  <app-footer></app-footer>
+
+  <!-- Control Sidebar -->
+  <app-control-sidebar></app-control-sidebar>
+  <!-- /.control-sidebar -->
+</div>
+
+<!--
+<div class="home-page">
+<app-header (collapsedEvent)="receiveCollapsedFromHeader($event)"></app-header>
+<app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+<section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+    <router-outlet></router-outlet>
+</section>
+</div>
+-->

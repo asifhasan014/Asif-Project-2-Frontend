@@ -1,0 +1,165 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'linkfromdigitouch' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'linkfromdigitouch' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'linkfromdigitouch_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="linkfromdigitouchdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="linkfromdigitouch.csrfNonce" formControlName="csrfNonce"/>
+	
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_system_link_code' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.system_link_code" formControlName="system_link_code" class="form-control"  autocomplete="off" />
+					</div>
+					
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_system_link_code_main' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.system_link_code_main" formControlName="system_link_code_main" class="form-control"  autocomplete="off" />
+					</div>
+
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_system_link_code_protection' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.system_link_code_protection" formControlName="system_link_code_protection" class="form-control"  autocomplete="off" />
+					</div>
+					
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_ne_name" formControlName="source_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_board' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_board" formControlName="source_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_port' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_port" formControlName="source_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_card_name" formControlName="source_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_sink_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.sink_ne_name" formControlName="sink_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_sink_board' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.sink_board" formControlName="sink_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_sink_port' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.sink_port" formControlName="sink_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_sink_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.sink_card_name" formControlName="sink_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_protect_type' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_protect_type" formControlName="source_protect_type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_protection_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_protection_group_id" formControlName="source_protection_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_xpic_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_xpic_group_id" formControlName="source_xpic_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_xpic_group_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_xpic_group_capacity" formControlName="source_xpic_group_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_ne_frequency" formControlName="source_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_sink_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.sink_ne_frequency" formControlName="sink_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_source_ne_radio_work_mode' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.source_ne_radio_work_mode" formControlName="source_ne_radio_work_mode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_packet_link_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.packet_link_capacity" formControlName="packet_link_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_max_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.max_capacity" formControlName="max_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_max_modulation' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.max_modulation" formControlName="max_modulation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_link_code_a_end' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.link_code_a_end" formControlName="link_code_a_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_link_code_z_end' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.link_code_z_end" formControlName="link_code_z_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_link_code_combination' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.link_code_combination" formControlName="link_code_combination" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_ldma_link_id' | translate }}</label>
+						<input type="text" [(ngModel)]="linkfromdigitouch.ldma_link_id" formControlName="ldma_link_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_created_at' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="created_at" name="created_at" [(ngModel)]="linkfromdigitouch.created_at" class="form-control" formControlName="created_at" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'linkfromdigitouch_updated_at' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="updated_at" name="updated_at" [(ngModel)]="linkfromdigitouch.updated_at" class="form-control" formControlName="updated_at" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="linkfromdigitouch.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="linkfromdigitouch.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

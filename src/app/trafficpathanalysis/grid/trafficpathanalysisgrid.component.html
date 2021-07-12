@@ -1,0 +1,71 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">{{ "trafficpathanalysis_list" | translate }}</h3>
+  </div>
+  <!-- /.box-header -->
+
+  <div class="box-body">
+    <div class="form-group">
+      <!-- <button class="btn btn-primary" (click)="onAddTrafficpathanalysis()">
+        <i class="fa fa-plus"></i> {{ "btn_add_text" | translate }}
+      </button> -->
+      <!-- <input
+        type="text"
+        name="uniqueCode"
+        placeholder="Unique Code"
+        [(ngModel)]="trafficpathanalysis.uniqueCode"
+      />
+	  &nbsp; -->
+	  <input
+        type="text"
+        [(ngModel)]="trafficpathanalysis.sourceIp"
+        placeholder="Source IP"
+        autocomplete="off"
+      />
+      &nbsp;<input
+        type="text"
+        [(ngModel)]="trafficpathanalysis.destinationIp"
+        placeholder="Destination IP"
+        autocomplete="off"
+      />
+      &nbsp;<input
+        type="text"
+        [(ngModel)]="fromDate"
+        placeholder="From"
+        name="accessDate"
+        bsDatepicker
+        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }"
+        autocomplete="off"
+      />
+      &nbsp;<input
+        type="text"
+        [(ngModel)]="toDate"
+        placeholder="To"
+        name="accessDate"
+        bsDatepicker
+        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }"
+        autocomplete="off"
+      />
+      &nbsp;
+      <button class="btn btn-primary" (click)="searchByParams()">
+        <i class="fa fa-search-plus"></i> {{ "btn_search_text" | translate }}
+      </button>
+	  &nbsp;
+	  <!-- <button class="btn btn-primary " (click)="downloadReport()">{{ 'TrafficPathAnalysis_report' | translate}}</button> -->
+      &nbsp;
+      <button class="btn btn-primary" (click)="routeToOnDemand()">
+        {{ "btn_onDemand_text" | translate }}
+      </button>
+    </div>
+    <div style="width: 100%">
+      <ag-grid-angular
+        #agGrid
+        style="width: 100%; height: 600px"
+        class="ag-theme-balham"
+        [gridOptions]="gridOptions"
+        [defaultColDef]="defaultColDef"
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>

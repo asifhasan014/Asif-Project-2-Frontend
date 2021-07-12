@@ -1,0 +1,197 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'qosericssonconfigurationdata' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'qosericssonconfigurationdata' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'qosericssonconfigurationdata_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="qosericssonconfigurationdatadetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="qosericssonconfigurationdata.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_neAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.neAlias" formControlName="neAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_qosType' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.qosType" formControlName="qosType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_configurationInformation' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.configurationInformation" formControlName="configurationInformation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_portInformation' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.portInformation" formControlName="portInformation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_dataForDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dataForDate" name="dataForDate" [(ngModel)]="qosericssonconfigurationdata.dataForDate" class="form-control" formControlName="dataForDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_fromPort' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.fromPort" formControlName="fromPort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_toPort' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.toPort" formControlName="toPort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_portValue' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.portValue" formControlName="portValue" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_parted' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.parted" formControlName="parted" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_role' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.role" formControlName="role" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_adition1' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.adition1" formControlName="adition1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_adition2' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.adition2" formControlName="adition2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssonconfigurationdata_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssonconfigurationdata.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						qosericssonconfigurationdata.componentId >= 0 &&
+						qosericssonconfigurationdata.uploadedAttachment != null &&
+						qosericssonconfigurationdata.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "qosericssonconfigurationdata_uploadedAttachment" | translate }} :
+							{{ qosericssonconfigurationdata.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="qosericssonconfigurationdata.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="qosericssonconfigurationdata.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+				<!-- show password as type="password" -->
+					
+						<!-- div *ngIf="!showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'qosericssonconfigurationdata_password' | translate }}</label>
+							<input type="password"
+									[(ngModel)]="qosericssonconfigurationdata.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="qosericssonconfigurationdata.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-open form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div>
+						
+						<div *ngIf="showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'qosericssonconfigurationdata_password' | translate }}</label>
+							<input type="text"
+									[(ngModel)]="qosericssonconfigurationdata.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="emsfiledirectoryrepository.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-close form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div> -->
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

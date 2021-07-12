@@ -1,0 +1,71 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'dcpoweritemwisewarranty' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'dcpoweritemwisewarranty' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'dcpoweritemwisewarranty_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="dcpoweritemwisewarrantydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="dcpoweritemwisewarranty.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'dcpoweritemwisewarranty_itemName' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweritemwisewarranty.itemName" formControlName="itemName" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.itemName.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.itemName.errors" class="invalid-feedback">
+							<div *ngIf="f.itemName.errors.required">{{ 'dcpoweritemwisewarranty_itemName' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweritemwisewarranty_itemType' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweritemwisewarranty.itemType" formControlName="itemType" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.itemType.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.itemType.errors" class="invalid-feedback">
+							<div *ngIf="f.itemType.errors.required">{{ 'dcpoweritemwisewarranty_itemType' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweritemwisewarranty_warrantyInMonths' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweritemwisewarranty.warrantyInMonths" formControlName="warrantyInMonths" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweritemwisewarranty_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweritemwisewarranty.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="dcpoweritemwisewarranty.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="dcpoweritemwisewarranty.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

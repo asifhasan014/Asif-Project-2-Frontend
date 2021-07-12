@@ -1,0 +1,12 @@
+<div #dragShieldRef class="drag-shield">
+    <!--
+        Drag-and-Drop events are notoriously hard to work with. So, instead of
+        trying to be clever, I'm just going to side-step the whole issue by
+        creating a "shield" that sits above (zIndex) the rest of the elements
+        and has no children. This way the "leave" event is easy to reason about
+        since it doesn't have to deal with bubbling-up events.
+    -->
+</div>
+<span class="call-to-action">
+    <ng-content></ng-content>
+</span>

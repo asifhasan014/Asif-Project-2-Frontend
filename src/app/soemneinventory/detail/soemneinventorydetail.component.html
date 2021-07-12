@@ -1,0 +1,209 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'soemneinventory' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'soemneinventory' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'soemneinventory_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="soemneinventorydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="soemneinventory.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'soemneinventory_nodeName' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.nodeName" formControlName="nodeName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_id' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.id" formControlName="id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_type' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.type" formControlName="type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_address' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.address" formControlName="address" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neName' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neName" formControlName="neName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_location' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_information' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.information" formControlName="information" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_siteId' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.siteId" formControlName="siteId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neAlias" formControlName="neAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neNotes' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neNotes" formControlName="neNotes" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_updateDate' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.updateDate" formControlName="updateDate" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neAddedTime' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neAddedTime" formControlName="neAddedTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neLastManagedTime' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neLastManagedTime" formControlName="neLastManagedTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neLastStartedTime' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neLastStartedTime" formControlName="neLastStartedTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_neLastModifiedTime' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.neLastModifiedTime" formControlName="neLastModifiedTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'soemneinventory_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="soemneinventory.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						soemneinventory.componentId >= 0 &&
+						soemneinventory.uploadedAttachment != null &&
+						soemneinventory.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "soemneinventory_uploadedAttachment" | translate }} :
+							{{ soemneinventory.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="soemneinventory.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="soemneinventory.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+				<!-- show password as type="password" -->
+					
+						<!-- div *ngIf="!showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'soemneinventory_password' | translate }}</label>
+							<input type="password"
+									[(ngModel)]="soemneinventory.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="soemneinventory.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-open form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div>
+						
+						<div *ngIf="showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'soemneinventory_password' | translate }}</label>
+							<input type="text"
+									[(ngModel)]="soemneinventory.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="emsfiledirectoryrepository.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-close form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div> -->
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

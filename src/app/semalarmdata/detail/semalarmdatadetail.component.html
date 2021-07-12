@@ -1,0 +1,203 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'semalarmdata' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'semalarmdata' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'semalarmdata_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="semalarmdatadetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="semalarmdata.csrfNonce" formControlName="csrfNonce"/>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_serial' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.serial" formControlName="serial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_azEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.azEnd" formControlName="azEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_severity' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.severity" formControlName="severity" class="form-control"  autocomplete="off" />
+					</div>
+						<div class="form-group">
+						<label>{{ 'semalarmdata_identifier' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.identifier" formControlName="identifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_node' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.node" formControlName="node" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_agent' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.agent" formControlName="agent" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_alertKey' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.alertKey" formControlName="alertKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_summary' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.summary" formControlName="summary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_firstOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="firstOccurrence" name="firstOccurrence" [(ngModel)]="semalarmdata.firstOccurrence" class="form-control" formControlName="firstOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_lastOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="lastOccurrence" name="lastOccurrence" [(ngModel)]="semalarmdata.lastOccurrence" class="form-control" formControlName="lastOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_internalLast' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="internalLast" name="internalLast" [(ngModel)]="semalarmdata.internalLast" class="form-control" formControlName="internalLast" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_tally' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.tally" formControlName="tally" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_location' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_acknowledged' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.acknowledged" formControlName="acknowledged" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_eventId' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.eventId" formControlName="eventId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_physicalCard' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.physicalCard" formControlName="physicalCard" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_physicalSlot' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.physicalSlot" formControlName="physicalSlot" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_x733SpecificProb' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.x733SpecificProb" formControlName="x733SpecificProb" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_alarmDetails' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.alarmDetails" formControlName="alarmDetails" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_clearTally' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.clearTally" formControlName="clearTally" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_clearTimestamp' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="clearTimestamp" name="clearTimestamp" [(ngModel)]="semalarmdata.clearTimestamp" class="form-control" formControlName="clearTimestamp" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_originalSeverity' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.originalSeverity" formControlName="originalSeverity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_equipmentKey' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.equipmentKey" formControlName="equipmentKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_ttRequestTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ttRequestTime" name="ttRequestTime" [(ngModel)]="semalarmdata.ttRequestTime" class="form-control" formControlName="ttRequestTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_ttSequence' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.ttSequence" formControlName="ttSequence" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_parentTicketNumber' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.parentTicketNumber" formControlName="parentTicketNumber" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_ttSLACommit' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ttSLACommit" name="ttSLACommit" [(ngModel)]="semalarmdata.ttSLACommit" class="form-control" formControlName="ttSLACommit" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_ttStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.ttStatus" formControlName="ttStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_ttUpdate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ttUpdate" name="ttUpdate" [(ngModel)]="semalarmdata.ttUpdate" class="form-control" formControlName="ttUpdate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_customAttr3' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.customAttr3" formControlName="customAttr3" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_customAttr4' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.customAttr4" formControlName="customAttr4" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_customAttr5' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.customAttr5" formControlName="customAttr5" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_processState' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.processState" formControlName="processState" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Garbage</label>
+<br/>						<input type="checkbox" [(ngModel)]="semalarmdata.isGarbage" formControlName="isGarbage" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'semalarmdata_garbageRease' | translate }}</label>
+						<input type="text" [(ngModel)]="semalarmdata.garbageReason" formControlName="garbageReason" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Ticket Generated</label>
+<br/>						<input type="checkbox" [(ngModel)]="semalarmdata.isTicketGenerated" formControlName="isTicketGenerated" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Matured</label>
+<br/>						<input type="checkbox" [(ngModel)]="semalarmdata.isMatured" formControlName="isMatured" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>Will Ticket Be Generated</label>
+<br/>						<input type="checkbox" [(ngModel)]="semalarmdata.willTicketBeGenerated" formControlName="willTicketBeGenerated" autocomplete="off" />
+					</div>
+						
+						<div *ngIf="semalarmdata.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="semalarmdata.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

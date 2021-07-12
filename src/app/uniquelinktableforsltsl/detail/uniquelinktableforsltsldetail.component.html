@@ -1,0 +1,277 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'uniquelinktableforsltsl' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'uniquelinktableforsltsl' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'uniquelinktableforsltsl_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="uniquelinktableforsltsldetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="uniquelinktableforsltsl.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_system_link_code' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.system_link_code" formControlName="system_link_code" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_ne_name" formControlName="source_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_board" formControlName="source_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_port" formControlName="source_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_card_name" formControlName="source_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sink_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sink_ne_name" formControlName="sink_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sink_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sink_board" formControlName="sink_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sink_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sink_port" formControlName="sink_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sink_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sink_card_name" formControlName="sink_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_protect_type' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_protect_type" formControlName="source_protect_type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_protection_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_protection_group_id" formControlName="source_protection_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_xpic_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_xpic_group_id" formControlName="source_xpic_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_xpic_group_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_xpic_group_capacity" formControlName="source_xpic_group_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_ne_frequency" formControlName="source_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sink_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sink_ne_frequency" formControlName="sink_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_source_ne_radio_work_mode' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.source_ne_radio_work_mode" formControlName="source_ne_radio_work_mode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_packet_link_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.packet_link_capacity" formControlName="packet_link_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_max_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.max_capacity" formControlName="max_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_max_modulation' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.max_modulation" formControlName="max_modulation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_link_code_a_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.link_code_a_end" formControlName="link_code_a_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_link_code_z_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.link_code_z_end" formControlName="link_code_z_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_link_code_combination' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.link_code_combination" formControlName="link_code_combination" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_ldma_link_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.ldma_link_id" formControlName="ldma_link_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_system_link_code_main' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.system_link_code_main" formControlName="system_link_code_main" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_system_link_code_protection' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.system_link_code_protection" formControlName="system_link_code_protection" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_dataforDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dataforDate" name="dataforDate" [(ngModel)]="uniquelinktableforsltsl.dataforDate" class="form-control" formControlName="dataforDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_minrslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.minrslaend" formControlName="minrslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_minrslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.minrslzend" formControlName="minrslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxrslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxrslaend" formControlName="maxrslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxrslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxrslzend" formControlName="maxrslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_currslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.currslaend" formControlName="currslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_currslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.currslzend" formControlName="currslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_mintslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.mintslaend" formControlName="mintslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_mintslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.mintslzend" formControlName="mintslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxtslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxtslaend" formControlName="maxtslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxtslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxtslzend" formControlName="maxtslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_curtslaend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.curtslaend" formControlName="curtslaend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_curtslzend' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.curtslzend" formControlName="curtslzend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxRSL' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxRSL" formControlName="maxRSL" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_maxTSL' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.maxTSL" formControlName="maxTSL" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_division' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_district' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_pmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.pmfZone" formControlName="pmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_ldmaTXPower' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.ldmaTXPower" formControlName="ldmaTXPower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_ldmaRXSignal' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.ldmaRXSignal" formControlName="ldmaRXSignal" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_mwLinkReportPresetTX' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.mwLinkReportPresetTX" formControlName="mwLinkReportPresetTX" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_mwLinkReportCurrentTX' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.mwLinkReportCurrentTX" formControlName="mwLinkReportCurrentTX" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sinkProtectionGroupActiveWorkUnit' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sinkProtectionGroupActiveWorkUnit" formControlName="sinkProtectionGroupActiveWorkUnit" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sourceProtectType' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sourceProtectType" formControlName="sourceProtectType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_sourceProtectionGroupActiveWorkUnit' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.sourceProtectionGroupActiveWorkUnit" formControlName="sourceProtectionGroupActiveWorkUnit" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_deviationRSL' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.deviationRSL" formControlName="deviationRSL" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_deviationTSL' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.deviationTSL" formControlName="deviationTSL" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforsltsl_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforsltsl.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="uniquelinktableforsltsl.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="uniquelinktableforsltsl.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

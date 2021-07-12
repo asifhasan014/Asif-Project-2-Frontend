@@ -1,0 +1,19 @@
+fullpage{
+    max-height: 840px;;
+    width: 100% ;
+    overflow: scroll;
+}
+.mat-stepper-vertical {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  
+.customFont{
+    font-weight: bold;
+    cursor: pointer;
+    color: dodgerblue;
+    font-size: large;
+}

@@ -1,0 +1,25 @@
+<!-- 
+@author Jewel Rana
+@html of area component
+@version V1
+@date 6th August 2020
+-->
+
+<div class="text">
+<h4>{{label}}</h4>
+<span class="total">{{total}}</span>
+<span>
+    <mat-icon color="primary">trending_up</mat-icon>
+</span>
+<span class="description">
+    {{percentage}}%
+</span>
+</div>
+<div class="widget">
+    <highcharts-chart 
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+
+  style="width: 100%; height: 60px; display: block;"
+></highcharts-chart>
+</div>

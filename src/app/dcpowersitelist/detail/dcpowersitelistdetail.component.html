@@ -1,0 +1,112 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'dcpowersitelist' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'dcpowersitelist' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'dcpowersitelist_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="dcpowersitelistdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="dcpowersitelist.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'dcpowersitelist_robiId' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.robiId" formControlName="robiId" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.robiId.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.robiId.errors" class="invalid-feedback">
+							<div *ngIf="f.robiId.errors.required">{{ 'dcpowersitelist_robiId' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_region' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.region" formControlName="region" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_siteOwner' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.siteOwner" formControlName="siteOwner" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_tenent' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.tenent" formControlName="tenent" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_district' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_address' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.address" formControlName="address" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_latitude' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.latitude" formControlName="latitude" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_longitude' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.longitude" formControlName="longitude" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_packageNameJun20' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.packageNameJun20" formControlName="packageNameJun20" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_vendorName' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.vendorName" formControlName="vendorName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_solar' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.solar" formControlName="solar" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_allTech' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.allTech" formControlName="allTech" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpowersitelist_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpowersitelist.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="dcpowersitelist.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="dcpowersitelist.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

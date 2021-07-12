@@ -1,0 +1,137 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'sitewisedcavailabilityandldvalue' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'sitewisedcavailabilityandldvalue' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'sitewisedcavailabilityandldvalue_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="sitewisedcavailabilityandldvaluedetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="sitewisedcavailabilityandldvalue.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_robiId' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.robiId" formControlName="robiId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_siteId' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.siteId" formControlName="siteId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_earlierSitePriority' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.earlierSitePriority" formControlName="earlierSitePriority" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_region' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.region" formControlName="region" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_newSitePriority' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.newSitePriority" formControlName="newSitePriority" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_priorityStatus' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="sitewisedcavailabilityandldvalue.priorityStatus" formControlName="priorityStatus" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_earlierPackage' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.earlierPackage" formControlName="earlierPackage" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_latestPackage' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.latestPackage" formControlName="latestPackage" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_dgOrNonDg' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.dgOrNonDg" formControlName="dgOrNonDg" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_vendorName' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.vendorName" formControlName="vendorName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_siteWiseCostInRevisedPackage' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.siteWiseCostInRevisedPackage" formControlName="siteWiseCostInRevisedPackage" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_targetKPI' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.targetKPI" formControlName="targetKPI" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_dcAvailability' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.dcAvailability" formControlName="dcAvailability" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_percentageOfDeviation' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.percentageOfDeviation" formControlName="percentageOfDeviation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_percentageOfLd' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.percentageOfLd" formControlName="percentageOfLd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_ldAmount' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.ldAmount" formControlName="ldAmount" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_billableSite' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="sitewisedcavailabilityandldvalue.billableSite" formControlName="billableSite" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_allTech' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.allTech" formControlName="allTech" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_finalDecision' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.finalDecision" formControlName="finalDecision" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_rnpCriteria' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.rnpCriteria" formControlName="rnpCriteria" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'sitewisedcavailabilityandldvalue_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="sitewisedcavailabilityandldvalue.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="sitewisedcavailabilityandldvalue.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="sitewisedcavailabilityandldvalue.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

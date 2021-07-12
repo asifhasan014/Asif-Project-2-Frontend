@@ -1,0 +1,209 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'huaweiinterfaceportreport' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'huaweiinterfaceportreport' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'huaweiinterfaceportreport_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="huaweiinterfaceportreportdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="huaweiinterfaceportreport.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_neName' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.neName" formControlName="neName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_neType' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.neType" formControlName="neType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_shelfNo' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.shelfNo" formControlName="shelfNo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_slotNo' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.slotNo" formControlName="slotNo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_subSlotNo' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.subSlotNo" formControlName="subSlotNo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_portNo' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.portNo" formControlName="portNo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_portName' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.portName" formControlName="portName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_portType' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.portType" formControlName="portType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_portRate' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.portRate" formControlName="portRate" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_portLevel' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.portLevel" formControlName="portLevel" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_management' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.management" formControlName="management" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_alias' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.alias" formControlName="alias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_interfaceRemarks' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.interfaceRemarks" formControlName="interfaceRemarks" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_customizedColumn' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.customizedColumn" formControlName="customizedColumn" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_azEnd ' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.azEnd " formControlName="azEnd " class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiinterfaceportreport_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiinterfaceportreport.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						huaweiinterfaceportreport.componentId >= 0 &&
+						huaweiinterfaceportreport.uploadedAttachment != null &&
+						huaweiinterfaceportreport.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "huaweiinterfaceportreport_uploadedAttachment" | translate }} :
+							{{ huaweiinterfaceportreport.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="huaweiinterfaceportreport.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="huaweiinterfaceportreport.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+				<!-- show password as type="password" -->
+					
+						<!-- div *ngIf="!showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'huaweiinterfaceportreport_password' | translate }}</label>
+							<input type="password"
+									[(ngModel)]="huaweiinterfaceportreport.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="huaweiinterfaceportreport.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-open form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div>
+						
+						<div *ngIf="showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'huaweiinterfaceportreport_password' | translate }}</label>
+							<input type="text"
+									[(ngModel)]="huaweiinterfaceportreport.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="emsfiledirectoryrepository.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-close form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div> -->
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

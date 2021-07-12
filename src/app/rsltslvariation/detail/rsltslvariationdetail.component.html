@@ -1,0 +1,151 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'rsltslvariation' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'rsltslvariation' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'rsltslvariation_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="rsltslvariationdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="rsltslvariation.csrfNonce" formControlName="csrfNonce"/>
+	
+					
+					<div >
+						 <mat-label>{{ 'rsltslvariation_systemLinkCode' | translate }}</mat-label>
+							<ng-multiselect-dropdown
+								[placeholder]="'Select System Link Code'"
+								[data]="systemLinkCodes"
+								[(ngModel)]="rsltslvariation.systemLinkCode"
+								[settings]="dropdownSettingForSystemLinkCode"
+								(onSelect)="getLdmaLinkCode($event)"
+								(onDeSelect) = "removeLdmaLinkCode($event)"
+								(onFilterChange)=  "onFilterChangeForSystemLinkCode($event)"
+								>
+							</ng-multiselect-dropdown>
+					</div>
+							
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_ldmaLinkCode' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.ldmaLinkCode" formControlName="ldmaLinkCode" class="form-control"  autocomplete="off" readonly/>
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_rslTslType' | translate }}</label>
+						<mat-select
+						[(ngModel)]="rsltslvariation.rslTslType"
+						formControlName="rslTslType"
+					  >
+						<mat-option value="">Select RSL TSL Type</mat-option>
+						<mat-option value="RSL">RSL</mat-option>
+						<mat-option value="TSL">TSL </mat-option>
+	
+					  </mat-select>
+					  </div>
+					<!-- <div class="form-group">
+						<label>{{ 'rsltslvariation_reason' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.reason" formControlName="reason" class="form-control"  autocomplete="off" />
+					</div> -->
+					<!-- rsl tsl variation input reason dropdown -->
+					<!-- <div>
+						<mat-form-field class="example-full-width">
+						  <mat-label
+							>Reason<b><font color="red">* </font></b></mat-label
+						  >
+						  <mat-select
+							[(ngModel)]="
+							rsltslvariation.reason
+							"
+							formControlName="reason"
+						  >
+							<mat-option value="">Select Reason</mat-option>
+							<mat-option value="Loss">Loss</mat-option>
+							<mat-option value="Interference ">Interference </mat-option>
+							<mat-option value="Rain Fading">Rain Fading</mat-option>
+							<mat-option value="Fog Fading">Fog Fading</mat-option>
+						  </mat-select>
+						</mat-form-field>
+					  </div> -->
+					  <div class="form-group">
+						<label>{{ 'rsltslvariation_reason' | translate }}</label>
+						<mat-select
+						[(ngModel)]="
+						rsltslvariation.reason
+						"
+						formControlName="reason"
+					  >
+						<mat-option value="">Select Reason</mat-option>
+						<mat-option value="Loss">Loss</mat-option>
+						<mat-option value="Interference ">Interference </mat-option>
+						<mat-option value="Rain Fading">Rain Fading</mat-option>
+						<mat-option value="Fog Fading">Fog Fading</mat-option>
+					  </mat-select>
+					  </div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_rslTslStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.rslTslStatus" formControlName="rslTslStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" readonly />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_division' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_district' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_union' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.union" formControlName="union" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_pmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.pmfZone" formControlName="pmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'rsltslvariation_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="rsltslvariation.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="rsltslvariation.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="rsltslvariation.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

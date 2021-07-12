@@ -1,0 +1,225 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ldsettlementsitedown' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ldsettlementsitedown' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ldsettlementsitedown_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ldsettlementsitedowndetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ldsettlementsitedown.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_serial' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.serial" formControlName="serial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_node' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.node" formControlName="node" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_summary' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.summary" formControlName="summary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_firstOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="firstOccurrence" name="firstOccurrence" [(ngModel)]="ldsettlementsitedown.firstOccurrence" class="form-control" formControlName="firstOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_lastOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="lastOccurrence" name="lastOccurrence" [(ngModel)]="ldsettlementsitedown.lastOccurrence" class="form-control" formControlName="lastOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_clearTimestamp' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="clearTimestamp" name="clearTimestamp" [(ngModel)]="ldsettlementsitedown.clearTimestamp" class="form-control" formControlName="clearTimestamp" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_location' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_at' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.at" formControlName="at" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_equipementKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.equipementKey" formControlName="equipementKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_ttSequence' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.ttSequence" formControlName="ttSequence" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_ttStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.ttStatus" formControlName="ttStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_customAttr3' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.customAttr3" formControlName="customAttr3" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_division' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_edotcoPfmZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.edotcoPfmZone" formControlName="edotcoPfmZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_district' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_siteName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.siteName" formControlName="siteName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_sharedStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.sharedStatus" formControlName="sharedStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_siteDistance' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.siteDistance" formControlName="siteDistance" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.frequency" formControlName="frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_technology' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.technology" formControlName="technology" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_bcch' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.bcch" formControlName="bcch" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_customAttr2' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.customAttr2" formControlName="customAttr2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_customAttr1' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.customAttr1" formControlName="customAttr1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_customAttr23' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.customAttr23" formControlName="customAttr23" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_mfEventTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="mfEventTime" name="mfEventTime" [(ngModel)]="ldsettlementsitedown.mfEventTime" class="form-control" formControlName="mfEventTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_mfClearTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="mfClearTime" name="mfClearTime" [(ngModel)]="ldsettlementsitedown.mfClearTime" class="form-control" formControlName="mfClearTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_dcLowEventTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dcLowEventTime" name="dcLowEventTime" [(ngModel)]="ldsettlementsitedown.dcLowEventTime" class="form-control" formControlName="dcLowEventTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_dcLowClearTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dcLowClearTime" name="dcLowClearTime" [(ngModel)]="ldsettlementsitedown.dcLowClearTime" class="form-control" formControlName="dcLowClearTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_pgStartTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="pgStartTime" name="pgStartTime" [(ngModel)]="ldsettlementsitedown.pgStartTime" class="form-control" formControlName="pgStartTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_pgEndTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="pgEndTime" name="pgEndTime" [(ngModel)]="ldsettlementsitedown.pgEndTime" class="form-control" formControlName="pgEndTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_ttNumber' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.ttNumber" formControlName="ttNumber" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_dgFault' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dgFault" name="dgFault" [(ngModel)]="ldsettlementsitedown.dgFault" class="form-control" formControlName="dgFault" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_dgOnLoad' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dgOnLoad" name="dgOnLoad" [(ngModel)]="ldsettlementsitedown.dgOnLoad" class="form-control" formControlName="dgOnLoad" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_tempALarmEventTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="tempALarmEventTime" name="tempALarmEventTime" [(ngModel)]="ldsettlementsitedown.tempALarmEventTime" class="form-control" formControlName="tempALarmEventTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_vendorTT' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.vendorTT" formControlName="vendorTT" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_doorOpen' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="doorOpen" name="doorOpen" [(ngModel)]="ldsettlementsitedown.doorOpen" class="form-control" formControlName="doorOpen" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_decision' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.decision" formControlName="decision" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_siteAvailability' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.siteAvailability" formControlName="siteAvailability" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_credential' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.credential" formControlName="credential" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementsitedown_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementsitedown.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ldsettlementsitedown.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ldsettlementsitedown.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

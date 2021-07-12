@@ -1,0 +1,82 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'alarmname' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'alarmname' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'alarmname_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="alarmnamedetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="alarmname.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'alarmname_alarmName' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.alarmName" formControlName="alarmName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'alarmname_alarmType' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.alarmType" formControlName="alarmType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'alarmname_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					<!-- <div class="form-group">
+						<label>{{ 'alarmname_alarmChilds' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.alarmChilds" formControlName="alarmChilds" class="form-control"  autocomplete="off" />
+					</div> -->
+					<div class="form-group">
+						<label>{{ 'alarmname_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+					<div class="form-group">
+						<label>{{ 'alarmname_priority' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.priority" formControlName="priority" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'alarmname_maturityTime' | translate }}</label>
+						<input type="text" [(ngModel)]="alarmname.maturityTime" formControlName="maturityTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>Tally</label>
+						<input type="text" [(ngModel)]="alarmname.tally" formControlName="tally" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="alarmname.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="alarmname.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

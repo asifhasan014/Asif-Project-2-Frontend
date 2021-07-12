@@ -1,0 +1,110 @@
+	<!-- main app container -->
+	<div class="content-wrapper">
+       <!-- Content Header (Page header) -->
+       <section class="content-header">
+         <h1>
+           {{ 'backupnode' | translate }}
+           <small>{{ 'control_panel' | translate }}</small>
+       </h1>
+       <ol class="breadcrumb">
+           <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+           <li class="active">{{ 'backupnode' | translate }}</li>
+       </ol>
+   </section>
+
+   <!-- Main content -->
+   <section class="content">
+      <div class="box">
+       <div class="box-header">
+        <h3 class="box-title">{{ 'backupnode_detail' | translate }}</h3>
+    </div>
+    <!-- /.box-header -->
+
+    <div class="box-body">		
+        <app-alert></app-alert>
+        <div class="row">
+         <div class="col-md-6 offset-md-3">
+          <form [formGroup]="backupnodedetailForm" autocomplete="off">
+           <input type="hidden" [(ngModel)]="backupnode.csrfNonce" formControlName="csrfNonce"/>
+
+           <div class="form-group">
+               <label>{{ 'backupnode_uniqueCode' | translate }}</label>
+               <input type="text" [(ngModel)]="backupnode.uniqueCode" formControlName="uniqueCode" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.uniqueCode.errors }" autocomplete="off" />
+               <div *ngIf="isFormCheckRequired && f.uniqueCode.errors" class="invalid-feedback">
+                <div *ngIf="f.uniqueCode.errors.required">{{ 'backupnode_uniqueCode' | translate }} {{'is_required' | translate }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+           <label>{{ 'backupnode_ip' | translate }}</label>
+           <input type="text" [(ngModel)]="backupnode.ip" formControlName="ip" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.ip.errors }" autocomplete="off" />
+           <div *ngIf="isFormCheckRequired && f.ip.errors" class="invalid-feedback">
+            <div *ngIf="f.ip.errors.required">{{ 'backupnode_ip' | translate }} {{'is_required' | translate }}</div>
+        </div>
+    </div>
+    <div class="form-group">
+       <label>{{ 'backupnode_port' | translate }}</label>
+       <input type="text" [(ngModel)]="backupnode.port" formControlName="port" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.port.errors }" autocomplete="off" />
+       <div *ngIf="isFormCheckRequired && f.port.errors" class="invalid-feedback">
+            <div *ngIf="f.port.errors.required">{{ 'backupnode_port' | translate }} {{'is_required' | translate }}</div>
+        </div>
+   </div>
+<!--    <div class="form-group">
+       <label>{{ 'backupnode_path' | translate }}</label>
+       <input type="text" [(ngModel)]="backupnode.path" formControlName="path" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.path.errors }"  autocomplete="off" />
+        <div *ngIf="isFormCheckRequired && f.path.errors" class="invalid-feedback">
+            <div *ngIf="f.path.errors.required">{{ 'backupnode_path' | translate }} {{'is_required' | translate }}</div>
+        </div>
+   </div> -->
+   <div class="form-group">
+       <label>{{ 'backupnode_user' | translate }}</label>
+       <input type="text" [(ngModel)]="backupnode.user" formControlName="user" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.user.errors }"  autocomplete="off" />
+        <div *ngIf="isFormCheckRequired && f.user.errors" class="invalid-feedback">
+            <div *ngIf="f.user.errors.required">{{ 'backupnode_user' | translate }} {{'is_required' | translate }}</div>
+        </div>
+   </div>
+   <div class="form-group">
+       <label>{{ 'backupnode_pass' | translate }}</label>
+       <input type="text" [(ngModel)]="backupnode.pass" formControlName="pass" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.user.errors }"   autocomplete="off" />
+        <div *ngIf="isFormCheckRequired && f.pass.errors" class="invalid-feedback">
+            <div *ngIf="f.pass.errors.required">{{ 'backupnode_pass' | translate }} {{'is_required' | translate }}</div>
+        </div>
+   </div>
+   <div>
+       <label>{{ 'backupnode_access_mode' | translate }}</label>
+       <select (change)="selectAccessMode($event.target.value)" class="form-control   		form-control-inline">
+        <option value="" hidden>{{ 'select_access_mode' | translate }}</option>
+        <option *ngFor="let accessMode of accessModes" value={{accessMode}} [selected]="accessMode == backupnode.accessMode">
+         {{accessMode}}
+     </option>
+ </select>
+</div>&nbsp;
+
+
+<div>
+  <label>{{ 'select_node_type' | translate }}: </label>&nbsp;
+  <mat-radio-group name="sourceOrDest" (change)="radioChange($event)">
+   <mat-radio-button *ngFor="let option of nodeOptions"
+            [checked]="option.checked" value="{{option.value}}">{{option.label}}
+  </mat-radio-button>&nbsp;
+</mat-radio-group>
+</div>
+
+
+<div *ngIf="backupnode.componentId < 0" class="form-group">
+    <button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+</div>
+
+<div *ngIf="backupnode.componentId >= 0" class="form-group">
+    <button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+    &nbsp;
+    <button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+</div>
+</form>
+<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+</div>
+</div>
+</div>
+</div>
+
+</section>
+</div>

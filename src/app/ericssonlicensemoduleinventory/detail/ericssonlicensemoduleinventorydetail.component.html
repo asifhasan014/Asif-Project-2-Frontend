@@ -1,0 +1,174 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ericssonlicensemoduleinventory' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ericssonlicensemoduleinventory' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ericssonlicensemoduleinventory_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ericssonlicensemoduleinventorydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ericssonlicensemoduleinventory.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_neAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.neAlias" formControlName="neAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_nodeName' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.nodeName" formControlName="nodeName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_id' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.id" formControlName="id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_licenseModuleId' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.licenseModuleId" formControlName="licenseModuleId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_licenseUpdateDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="licenseUpdateDate" name="licenseUpdateDate" [(ngModel)]="ericssonlicensemoduleinventory.licenseUpdateDate" class="form-control" formControlName="licenseUpdateDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_falId' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.falId" formControlName="falId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_cxcNumber' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.cxcNumber" formControlName="cxcNumber" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_name' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.name" formControlName="name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_licenseStatus' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="licenseStatus" name="licenseStatus" [(ngModel)]="ericssonlicensemoduleinventory.licenseStatus" class="form-control" formControlName="licenseStatus" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_installed' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.installed" formControlName="installed" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_used' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.used" formControlName="used" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_quantity' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.quantity" formControlName="quantity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_unlockedByUser' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.unlockedByUser" formControlName="unlockedByUser" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_totalInstalled' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.totalInstalled" formControlName="totalInstalled" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssonlicensemoduleinventory_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssonlicensemoduleinventory.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						ericssonlicensemoduleinventory.componentId >= 0 &&
+						ericssonlicensemoduleinventory.uploadedAttachment != null &&
+						ericssonlicensemoduleinventory.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "ericssonlicensemoduleinventory_uploadedAttachment" | translate }} :
+							{{ ericssonlicensemoduleinventory.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="ericssonlicensemoduleinventory.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ericssonlicensemoduleinventory.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

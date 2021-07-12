@@ -1,0 +1,81 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ticketassignedgroup' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ticketassignedgroup' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ticketassignedgroup_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ticketassignedgroupdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ticketassignedgroup.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ticketassignedgroup_supportCompany' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.supportCompany" formControlName="supportCompany" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_supportOrganization' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.supportOrganization" formControlName="supportOrganization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_supportGroupName' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.supportGroupName" formControlName="supportGroupName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_AssignedGroupStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.assignedGroupStatus" formControlName="assignedGroupStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_groupEmail' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.groupEmail" formControlName="groupEmail" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_supportGroupRole' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.supportGroupRole" formControlName="supportGroupRole" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_ticketOwner' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.ticketOwner" formControlName="ticketOwner" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ticketassignedgroup_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ticketassignedgroup.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ticketassignedgroup.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ticketassignedgroup.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

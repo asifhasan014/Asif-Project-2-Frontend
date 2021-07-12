@@ -1,0 +1,52 @@
+
+
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+	  <h1>
+		{{ 'padhdisplayhealthverbose' | translate }}
+		<small>{{ 'control_panel' | translate }}</small>
+	  </h1>
+	  <ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+		<li class="active">{{ 'padhdisplayhealthverbose' | translate }}</li>
+	  </ol>
+	</section>
+  
+	<!-- Main content -->
+	<section class="content">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">{{ 'padhhealthverbosepred_list' | translate }}</h3>
+			</div>
+			<!-- /.box-header -->
+			
+			<div class="box-body">
+				<div class="form-group">
+					&nbsp;
+					<input type="text" placeholder="{{ 'ip_neName' | translate }}" name="uniqueCode" [(ngModel)]="padhhealthverbosepred.uniqueCode" />
+					&nbsp;<input type="number" placeholder="{{ 'prediction_days' | translate }}" name="uniqueCode" [(ngModel)]="days" autocomplete="off"/>
+					<button class="btn btn-primary" (click)="searchByParams()"><i class="fa fa-search-plus"></i> {{ 'btn_search_text' | translate }}</button>
+					&nbsp;
+					<button class="btn btn-primary " (click)="downloadReport()">{{ 'btn_downloadReport' | translate}}</button>
+					<br />
+					<app-alert></app-alert>
+					<br />
+					<div fxLayoutAlign="center center">
+						<mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+					</div>
+					<br />
+				</div>
+				<div>
+					<h3> Prediction for  {{ searchDate }}</h3>
+				</div>
+				<div style="width: 100%;">
+					<ag-grid-angular #agGrid style="width: 100%; height: 600px;" class="ag-theme-balham"
+								 [gridOptions]="gridOptions" [defaultColDef]="defaultColDef">
+					</ag-grid-angular>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+  </div>

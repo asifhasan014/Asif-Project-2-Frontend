@@ -1,0 +1,2214 @@
+<div class="box">
+  <div class="box-header">
+    <h1 class="customFont" fxLayoutAlign="center center">
+      {{ "mwutilizationdashboard" | translate }}
+    </h1>
+  </div>
+  <!-- /.box-header -->
+
+  <div class="box-body scroll">
+    <div #top fxLayoutAlign="center center">
+      <button mat-flat-button class="btn-primary" (click)="scroll(categoryWiseUtilizationPie)">
+        <span class="material-icons"> link </span>
+        Catergory Wise Pie
+      </button>&nbsp;&nbsp;
+      <button mat-flat-button class="btn-primary" (click)="scroll(zoneWiseUtilizationPie)">
+        <span class="material-icons"> link </span>
+        Zone Wise Pie
+      </button>&nbsp;&nbsp;
+      <button mat-flat-button class="btn-primary" (click)="scroll(categoryWiseUtilization)">
+        <span class="material-icons"> link </span>
+        Category Wise Bar
+      </button>&nbsp;&nbsp;
+      <button mat-flat-button class="btn-primary" (click)="scroll(TopNBar)">
+        <span class="material-icons"> link </span>
+        Top N
+      </button>&nbsp;&nbsp;
+      <button mat-flat-button class="btn-primary" (click)="scroll(trajectory)">
+        <span class="material-icons"> link </span>
+        Trajectory
+      </button>
+      
+      </div>
+
+    <div #categoryWiseUtilizationPie>
+      <!-- <mat-accordion> -->
+      <!-- <mat-expansion-panel hideToggle> -->
+      <!-- <mat-expansion-panel-header> -->
+      <div>
+        <h2 class="customFont">Category Wise Pie</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner
+          *ngIf="showSpinnerForCategoryWisePie"
+          color="accent"
+        ></mat-spinner>
+      </div>
+      <br />
+      <!-- </mat-expansion-panel-header> -->
+
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForCategoryWisePie"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="categoryWisePieFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWisePie.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWisePie.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- for zone wise filter -->
+              <mat-radio-group
+                [(ngModel)]="categoryWisePie.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone
+                          <b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="
+                              categoryWisePieFilter.value.zoneType != '1'
+                            "
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="categoryWisePie.zoneListCommercial"
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWisePieFilter.value.zoneType != '2'
+                          "
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="categoryWisePie.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana </mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWisePieFilter.value.zoneType != '3'
+                          "
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="categoryWisePie.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWisePieFilter.value.zoneType != '4'
+                          "
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="categoryWisePie.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWisePieFilter.value.zoneType != '5'
+                          "
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="categoryWisePie.zoneListEdotcoZone"
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <!-- for sitecode, vendor, alarmname, status -->
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="categoryWisePie.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="categoryWisePie.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="categoryWisePie.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="categoryWisePie.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="categoryWisePie.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="categoryWisePie.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- search button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForCategoryWisePie()"
+                >
+                  <span class="material-icons"> search </span>
+                  Search All with Custom Filter</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+							<span class="material-icons"> arrow_circle_up </span>
+							Scroll to Top
+						  </button>
+              </div>
+              <div>
+                <!-- <button mat-flat-button class="btn-primary" (click)="downloadCSV()">
+				  <span class="material-icons"> cloud_download </span>
+				  {{ "btn_downloadReport" | translate }}
+				</button> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- </mat-expansion-panel>
+			</mat-accordion> -->
+    </div>
+
+    <div #zoneWiseUtilizationPie>
+      <!-- <mat-accordion> -->
+      <!-- <mat-expansion-panel hideToggle> -->
+      <!-- <mat-expansion-panel-header> -->
+      <div>
+        <h2 class="customFont">Zone Wise Pie</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner
+          *ngIf="showSpinnerForZoneWisePie"
+          color="accent"
+        ></mat-spinner>
+      </div>
+      <br />
+      <!-- </mat-expansion-panel-header> -->
+
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForZoneWisePie"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="zoneWisePieFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="zoneWisePie.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="zoneWisePie.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- <div>
+              <mat-radio-group
+                [(ngModel)]="zoneWisePie.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone
+                          <b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="zoneWisePieFilter.value.zoneType != '1'"
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="zoneWisePie.zoneListCommercial"
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="zoneWisePieFilter.value.zoneType != '2'"
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="zoneWisePie.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana </mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="zoneWisePieFilter.value.zoneType != '3'"
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="zoneWisePie.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="zoneWisePieFilter.value.zoneType != '4'"
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="zoneWisePie.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="zoneWisePieFilter.value.zoneType != '5'"
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="zoneWisePie.zoneListEdotcoZone"
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div> -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <!-- for sitecode, vendor, alarmname, status -->
+              <!-- <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="zoneWisePie.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div> -->
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="zoneWisePie.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForSingleCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="zoneWisePie.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="zoneWisePie.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="zoneWisePie.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="zoneWisePie.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- search button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForZoneWisePie()"
+                >
+                  <span class="material-icons"> search </span>
+                  Search All with Custom Filter</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+							<span class="material-icons"> arrow_circle_up </span>
+							Scroll to Top
+						  </button>
+              </div>
+              <div>
+                <!-- <button mat-flat-button class="btn-primary" (click)="downloadCSV()">
+				  <span class="material-icons"> cloud_download </span>
+				  {{ "btn_downloadReport" | translate }}
+				</button> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- </mat-expansion-panel>
+			</mat-accordion> -->
+    </div>
+
+    <div #categoryWiseUtilization>
+      <!-- <mat-accordion> -->
+      <!--<mat-expansion-panel hideToggle>-->
+      <!--<mat-expansion-panel-header>-->
+      <div>
+        <h2 class="customFont">Category Wise Utilization</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner *ngIf="showSpinnerForCategoryWiseUtilization" color="accent"></mat-spinner>
+      </div>
+      <br />
+      <!--</mat-expansion-panel-header>-->
+
+      <!-- <div style="width: 100%">
+			  <ag-grid-angular
+				#agGrid
+				style="width: 100%; height: 600px"
+				class="ag-theme-balham"
+				[gridOptions]="gridOptions"
+				[defaultColDef]="defaultColDef"
+			  >
+			  </ag-grid-angular>
+			</div> -->
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForCategoryWiseUtilization"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="catergoryWiseUtilizationFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="catergoryWiseUtilization.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="catergoryWiseUtilization.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- for zone wise filter -->
+              <mat-radio-group
+                [(ngModel)]="catergoryWiseUtilization.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone
+                          <b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="
+                              catergoryWiseUtilizationFilter.value.zoneType !=
+                              '1'
+                            "
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="
+                              catergoryWiseUtilization.zoneListCommercial
+                            "
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            catergoryWiseUtilizationFilter.value.zoneType != '2'
+                          "
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="
+                            catergoryWiseUtilization.zoneListDistrict
+                          "
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana </mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            catergoryWiseUtilizationFilter.value.zoneType != '3'
+                          "
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="catergoryWiseUtilization.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            catergoryWiseUtilizationFilter.value.zoneType != '4'
+                          "
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="catergoryWiseUtilization.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            catergoryWiseUtilizationFilter.value.zoneType != '5'
+                          "
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="
+                            catergoryWiseUtilization.zoneListEdotcoZone
+                          "
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <!-- for sitecode, vendor, alarmname, status -->
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="catergoryWiseUtilization.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="catergoryWiseUtilization.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="catergoryWiseUtilization.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="catergoryWiseUtilization.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="catergoryWiseUtilization.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="catergoryWiseUtilization.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- search button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForCategoryWiseUtilization()"
+                >
+                  <span class="material-icons"> search </span>
+                  Search All with Custom Filter</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+						<span class="material-icons"> arrow_circle_up </span>
+						Scroll to Top
+					  </button>
+              </div>
+              <div>
+                <!-- <button mat-flat-button class="btn-primary" (click)="downloadCSV()">
+			  <span class="material-icons"> cloud_download </span>
+			  {{ "btn_downloadReport" | translate }}
+			</button> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--</mat-expansion-panel>-->
+      <!--</mat-accordion>-->
+    </div>
+
+    <div #TopNBar>
+      <!-- <mat-accordion> -->
+      <!--<mat-expansion-panel hideToggle>-->
+      <!--<mat-expansion-panel-header>-->
+      <div>
+        <h2 class="customFont">Top N Utilization</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner
+          *ngIf="showSpinnerForTopNBarUtilization"
+          color="accent"
+        ></mat-spinner>
+      </div>
+      <br />
+      <!--</mat-expansion-panel-header>-->
+
+      <!-- <div style="width: 100%">
+			  <ag-grid-angular
+				#agGrid
+				style="width: 100%; height: 600px"
+				class="ag-theme-balham"
+				[gridOptions]="gridOptions"
+				[defaultColDef]="defaultColDef"
+			  >
+			  </ag-grid-angular>
+			</div> -->
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForTopNBarUtilization"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="topNBarUtilizationFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="topNBarUtilization.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="topNBarUtilization.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- for zone wise filter -->
+              <mat-radio-group
+                [(ngModel)]="topNBarUtilization.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone
+                          <b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="
+                              topNBarUtilizationFilter.value.zoneType != '1'
+                            "
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="topNBarUtilization.zoneListCommercial"
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            topNBarUtilizationFilter.value.zoneType != '2'
+                          "
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="topNBarUtilization.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana </mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            topNBarUtilizationFilter.value.zoneType != '3'
+                          "
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="topNBarUtilization.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            topNBarUtilizationFilter.value.zoneType != '4'
+                          "
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="topNBarUtilization.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            topNBarUtilizationFilter.value.zoneType != '5'
+                          "
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="topNBarUtilization.zoneListEdotcoZone"
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <!-- for sitecode, vendor, alarmname, status -->
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="topNBarUtilization.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="topNBarUtilization.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForSingleCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="topNBarUtilization.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="topNBarUtilization.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="topNBarUtilization.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="topNBarUtilization.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Top N Value
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="topNBarUtilization.topNValue"
+                    placeholder="Top N Number"
+                    formControlName="topNValue"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- search button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForTopNBar()"
+                >
+                  <span class="material-icons"> search </span>
+                  Search All with Custom Filter</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+						<span class="material-icons"> arrow_circle_up </span>
+						Scroll to Top
+					  </button>
+              </div>
+              <div>
+                <!-- <button mat-flat-button class="btn-primary" (click)="downloadCSV()">
+			  <span class="material-icons"> cloud_download </span>
+			  {{ "btn_downloadReport" | translate }}
+			</button> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--</mat-expansion-panel>-->
+      <!--</mat-accordion>-->
+    </div>
+
+    <div #trajectory>
+      <!-- <mat-accordion>
+			<mat-expansion-panel hideToggle>
+			  <mat-expansion-panel-header> -->
+      <div>
+        <h2 class="customFont">Trajectory Analysis</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner
+          *ngIf="showSpinnerForTrajectory"
+          color="accent"
+        ></mat-spinner>
+      </div>
+      <br />
+      <!-- </mat-expansion-panel-header> -->
+
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForTrajectory"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="categoryWiseTrajectoryFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseTrajectory.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseTrajectory.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- for zone wise -->
+              <mat-radio-group
+                [(ngModel)]="categoryWiseTrajectory.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone<b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="
+                              categoryWiseTrajectoryFilter.value.zoneType != '1'
+                            "
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="
+                              categoryWiseTrajectory.zoneListCommercial
+                            "
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseTrajectoryFilter.value.zoneType != '2'
+                          "
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="categoryWiseTrajectory.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseTrajectoryFilter.value.zoneType != '3'
+                          "
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="categoryWiseTrajectory.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseTrajectoryFilter.value.zoneType != '4'
+                          "
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="categoryWiseTrajectory.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseTrajectoryFilter.value.zoneType != '5'
+                          "
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="
+                            categoryWiseTrajectory.zoneListEdotcoZone
+                          "
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- sitecode, alarm, status -->
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="categoryWiseTrajectory.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="categoryWiseTrajectory.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name<b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="categoryWiseTrajectory.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="categoryWiseTrajectory.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <!-- <mat-select
+							[(ngModel)]="catergoryWiseUtilization.utilizationTime"
+							formControlName="utilizationTime"
+						  >
+							<mat-option value="">Select Alarm Status</mat-option>
+							<mat-option value="Resolved">Resolved</mat-option>
+							<mat-option value="Pending">Pending</mat-option>
+							<mat-option value="Both">Both</mat-option>
+						  </mat-select> -->
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="categoryWiseTrajectory.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="categoryWiseTrajectory.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Date Search Type<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <mat-select
+                    [(ngModel)]="categoryWiseTrajectory.dateSearchType"
+                    formControlName="dateSearchType"
+                  >
+                    <mat-option value="">Select Date Search Type</mat-option>
+                    <mat-option value="Daily">Daily</mat-option>
+                    <mat-option value="Weekly">Weekly</mat-option>
+                    <mat-option value="Monthly">Monthly</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForTrajectory()"
+                >
+                  <span class="material-icons"> search </span>
+                  Show Trajectory</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+						<span class="material-icons"> arrow_circle_up </span>
+						Scroll to Top
+					  </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- </mat-expansion-panel>
+		  </mat-accordion> -->
+    </div>
+    <div #addDeletePending>
+      <!-- <mat-accordion>
+			<mat-expansion-panel hideToggle>
+			  <mat-expansion-panel-header> -->
+      <div>
+        <h2 class="customFont">Add Delete Pending Trajectory</h2>
+      </div>
+
+      <br />
+      <app-alert></app-alert>
+      <br />
+      <div fxLayoutAlign="center center">
+        <mat-spinner
+          *ngIf="showSpinnerForAddDeletePendingTrajectory"
+          color="accent"
+        ></mat-spinner>
+      </div>
+      <br />
+      <!-- </mat-expansion-panel-header> -->
+
+      <div>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [callbackFunction]="chartCallback"
+          [options]="chartOptionsForAddDeletePendingTrajectory"
+          [constructorType]="chartConstructor"
+          [(update)]="updateFromInput"
+          [oneToOne]="true"
+          style="width: 100%; height: 400px; display: block"
+        ></highcharts-chart>
+      </div>
+      <br />
+      <div>
+        <form [formGroup]="categoryWiseAddDeletePendingTrajectoryFilter">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <!-- main -->
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- for from to date -->
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- for zone wise -->
+              <mat-radio-group
+                [(ngModel)]="categoryWiseAddDeletePendingTrajectory.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone<b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="
+                              categoryWiseAddDeletePendingTrajectoryFilter.value.zoneType != '1'
+                            "
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="
+                              categoryWiseAddDeletePendingTrajectory.zoneListCommercial
+                            "
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            (onSelect)="onItemSelectOfDistrict($event)"
+                            (onDeSelect)="onDeSelectOfDistrict($event)"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseAddDeletePendingTrajectoryFilter.value.zoneType != '2'
+                          "
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="categoryWiseAddDeletePendingTrajectory.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                          (onSelect)="onItemSelectOfThana($event)"
+                          (onDeSelect)="onDeSelectOfThana($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseAddDeletePendingTrajectoryFilter.value.zoneType != '3'
+                          "
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="categoryWiseAddDeletePendingTrajectory.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                          (onSelect)="onItemSelectOfUnion($event)"
+                          (onDeSelect)="onDeSelectOfUnion($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseAddDeletePendingTrajectoryFilter.value.zoneType != '4'
+                          "
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="categoryWiseAddDeletePendingTrajectory.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                          (onSelect)="onItemSelectOfEdotco($event)"
+                          (onDeSelect)="onDeSelectOfEdotco($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="
+                            categoryWiseAddDeletePendingTrajectoryFilter.value.zoneType != '5'
+                          "
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="
+                            categoryWiseAddDeletePendingTrajectory.zoneListEdotcoZone
+                          "
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <!-- sitecode, alarm, status -->
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="siteCodes"
+                  [(ngModel)]="categoryWiseAddDeletePendingTrajectory.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Category
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="categoryWiseAddDeletePendingTrajectory.category"
+                  formControlName="category"
+                  [settings]="dropdownSettingsForCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Vendor Name<b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="categoryWiseAddDeletePendingTrajectory.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-label
+                  >Network Type
+                  <b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Network Type'"
+                  [data]="networkTypeList"
+                  [(ngModel)]="categoryWiseAddDeletePendingTrajectory.networkType"
+                  formControlName="networkType"
+                  [settings]="dropdownSettingsForNetworkType"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Time
+                    <b>
+                      <font color="red">* </font>
+                    </b>
+                  </mat-label>
+                  <!-- <mat-select
+              [(ngModel)]="catergoryWiseUtilization.utilizationTime"
+              formControlName="utilizationTime"
+            >
+              <mat-option value="">Select Alarm Status</mat-option>
+              <mat-option value="Resolved">Resolved</mat-option>
+              <mat-option value="Pending">Pending</mat-option>
+              <mat-option value="Both">Both</mat-option>
+            </mat-select> -->
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.utilizationTime"
+                    placeholder="Utilization Time"
+                    formControlName="utilizationTime"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Utilization Status
+                    <b>
+                      <font color="red">* </font>
+                    </b>
+                  </mat-label>
+                  <mat-select
+              [(ngModel)]="categoryWiseAddDeletePendingTrajectory.utilizationStatus"
+              formControlName="utilizationStatus"
+            >
+              <mat-option value="">Select  Status</mat-option>
+              <mat-option value="Add">Add</mat-option>										  
+              <mat-option value="Delete">Delete</mat-option>
+              <mat-option value="Pending">Pending</mat-option>
+            </mat-select>
+                </mat-form-field>
+              </div>
+              
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Block Number
+                    <b>
+                      <font color="red">* </font>
+                    </b>
+                  </mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.blockNumber"
+                    placeholder="Block Number"
+                    formControlName="blockNumber"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Trend Days
+                    <b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.trendDays"
+                    placeholder="Trend Days"
+                    formControlName="trendDays"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Date Search Type<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <mat-select
+                    [(ngModel)]="categoryWiseAddDeletePendingTrajectory.dateSearchType"
+                    formControlName="dateSearchType"
+                  >
+                    <mat-option value="">Select Date Search Type</mat-option>
+                    <mat-option value="Daily">Daily</mat-option>
+                    <mat-option value="Weekly">Weekly</mat-option>
+                    <mat-option value="Monthly">Monthly</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <!-- button -->
+              <div>
+                <button
+                  mat-flat-button
+                  class="btn-primary"
+                  (click)="searchParamForAddDeletePendingTrajectory()"
+                >
+                  <span class="material-icons"> search </span>
+                  Show Add Delete Pending Trajectory</button
+                >&nbsp;&nbsp;
+                <button mat-flat-button class="btn-primary" (click)="scroll(top)">
+						<span class="material-icons"> arrow_circle_up </span>
+						Scroll to Top
+					  </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- </mat-expansion-panel>
+		  </mat-accordion> -->
+    </div>
+  </div>
+</div>

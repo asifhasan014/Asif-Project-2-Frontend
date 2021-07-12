@@ -1,0 +1,154 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'qosconfigurationstandard' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'qosconfigurationstandard' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'qosconfigurationstandard_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="qosconfigurationstandarddetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="qosconfigurationstandard.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_standardSwitchPort' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.standardSwitchPort" formControlName="standardSwitchPort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_switchPortDetails' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.switchPortDetails" formControlName="switchPortDetails" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_standardConfigurationValue' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.standardConfigurationValue" formControlName="standardConfigurationValue" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_configurationDetails' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.configurationDetails" formControlName="configurationDetails" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_checkSwitchPort' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.checkSwitchPort" formControlName="checkSwitchPort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_checkConfigurationValue' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.checkConfigurationValue" formControlName="checkConfigurationValue" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_configurationStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.configurationStatus" formControlName="configurationStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_type' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.type" formControlName="type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosconfigurationstandard_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="qosconfigurationstandard.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						qosconfigurationstandard.componentId >= 0 &&
+						qosconfigurationstandard.uploadedAttachment != null &&
+						qosconfigurationstandard.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "qosconfigurationstandard_uploadedAttachment" | translate }} :
+							{{ qosconfigurationstandard.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="qosconfigurationstandard.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="qosconfigurationstandard.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

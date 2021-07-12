@@ -1,0 +1,310 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">{{ "licensingreport_list" | translate }}</h3>
+  </div>
+  <!-- /.box-header -->
+
+  <div class="box-body">
+    <!-- <div class="form-group">
+			<button class="btn btn-primary" (click)="onAddLicensingreport()"><i class="fa fa-plus"></i> {{ 'btn_add_text' | translate }}</button> 
+			&nbsp;
+			&nbsp;
+			<input type="text" name="uniqueCode" [(ngModel)]="licensingreport.uniqueCode"/>
+			&nbsp;
+			<input type="text" [(ngModel)]="fromDate" placeholder="From"  name="accessDate"    bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }" autocomplete="off" />&nbsp;
+			<input type="text" [(ngModel)]="toDate" placeholder="To"  name="accessDate"    bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }" autocomplete="off" />&nbsp;
+			<button class="btn btn-primary" (click)="searchByParams()"><i class="fa fa-search-plus"></i> {{ 'btn_search_text' | translate }}</button>
+			&nbsp;<button class="btn btn-primary " (click)="downloadReport()"><i class="fa fa-download"></i> Report</button>
+			<br />
+			<app-alert></app-alert>
+			<br />
+			<div fxLayoutAlign="center center">
+			  <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+			</div>
+			<br />
+		</div>
+		<div style="width: 100%;">
+			<ag-grid-angular #agGrid style="width: 100%; height: 600px;" class="ag-theme-alpine"
+						 [gridOptions]="gridOptions" [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+       					>
+			</ag-grid-angular>
+		</div> -->
+
+    <div>
+      <div>
+        <h2 class="customFont">Licensing Report</h2>
+      </div>
+	  <br />
+      <app-alert></app-alert>
+      <br />
+      <div>
+        <form [formGroup]="reportingForm">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="10px">
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >From Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="reportDTO.fromDate"
+                    placeholder="From Date"
+                    formControlName="fromDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{
+                      dateInputFormat: 'YYYY-MM-DD 00:00:00'
+                    }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >To Date<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="reportDTO.toDate"
+                    placeholder="To Date"
+                    formControlName="toDate"
+                    name="accessDate"
+                    bsDatepicker
+                    [bsConfig]="{
+                      dateInputFormat: 'YYYY-MM-DD 23:59:59'
+                    }"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div>
+              <mat-radio-group
+                [(ngModel)]="reportDTO.zoneType"
+                formControlName="zoneType"
+              >
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <div
+                    fxLayout="row"
+                    fxLayoutAlign="start end"
+                    fxLayoutGap="10px"
+                  >
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="1"
+                          >Commercial Zone<b>
+                            <font color="red">* </font>
+                          </b></mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <div>
+                          <ng-multiselect-dropdown
+                            [disabled]="reportingForm.value.zoneType != '1'"
+                            [placeholder]="'Select Commercial Zone'"
+                            [data]="commercialZones"
+                            [(ngModel)]="reportDTO.zoneListCommercial"
+                            formControlName="zoneListCommercial"
+                            [settings]="dropdownSettingsForCommercialZone"
+                            class="custom-font-size"
+                          >
+                          </ng-multiselect-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="2">District</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="reportingForm.value.zoneType != '2'"
+                          [placeholder]="'Select District'"
+                          [data]="districts"
+                          [(ngModel)]="reportDTO.zoneListDistrict"
+                          formControlName="zoneListDistrict"
+                          [settings]="dropdownSettingsForDistrict"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForDistrict($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="3">Thana</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="reportingForm.value.zoneType != '3'"
+                          [placeholder]="'Select Thana'"
+                          [data]="thanas"
+                          [(ngModel)]="reportDTO.zoneListThana"
+                          formControlName="zoneListThana"
+                          [settings]="dropdownSettingsForThana"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForThanas($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="4">Union</mat-radio-button>
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="reportingForm.value.zoneType != '4'"
+                          [placeholder]="'Select Union'"
+                          [data]="unions"
+                          [(ngModel)]="reportDTO.zoneListUnion"
+                          formControlName="zoneListUnion"
+                          [settings]="dropdownSettingsForUnion"
+                          class="custom-font-size"
+                          (onFilterChange)="onFilterChangeForUnions($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="10px">
+                      <div>
+                        <mat-radio-button value="5"
+                          >Edotco Zone</mat-radio-button
+                        >
+                      </div>
+                      <div>
+                        <ng-multiselect-dropdown
+                          [disabled]="reportingForm.value.zoneType != '5'"
+                          [placeholder]="'Select Edotco Zone'"
+                          [data]="edotcoZones"
+                          [(ngModel)]="reportDTO.zoneListEdotcoZone"
+                          formControlName="zoneListEdotcoZone"
+                          [settings]="dropdownSettingsForEdotcoZone"
+                          class="custom-font-size"
+                        >
+                        </ng-multiselect-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <div>
+                <mat-label>Site Code</mat-label>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Site Code'"
+                  [data]="locationhierarchyosss"
+                  [(ngModel)]="reportDTO.sitecode"
+                  formControlName="sitecode"
+                  [settings]="dropdownSettingsForSiteCode"
+                  class="custom-font-size"
+                  (onFilterChange)="onFilterChange($event)"
+                >
+                </ng-multiselect-dropdown>
+              </div>
+              <!-- <div>
+                <mat-label
+                  >Category<b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Category'"
+                  [data]="categoryList"
+                  [(ngModel)]="reportDTO.categoryName"
+                  formControlName="categoryName"
+                  [settings]="dropdownSettingsForCategory"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div> -->
+              <!-- <div>
+                <mat-label
+                  >Vendor Name<b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select Vendor Names'"
+                  [data]="vendorNames"
+                  [(ngModel)]="reportDTO.vendorName"
+                  formControlName="vendorName"
+                  [settings]="dropdownSettingsForVendorNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+              </div> -->
+              <div>
+                <mat-label
+                  >License Name<b>
+                    <font color="red">* </font>
+                  </b></mat-label
+                >
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select License Names'"
+                  [data]="licenseNames"
+                  [(ngModel)]="reportDTO.licenseName"
+                  formControlName="licenseName"
+                  [settings]="dropdownSettingsForLicenseNames"
+                  class="custom-font-size"
+                >
+                </ng-multiselect-dropdown>
+			  </div>
+			  <div>
+                <mat-form-field class="example-full-width">
+                  <mat-label
+                    >Report Type<b>
+                      <font color="red">* </font>
+                    </b></mat-label
+                  >
+                  <mat-select
+                    [(ngModel)]="reportDTO.reportType"
+                    formControlName="reportType"
+                  >
+                    <mat-option value="">Select Report Type</mat-option>
+                    <mat-option value="1">License category wise report</mat-option>
+                    <mat-option value="2">License name wise report</mat-option>
+                    <mat-option value="3">Week wise license report</mat-option>
+                    <mat-option value="4">7 Days trend report</mat-option>
+                    <mat-option value="5">Huawei report (capacity)</mat-option>
+                    <mat-option value="6">Huawei report (MAX)</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <br />
+              <div fxLayoutAlign="center center">
+                <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <div>
+                <div>
+                  <button
+                    mat-flat-button
+                    class="btn-primary"
+                    (click)="downloadReportByFilter()"
+                  >
+                    <span class="material-icons"> cloud_download </span>
+                    Download Report</button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

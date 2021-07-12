@@ -1,0 +1,222 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'dcnericssonalarm' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'dcnericssonalarm' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'dcnericssonalarm_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="dcnericssonalarmdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="dcnericssonalarm.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'dcnericssonalarm_alarm' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.alarm" formControlName="alarm" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_iD' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.iD" formControlName="iD" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_networkElement' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.networkElement" formControlName="networkElement" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_neType' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.neType" formControlName="neType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_neId' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.neId" formControlName="neId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_state' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.state" formControlName="state" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_severity' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.severity" formControlName="severity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_type' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.type" formControlName="type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_category' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.category" formControlName="category" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_probableCause' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.probableCause" formControlName="probableCause" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_raisingTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="raisingTime" name="raisingTime" [(ngModel)]="dcnericssonalarm.raisingTime" class="form-control" formControlName="raisingTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_promotingTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="promotingTime" name="promotingTime" [(ngModel)]="dcnericssonalarm.promotingTime" class="form-control" formControlName="promotingTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_ceasingTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ceasingTime" name="ceasingTime" [(ngModel)]="dcnericssonalarm.ceasingTime" class="form-control" formControlName="ceasingTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_promotingTimeOff' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="promotingTimeOff" name="promotingTimeOff" [(ngModel)]="dcnericssonalarm.promotingTimeOff" class="form-control" formControlName="promotingTimeOff" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_shelf' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.shelf" formControlName="shelf" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_slot' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.slot" formControlName="slot" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_card' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.card" formControlName="card" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_source' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.source" formControlName="source" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_sourceNumber' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.sourceNumber" formControlName="sourceNumber" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_scheme' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.scheme" formControlName="scheme" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_portLabel' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.portLabel" formControlName="portLabel" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_acknowledgeTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="acknowledgeTime" name="acknowledgeTime" [(ngModel)]="dcnericssonalarm.acknowledgeTime" class="form-control" formControlName="acknowledgeTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_acknowledgeBy' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.acknowledgeBy" formControlName="acknowledgeBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_description' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.description" formControlName="description" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_iPv4' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.iPv4" formControlName="iPv4" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_iPv6' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.iPv6" formControlName="iPv6" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcnericssonalarm_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="dcnericssonalarm.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						dcnericssonalarm.componentId >= 0 &&
+						dcnericssonalarm.uploadedAttachment != null &&
+						dcnericssonalarm.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "dcnericssonalarm_uploadedAttachment" | translate }} :
+							{{ dcnericssonalarm.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="dcnericssonalarm.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="dcnericssonalarm.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

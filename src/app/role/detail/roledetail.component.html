@@ -1,0 +1,59 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'role' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'admin' | translate }}</a></li>
+      <li class="active">{{ 'role' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'role_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="roledetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="role.csrfNonce" formControlName="csrfNonce"/>
+
+						<div class="form-group">
+							<label>{{ 'role_uniqueCode' | translate }}</label>
+							<input type="text" [(ngModel)]="role.uniqueCode" formControlName="uniqueCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.uniqueCode.errors }" autocomplete="off" />
+							<div *ngIf="submitted && f.uniqueCode.errors" class="invalid-feedback">
+								<div *ngIf="f.uniqueCode.errors.required">{{ 'role_uniqueCode' | translate }} {{'is_required' | translate }}</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>{{ 'role_description' | translate }}</label>
+							<input type="text" [(ngModel)]="role.description" formControlName="description" class="form-control"  autocomplete="off" />
+						</div>
+
+						
+						<div *ngIf="role.componentId < 0" class="form-group">
+							<button [disabled]="loading" class="btn btn-primary" (click)="onSubmit()">{{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="role.componentId >= 0" class="form-group">
+							<button [disabled]="loading" class="btn btn-primary" (click)="onSubmit()">{{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button [disabled]="loading" class="btn btn-primary" (click)="onDelete()">{{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()">{{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class=" row dummyDiv"></div>
+  </section>
+</div>

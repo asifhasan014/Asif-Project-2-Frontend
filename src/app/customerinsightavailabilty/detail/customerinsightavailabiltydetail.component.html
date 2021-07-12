@@ -1,0 +1,200 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'customerinsightavailabilty' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'customerinsightavailabilty' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'customerinsightavailabilty_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="customerinsightavailabiltydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="customerinsightavailabilty.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_msisdnList' | translate }}</label>
+						<textarea rows="4" cols="50" [(ngModel)]="customerinsightavailabilty.msisdnList" formControlName="msisdnList" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.msisdnList.errors }" autocomplete="off" ></textarea>
+						<div *ngIf="isFormCheckRequired && f.msisdnList.errors" class="invalid-feedback">
+							<div *ngIf="f.msisdnList.errors.required">{{ 'customerinsightavailabilty_msisdnList' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_checkVoice' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="customerinsightavailabilty.checkVoice" formControlName="checkVoice" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_checkData' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="customerinsightavailabilty.checkData" formControlName="checkData" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_checkDevice' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="customerinsightavailabilty.checkDevice" formControlName="checkDevice" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_fromDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="fromDate" name="fromDate"  [(ngModel)]="customerinsightavailabilty.fromDate" class="form-control" formControlName="fromDate"  bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [minDate]="minDateForFrom" [maxDate]="maxDateForFrom" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_toDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="toDate" name="toDate" [(ngModel)]="customerinsightavailabilty.toDate" class="form-control" formControlName="toDate"  bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [minDate]="minDateForTo" [maxDate]="maxDateForTo" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_sendEmail' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="customerinsightavailabilty.sendEmail" formControlName="sendEmail" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_emailAddress' | translate }}</label>
+						<input type="text" [(ngModel)]="customerinsightavailabilty.emailAddress" formControlName="emailAddress" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_queueStatus' | translate }}</label>
+						<!-- <input type="text" [(ngModel)]="customerinsightavailabilty.queueStatus" formControlName="queueStatus" class="form-control"  autocomplete="off" /> -->
+						<select  disabled [(ngModel)]="customerinsightavailabilty.queueStatus" formControlName="queueStatus" class="form-control">
+							<option selected>Queue</option>
+							<option>In Progress</option>
+							<option>Finished</option>							
+						</select>	
+					</div>
+
+					<!-- <div class="form-group">
+						<label>{{ 'customerinsightavailabilty_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="customerinsightavailabilty.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="customerinsightavailabilty.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div> -->
+					<div class="form-group" *ngIf="
+					customerinsightavailabilty.componentId >= 0 &&
+					customerinsightavailabilty.downloadAttachment != null &&
+					customerinsightavailabilty.downloadAttachment.trim() != ''
+					">
+						<label>{{ 'customerinsightavailabilty_downloadAttachment' | translate }}</label>
+						<input type="text" readonly [(ngModel)]="customerinsightavailabilty.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+						<button
+								class="btn btn-primary text-right"
+								(click)="onDownloadReport()"
+							>
+								<i class="fa fa-download"></i>
+								Download Generated Data
+						</button>
+					</div>
+					<div class="form-group">
+						<label>{{ 'customerinsightavailabilty_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="customerinsightavailabilty.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						customerinsightavailabilty.componentId >= 0 &&
+						customerinsightavailabilty.uploadedAttachment != null &&
+						customerinsightavailabilty.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "customerinsightavailabilty_uploadedAttachment" | translate }} :
+							{{ customerinsightavailabilty.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".txt"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+
+						<!-- drag n drop starts -->
+						<ng-template [ngIf]="fileContent">
+							<h2>
+								Attached File Content
+							</h2>
+							<code class="file-content">
+								<pre style="color: green;">{{ fileContent }}</pre>
+							</code>
+							<code class="file-content-invalid"  *ngIf="fileContentInvalid !=''">
+								<pre style="color: red;">{{ fileContentInvalid }}</pre>
+								<span style="color: red;">The Above Numbers are invalid</span>
+							</code>
+						</ng-template>
+						
+						<br/>
+						<!--
+							In this exploration, I'm deferring the initiating "drag" event to the drop
+							zone itself. By default, it is hidden, but it is listening to the WINDOW for
+							drag events. Then, when the user drags a file over the window, the drop zone
+							will bring itself into full view.
+						-->
+						<my-file-drop (textDrop)="renderFileContent( $event )">
+							Drop Your File ( only Text )
+						</my-file-drop>
+						<!-- drag n drop end -->
+						
+						<div *ngIf="customerinsightavailabilty.componentId < 0 && fileContentInvalid==''" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="customerinsightavailabilty.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

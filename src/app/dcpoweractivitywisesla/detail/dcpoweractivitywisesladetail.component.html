@@ -1,0 +1,81 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'dcpoweractivitywisesla' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'dcpoweractivitywisesla' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'dcpoweractivitywisesla_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="dcpoweractivitywisesladetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="dcpoweractivitywisesla.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'dcpoweractivitywisesla_activityName' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweractivitywisesla.activityName" formControlName="activityName" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.activityName.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.activityName.errors" class="invalid-feedback">
+							<div *ngIf="f.activityName.errors.required">{{ 'dcpoweractivitywisesla_activityName' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweractivitywisesla_slaCritical' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweractivitywisesla.slaCritical" formControlName="slaCritical" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.slaCritical.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.slaCritical.errors" class="invalid-feedback">
+							<div *ngIf="f.slaCritical.errors.required">{{ 'dcpoweractivitywisesla_slaCritical' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweractivitywisesla_slaMajor' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweractivitywisesla.slaMajor" formControlName="slaMajor" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.slaMajor.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.slaMajor.errors" class="invalid-feedback">
+							<div *ngIf="f.slaMajor.errors.required">{{ 'dcpoweractivitywisesla_slaMajor' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweractivitywisesla_slaMinor' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweractivitywisesla.slaMinor" formControlName="slaMinor" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.slaMinor.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.slaMinor.errors" class="invalid-feedback">
+							<div *ngIf="f.slaMinor.errors.required">{{ 'dcpoweractivitywisesla_slaMinor' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'dcpoweractivitywisesla_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="dcpoweractivitywisesla.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="dcpoweractivitywisesla.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="dcpoweractivitywisesla.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

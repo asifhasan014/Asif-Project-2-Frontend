@@ -1,0 +1,105 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ldsettlementpg' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ldsettlementpg' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ldsettlementpg_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ldsettlementpgdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ldsettlementpg.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ldsettlementpg_slNo' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.slNo" formControlName="slNo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_ttIssueDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ttIssueDate" name="ttIssueDate" [(ngModel)]="ldsettlementpg.ttIssueDate" class="form-control" formControlName="ttIssueDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_robiSiteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.robiSiteCode" formControlName="robiSiteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_atSiteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.atSiteCode" formControlName="atSiteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_region' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.region" formControlName="region" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_zone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.zone" formControlName="zone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_packageType' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="packageType" name="packageType" [(ngModel)]="ldsettlementpg.packageType" class="form-control" formControlName="packageType" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_pgDgow' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="pgDgow" name="pgDgow" [(ngModel)]="ldsettlementpg.pgDgow" class="form-control" formControlName="pgDgow" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_pgStartTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="pgStartTime" name="pgStartTime" [(ngModel)]="ldsettlementpg.pgStartTime" class="form-control" formControlName="pgStartTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_pgEndTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="pgEndTime" name="pgEndTime" [(ngModel)]="ldsettlementpg.pgEndTime" class="form-control" formControlName="pgEndTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_totalPgRh' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.totalPgRh" formControlName="totalPgRh" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_pgRemarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.pgRemarks" formControlName="pgRemarks" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_justification' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.justification" formControlName="justification" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementpg_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementpg.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ldsettlementpg.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ldsettlementpg.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

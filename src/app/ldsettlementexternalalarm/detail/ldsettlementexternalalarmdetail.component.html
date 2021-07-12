@@ -1,0 +1,173 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ldsettlementexternalalarm' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ldsettlementexternalalarm' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ldsettlementexternalalarm_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ldsettlementexternalalarmdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ldsettlementexternalalarm.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_serial' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.serial" formControlName="serial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_identifier' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.identifier" formControlName="identifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_node' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.node" formControlName="node" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_nodeAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.nodeAlias" formControlName="nodeAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_manager' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.manager" formControlName="manager" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_agent' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.agent" formControlName="agent" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_alertGroup' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.alertGroup" formControlName="alertGroup" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_equipmentType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.equipmentType" formControlName="equipmentType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_equipmentKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.equipmentKey" formControlName="equipmentKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_alertKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.alertKey" formControlName="alertKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_redefinedAlarmName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.redefinedAlarmName" formControlName="redefinedAlarmName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_summary' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.summary" formControlName="summary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_firstOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="firstOccurrence" name="firstOccurrence" [(ngModel)]="ldsettlementexternalalarm.firstOccurrence" class="form-control" formControlName="firstOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_clearTimeStamp' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="clearTimeStamp" name="clearTimeStamp" [(ngModel)]="ldsettlementexternalalarm.clearTimeStamp" class="form-control" formControlName="clearTimeStamp" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_ttSequence' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.ttSequence" formControlName="ttSequence" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_location' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_severity' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.severity" formControlName="severity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_edotcoPmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.edotcoPmfZone" formControlName="edotcoPmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_ttRequestTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ttRequestTime" name="ttRequestTime" [(ngModel)]="ldsettlementexternalalarm.ttRequestTime" class="form-control" formControlName="ttRequestTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_ttFlag' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.ttFlag" formControlName="ttFlag" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_commissionedState' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.commissionedState" formControlName="commissionedState" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_siteClass' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.siteClass" formControlName="siteClass" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_aggregationFirst' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="aggregationFirst" name="aggregationFirst" [(ngModel)]="ldsettlementexternalalarm.aggregationFirst" class="form-control" formControlName="aggregationFirst" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_tally' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.tally" formControlName="tally" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_incidentOwner' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.incidentOwner" formControlName="incidentOwner" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_lastOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="lastOccurrence" name="lastOccurrence" [(ngModel)]="ldsettlementexternalalarm.lastOccurrence" class="form-control" formControlName="lastOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_CommercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.CommercialZone" formControlName="CommercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_srcemsIdentifier' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.srcemsIdentifier" formControlName="srcemsIdentifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementexternalalarm_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementexternalalarm.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ldsettlementexternalalarm.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ldsettlementexternalalarm.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

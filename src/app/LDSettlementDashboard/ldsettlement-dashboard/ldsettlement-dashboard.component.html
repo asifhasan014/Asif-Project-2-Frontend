@@ -1,0 +1,281 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "ldsettlemmentdashboard_Dashboard" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "home" | translate }}</a>
+      </li>
+      <li class="active">
+        {{ "ldsettlemmentdashboard_Dashboard" | translate }}
+      </li>
+    </ol>
+  </section>
+
+  <!-- mod -->
+  <div>
+    <section class="content fullpage">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">LD Dashboard</h3>
+        </div>
+        <div class="box-body">
+          <form [formGroup]="filterOptions">
+            <div fxLayout="column" fxLayoutGap="20px">
+              <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="10px">
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Report Type</mat-label>
+                    <mat-select
+                      [(ngModel)]="dashboardOption.reportType"
+                      formControlName="reportType"
+                    >
+                      <mat-option value=""
+                        >Please Select Report Type</mat-option
+                      >
+                      <mat-option value="1"
+                        >Vendor wise DC availability</mat-option
+                      >
+                      <mat-option value="2"
+                        >Vendor wise cell availability</mat-option
+                      >
+                      <mat-option value="3"
+                        >Vendor wise DG site availability</mat-option
+                      >
+                      <mat-option value="4"
+                        >Vendor wise passive availability</mat-option
+                      >
+                      <mat-option value="5">Vendor wise LD</mat-option>
+                      <mat-option value="6"
+                        >Vendor wise no alarm site list</mat-option
+                      >
+                      <mat-option value="7"
+                        >Vendor wise number of site imposed LD</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-radio-group
+                    required
+                    [(ngModel)]="dashboardOption.inputType"
+                    formControlName="inputType"
+                  >
+                    <div
+                      fxLayout="row"
+                      fxLayoutAlign="start end"
+                      fxLayoutGap="20px"
+                    >
+                      <div fxLayout="column" fxLayoutGap="10px">
+                        <div>
+                          <mat-radio-button value="Month"
+                            >Monthly</mat-radio-button
+                          >
+                        </div>
+                        <div>
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Month</mat-label>
+                            <mat-select
+                              [(ngModel)]="dashboardOption.months"
+                              formControlName="months"
+                              [disabled]="
+                                filterOptions.value.inputType != 'Month'
+                              "
+                            >
+                              <mat-option value="">Select Month</mat-option>
+                              <mat-option value="1">January</mat-option>
+                              <mat-option value="2">February</mat-option>
+                              <mat-option value="3">March</mat-option>
+                              <mat-option value="4">April</mat-option>
+                              <mat-option value="5">May</mat-option>
+                              <mat-option value="6">June</mat-option>
+                              <mat-option value="7">July</mat-option>
+                              <mat-option value="8">August</mat-option>
+                              <mat-option value="9">September</mat-option>
+                              <mat-option value="10">October</mat-option>
+                              <mat-option value="11">November</mat-option>
+                              <mat-option value="12">December</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div fxLayout="column" fxLayoutGap="10px">
+                        <div>
+                          <mat-radio-button value="Quarterly"
+                            >Quarterly</mat-radio-button
+                          >
+                        </div>
+                        <div>
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Quarter</mat-label>
+                            <mat-select
+                              [(ngModel)]="dashboardOption.quarterName"
+                              formControlName="quarterName"
+                              [disabled]="
+                                filterOptions.value.inputType != 'Quarterly'
+                              "
+                            >
+                              <mat-option value="">Select Quarter</mat-option>
+                              <mat-option value="Q1">Q1</mat-option>
+                              <mat-option value="Q2">Q2</mat-option>
+                              <mat-option value="Q3">Q3</mat-option>
+                              <mat-option value="Q4">Q4</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-radio-group>
+                </div>
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Year</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="dashboardOption.year"
+                      formControlName="year"
+                      placeholder="Ex. 2020"
+                      autocomplete="off"
+                    />
+                  </mat-form-field>
+                </div>
+                <!-- <div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Vendor Name</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="dashboardOption.vendorSearch"
+                      formControlName="vendorSearch"
+                      placeholder="vendor name"
+                    />
+                  </mat-form-field>
+                </div> -->
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Vendor Name</mat-label>
+                    <mat-select
+                      [(ngModel)]="dashboardOption.vendorSearch"
+                      formControlName="vendorSearch"
+                    >
+                      <mat-option value=""
+                        >Please Select Vendor Name</mat-option
+                      >
+                      <mat-option value="Quickly">Quickly</mat-option>
+                      <mat-option value="Metal Plus">Metal Plus</mat-option>
+                      <mat-option value="Alliance">Alliance</mat-option>
+                      <mat-option value="GPI Aisatel">GPI Aisatel</mat-option>
+                      <mat-option value="Vendor wise LD"
+                        >Vendor wise LD</mat-option
+                      >
+                      <mat-option value="e.co">e.co</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="10px">
+                <div>
+                  <button
+                    mat-flat-button
+                    class="btn-primary"
+                    (click)="searchByParams()"
+                  >
+                    <span class="material-icons"> search </span>
+                    {{ "btn_search_text" | translate }}
+                  </button>
+                </div>
+                <div>
+                  <button
+                    mat-flat-button
+                    class="btn-primary"
+                    (click)="downloadReport()"
+                  >
+                    <span class="material-icons"> cloud_download </span>
+                    {{ "btn_downloadReport" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <br />
+          <div fxLayoutAlign="center center">
+            <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+          </div>
+          <div style="width: 100%" *ngIf="dcAvailibilityDataFlag">
+            <div>
+              <ag-grid-angular
+                #agGrid
+                style="width: 100%; height: 600px" class="ag-theme-alpine"
+                [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+                [gridOptions]="gridOptionsForDCAvailability"
+              >
+              </ag-grid-angular>
+            </div>
+          </div>
+          
+          <div style="width: 100%" *ngIf="CellAvailibilityDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionsForCellAvailability"
+            >
+            </ag-grid-angular>
+          </div>
+         
+          <div style="width: 100%" *ngIf="dgSiteAvailibilityDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionForDgSiteAvailability"
+            >
+            </ag-grid-angular>
+          </div>
+          
+          <div style="width: 100%" *ngIf="passiveAvailibilityDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionForPassiveAvailability"
+            >
+            </ag-grid-angular>
+          </div>
+          <div style="width: 100%" *ngIf="ldDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionForMonthQuarterlyyearlyLd"
+            >
+            </ag-grid-angular>
+          </div>
+          
+          <div style="width: 100%" *ngIf="noAlarmSiteListDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionNoAlarmSiteList"
+            >
+            </ag-grid-angular>
+          </div>
+          
+          <div style="width: 100%" *ngIf="siteImposedLdDataFlag">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 600px" class="ag-theme-alpine"
+              [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+              [gridOptions]="gridOptionNbrOfSiteImposedLd"
+            >
+            </ag-grid-angular>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

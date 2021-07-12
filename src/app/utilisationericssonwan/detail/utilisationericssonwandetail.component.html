@@ -1,0 +1,201 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'utilisationericssonwan' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'utilisationericssonwan' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'utilisationericssonwan_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="utilisationericssonwandetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="utilisationericssonwan.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'utilisationericssonwan_nodeName' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.nodeName" formControlName="nodeName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_neId' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.neId" formControlName="neId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_neObject' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.neObject" formControlName="neObject" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_timeDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="timeDate" name="timeDate" [(ngModel)]="utilisationericssonwan.timeDate" class="form-control" formControlName="timeDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_timeInterval' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.timeInterval" formControlName="timeInterval" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_direction' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.direction" formControlName="direction" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_neAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.neAlias" formControlName="neAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_neType' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.neType" formControlName="neType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_position' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.position" formControlName="position" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_average' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.average" formControlName="average" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_maximum' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.maximum" formControlName="maximum" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_minimum' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.minimum" formControlName="minimum" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent0to5' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent0to5" formControlName="percent0to5" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent5to10' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent5to10" formControlName="percent5to10" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent10to15' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent10to15" formControlName="percent10to15" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent15to20' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent15to20" formControlName="percent15to20" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent20to25' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent20to25" formControlName="percent20to25" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent25to30' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent25to30" formControlName="percent25to30" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent30to35' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent30to35" formControlName="percent30to35" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent35to40' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent35to40" formControlName="percent35to40" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent40to45' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent40to45" formControlName="percent40to45" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent45to50' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent45to50" formControlName="percent45to50" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent50to55' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent50to55" formControlName="percent50to55" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent55to60' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent55to60" formControlName="percent55to60" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent60to65' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent60to65" formControlName="percent60to65" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent65to70' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent65to70" formControlName="percent65to70" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent70to75' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent70to75" formControlName="percent70to75" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent75to80' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent75to80" formControlName="percent75to80" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent80to85' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent80to85" formControlName="percent80to85" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent85to90' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent85to90" formControlName="percent85to90" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent90to95' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent90to95" formControlName="percent90to95" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_percent95to100' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.percent95to100" formControlName="percent95to100" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_idLogNum' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.idLogNum" formControlName="idLogNum" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_failureDescription' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.failureDescription" formControlName="failureDescription" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_azend' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.azend" formControlName="azend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_digitouchlink' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.digitouchlink" formControlName="digitouchlink" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_maxpercentage' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.maxpercentage" formControlName="maxpercentage" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'utilisationericssonwan_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="utilisationericssonwan.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="utilisationericssonwan.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="utilisationericssonwan.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

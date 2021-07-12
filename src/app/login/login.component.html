@@ -1,0 +1,147 @@
+<div class="landingpage" id="landingDiv" *ngIf="this.router.url === '/login'">
+  <div class="form-group">
+    <ul>
+      <!-- <li style="float: right;"><a routerLink="/register">REGISTER</a></li> -->
+      <li style="float: right;"><a routerLink="/signin">LOGIN</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-8">
+        <h1>Robi Automation Tool V 1.0</h1>
+        <br />
+        <br />
+
+        <h2>Lead Your Dream</h2>
+        <!-- <a routerLink="/register" style="width: 120px;" class="btn btn-danger"
+          >JOIN FREE</a
+        >
+        &nbsp;&nbsp; -->
+        <a routerLink="/signin" style="width: 120px;" class="btn btn-danger"
+          >LOGIN</a
+        >
+      </div>
+      <div class="col-md-7"></div>
+    </div>
+  </div>
+</div>
+
+<!-- /.login-box -->
+<div class="container" *ngIf="this.router.url === '/signin'">
+  <div class="row" style="margin-top: 0px;">
+    <div class="col-md-12 leftReg" style="background-color: none !important; padding: 0px  !important;">
+      <div class="login-box">
+        <div
+          class="login-logo"
+          style="background-color: #990011; padding: 10px; border-radius: 5px;"
+        >
+          <a [routerLink]="['/login']" style="color: white;">
+            <b>{{ "app_name_prefix" | translate }}</b>
+            {{ "app_name" | translate }}
+          </a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+          <div _ngcontent-c4 style="text-align: center;">
+            <img
+              _ngcontent-c4
+              src="assets/img/robi4.png"
+              style="height: 80px; margin-top: -10px;"
+              class="center"
+            />
+            <br /><br /><br />
+          </div>
+          <p *ngIf="isLoginError" class="login-box-msg">
+            <font style="color: red;"
+              ><b>{{ errorMessage }}</b></font
+            >
+          </p>
+
+          <form role="form" autocomplete="off">
+            <input
+              type="hidden"
+              [(ngModel)]="logInDTO.csrfNonce"
+              name="csrfNonce"
+            />
+            <div class="form-group has-feedback">
+              <input
+                type="text"
+                [(ngModel)]="logInDTO.userName"
+                name="userName"
+                (keyup.enter)="onEnter()"
+                class="form-control"
+                id="userName"
+                placeholder="User Name"
+                autocomplete="off"
+                [disabled]="isSubmitted"
+              />
+              <span
+                class="glyphicon glyphicon-user form-control-feedback"
+              ></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input
+                type="password"
+                [(ngModel)]="logInDTO.password"
+                name="password"
+                (keyup.enter)="onEnter()"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+                [disabled]="isSubmitted"
+              />
+              <span
+                class="glyphicon glyphicon-lock form-control-feedback"
+              ></span>
+            </div>
+            <div class="row" style="text-align: center;">
+              <!-- /.col -->
+              <button
+                id="login"
+                type="submit"
+                (click)="onEnter()"
+                class="btn btn-danger"
+                [disabled]="isSubmitted"
+              >
+                  {{ "login" | translate }}
+              </button>
+              &nbsp;
+              <!-- <a [routerLink]="['/register']" class="btn btn-danger"
+                >Register</a
+              > -->
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2" style="display: none;"></div>
+    <div class="col-md-5 rightReg"  style="display: none;">
+      <h2>Register Today!</h2>
+      <br />
+      <p>
+        Join Angular 8 Base Project V 1.0 and become part of the Internet's
+        largest user-created, 3D virtual community.
+      </p>
+      <ul>
+        <li>Connect with friends.</li>
+        <li>Create your own nation with constitution.</li>
+        <li>Explore thousands of projects.</li>
+        <li>Create and work with your own project.</li>
+      </ul>
+      <br />
+      <div style="text-align: center;">
+        <h3>
+          <a [routerLink]="['/register']"
+            ><button class="btn btn-danger" style="width: 200px;">
+              Join Now
+            </button></a
+          >
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>

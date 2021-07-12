@@ -1,0 +1,134 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'backuppolicy' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'backuppolicy' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'backuppolicy_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="backuppolicydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="backuppolicy.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'backuppolicy_uniqueCode' | translate }}</label>
+						<input type="text" [(ngModel)]="backuppolicy.uniqueCode" formControlName="uniqueCode" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.uniqueCode.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.uniqueCode.errors" class="invalid-feedback">
+            				<div *ngIf="f.uniqueCode.errors.required">{{ 'backuppolicy_uniqueCode' | translate }} {{'is_required' | translate }}</div>
+        				</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_sourceNode' | translate }}</label>
+						<select (change)="setSourceNode($event.target.value)" class="form-control   		form-control-inline">
+        				<option value="-1" hidden="">{{ 'select_source_node' | translate }}</option>
+        					<option *ngFor="let sourceNode of sourceNodes" value={{sourceNode.componentId}} 
+        					[selected]="backuppolicy.sourceNode == sourceNode.componentId">
+         						{{sourceNode.uniqueCode}} ({{sourceNode.ip}})
+     						</option>
+ 						</select>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_sourcePath' | translate }}</label>
+						<input type="text" [(ngModel)]="backuppolicy.sourcePath" formControlName="sourcePath" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.sourcePath.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.sourcePath.errors" class="invalid-feedback">
+            				<div *ngIf="f.sourcePath.errors.required">{{ 'backuppolicy_sourcePath' | translate }} {{'is_required' | translate }}</div>
+        				</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_destinationNode' | translate }}</label>
+						<select (change)="setDestinationNode($event.target.value)" class="form-control form-control-inline">
+        				<option value="-1" hidden="">{{ 'select_dest_node' | translate }}</option>
+        					<option *ngFor="let x of destinationNodes" value={{x.componentId}} [selected]="backuppolicy.destinationNode == x.componentId">
+         						{{x.uniqueCode}} ({{x.ip}})
+     						</option>
+ 						</select>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_destinationPath' | translate }}</label>
+						<input type="text" [(ngModel)]="backuppolicy.destinationPath" formControlName="destinationPath" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.destinationPath.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.sourcePath.errors" class="invalid-feedback">
+            				<div *ngIf="f.sourcePath.errors.required">{{ 'backuppolicy_destinationPath' | translate }} {{'is_required' | translate }}</div>
+        				</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_backupType' | translate }}</label>
+						<select (change)="setBackupType($event.target.value)" class="form-control form-control-inline">
+        					<option value="-1" hidden="">{{ 'select_backup_type' | translate }}</option>
+        					<option *ngFor="let x of backupTypes" value={{x}} [selected]="backuppolicy.backupType == x">
+         						{{x}}
+     						</option>
+ 						</select>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_backupFrequency' | translate }}</label>
+						<input type="text" [(ngModel)]="backuppolicy.backupFrequency" formControlName="backupFrequency" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.backupFrequency.errors }"  autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.backupFrequency.errors" class="invalid-feedback">
+            				<div *ngIf="f.backupFrequency.errors.required">{{ 'backuppolicy_backupFrequency' | translate }} {{'is_required' | translate }}</div>
+        				</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_backupFrequencyUnit' | translate }}</label>
+						<select (change)="setBackupFrequencyUnit($event.target.value)" class="form-control   		form-control-inline">
+        					<option value="-1" hidden>{{ 'select_backup_freq_unit' | translate }}</option>
+        					<option *ngFor="let x of frequencyUnit" value={{x}} [selected]="backuppolicy.backupFrequencyUnit == x">
+         						{{x}}
+     						</option>
+ 						</select>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_retentionFrequency' | translate }}</label>
+						<input type="text" [(ngModel)]="backuppolicy.retentionFrequency" formControlName="retentionFrequency" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.retentionFrequency.errors }"  autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.retentionFrequency.errors" class="invalid-feedback">
+            				<div *ngIf="f.retentionFrequency.errors.required">{{ 'backuppolicy_retentionFrequency' | translate }} {{'is_required' | translate }}</div>
+        				</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'backuppolicy_retentionFrequencyUnit' | translate }}</label>
+						<select (change)="setRetentionFrequencyUnit($event.target.value)" class="form-control   		form-control-inline">
+        					<option value="-1" hidden="">{{ 'select_retention_freq_unit' | translate }}</option>
+        					<option *ngFor="let x of frequencyUnit" value={{x}} [selected]="backuppolicy.retentionFrequencyUnit == x">
+         						{{x}}
+     						</option>
+ 						</select>
+					</div>
+					<div class="form-group">
+						<label>{{ 'automationscheduler_isRunning' | translate }}</label><br/>
+						<input type="checkbox" [(ngModel)]="backuppolicy.isRunning" formControlName="isRunning"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="backuppolicy.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="backuppolicy.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

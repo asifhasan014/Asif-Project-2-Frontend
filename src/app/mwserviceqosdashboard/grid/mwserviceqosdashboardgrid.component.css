@@ -1,0 +1,11 @@
+.scroll {
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-left: 15px;
+}
+
+.customFont {
+    font-weight: bold;
+    color: rgb(146, 0, 114);
+}

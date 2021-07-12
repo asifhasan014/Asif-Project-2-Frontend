@@ -1,0 +1,117 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'performancedatau2000ip' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'performancedatau2000ip' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'performancedatau2000ip_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="performancedatau2000ipdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="performancedatau2000ip.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'performancedatau2000ip_deviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.deviceName" formControlName="deviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_resourceName' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.resourceName" formControlName="resourceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_collectionTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="collectionTime" name="collectionTime" [(ngModel)]="performancedatau2000ip.collectionTime" class="form-control" formControlName="collectionTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_granularityPeriod' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.granularityPeriod" formControlName="granularityPeriod" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_inboundRate' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.inboundRate" formControlName="inboundRate" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_outboundRate' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.outboundRate" formControlName="outboundRate" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_inboundBandwidthUtilization' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.inboundBandwidthUtilization" formControlName="inboundBandwidthUtilization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_outboundBandwidthUtilization' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.outboundBandwidthUtilization" formControlName="outboundBandwidthUtilization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_udpJitterDelay' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.udpJitterDelay" formControlName="udpJitterDelay" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_updJitterAvgDelay' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.updJitterAvgDelay" formControlName="updJitterAvgDelay" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_updJitterPacketLoss' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.updJitterPacketLoss" formControlName="updJitterPacketLoss" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_accessedFromDeviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.accessedFromDeviceName" formControlName="accessedFromDeviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_accessedFromDeviceIP' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.accessedFromDeviceIP" formControlName="accessedFromDeviceIP" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_accessDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="accessDate" name="accessDate" [(ngModel)]="performancedatau2000ip.accessDate" class="form-control" formControlName="accessDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_accessedBy' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.accessedBy" formControlName="accessedBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_isScheduled' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="performancedatau2000ip.isScheduled" formControlName="isScheduled" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'performancedatau2000ip_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="performancedatau2000ip.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="performancedatau2000ip.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="performancedatau2000ip.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

@@ -1,0 +1,390 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'uniquelinktableforadaptivemodulation' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'uniquelinktableforadaptivemodulation' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'uniquelinktableforadaptivemodulation_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="uniquelinktableforadaptivemodulationdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="uniquelinktableforadaptivemodulation.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_ne_name" formControlName="source_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_board" formControlName="source_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_port" formControlName="source_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_card_name" formControlName="source_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_sink_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.sink_ne_name" formControlName="sink_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_sink_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.sink_board" formControlName="sink_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_sink_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.sink_port" formControlName="sink_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_sink_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.sink_card_name" formControlName="sink_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_protect_type' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_protect_type" formControlName="source_protect_type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_protection_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_protection_group_id" formControlName="source_protection_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_xpic_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_xpic_group_id" formControlName="source_xpic_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_xpic_group_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_xpic_group_capacity" formControlName="source_xpic_group_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_ne_frequency" formControlName="source_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_sink_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.sink_ne_frequency" formControlName="sink_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_source_ne_radio_work_mode' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.source_ne_radio_work_mode" formControlName="source_ne_radio_work_mode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_packet_link_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.packet_link_capacity" formControlName="packet_link_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_max_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.max_capacity" formControlName="max_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_max_modulation' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.max_modulation" formControlName="max_modulation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_link_code_a_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.link_code_a_end" formControlName="link_code_a_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_link_code_z_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.link_code_z_end" formControlName="link_code_z_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_system_link_code' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.system_link_code" formControlName="system_link_code" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_link_code_combination' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.link_code_combination" formControlName="link_code_combination" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_ldma_link_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.ldma_link_id" formControlName="ldma_link_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_system_link_code_main' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.system_link_code_main" formControlName="system_link_code_main" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_system_link_code_protection' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.system_link_code_protection" formControlName="system_link_code_protection" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_dataForDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dataForDate" name="dataForDate" [(ngModel)]="uniquelinktableforadaptivemodulation.dataForDate" class="form-control" formControlName="dataForDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam4' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam4" formControlName="qam4" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam8' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam8" formControlName="qam8" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam16' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam16" formControlName="qam16" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam32' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam32" formControlName="qam32" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam64' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam64" formControlName="qam64" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam128' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam128" formControlName="qam128" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam256' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam256" formControlName="qam256" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam512' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam512" formControlName="qam512" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam1024' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam1024" formControlName="qam1024" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam2048' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam2048" formControlName="qam2048" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_qam4096' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.qam4096" formControlName="qam4096" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam4' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam4" formControlName="otherqam4" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam8' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam8" formControlName="otherqam8" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam16' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam16" formControlName="otherqam16" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam32' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam32" formControlName="otherqam32" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam64' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam64" formControlName="otherqam64" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam128' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam128" formControlName="otherqam128" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam256' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam256" formControlName="otherqam256" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam512' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam512" formControlName="otherqam512" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam1024' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam1024" formControlName="otherqam1024" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam2048' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam2048" formControlName="otherqam2048" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_otherqam4096' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.otherqam4096" formControlName="otherqam4096" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam4' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam4" formControlName="finalqam4" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam8' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam8" formControlName="finalqam8" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam16' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam16" formControlName="finalqam16" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam32' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam32" formControlName="finalqam32" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam64' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam64" formControlName="finalqam64" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam128' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam128" formControlName="finalqam128" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam256' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam256" formControlName="finalqam256" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam512' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam512" formControlName="finalqam512" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam1024' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam1024" formControlName="finalqam1024" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam2048' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam2048" formControlName="finalqam2048" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_finalqam4096' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.finalqam4096" formControlName="finalqam4096" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_maxModulation' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.maxModulation" formControlName="maxModulation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_maxModulationTime' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.maxModulationTime" formControlName="maxModulationTime" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_division' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_district' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_pmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.pmfZone" formControlName="pmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforadaptivemodulation_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforadaptivemodulation.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						uniquelinktableforadaptivemodulation.componentId >= 0 &&
+						uniquelinktableforadaptivemodulation.uploadedAttachment != null &&
+						uniquelinktableforadaptivemodulation.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "uniquelinktableforadaptivemodulation_uploadedAttachment" | translate }} :
+							{{ uniquelinktableforadaptivemodulation.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="uniquelinktableforadaptivemodulation.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="uniquelinktableforadaptivemodulation.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

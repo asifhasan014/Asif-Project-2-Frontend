@@ -1,0 +1,99 @@
+<!-- 
+@author Jewel Rana
+@html of sampledashboard component
+@version V1
+@date 6th August 2020
+-->
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "sampledashboard" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "home" | translate }}</a>
+      </li>
+      <li class="active">{{ "sampledashboard" | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <div class="scroll">
+    <section class="content">
+      <!-- <app-sampledashboardgrid></app-sampledashboardgrid> -->
+      <button (click)="scroll(target)"></button>
+      <div>
+        <app-widgets-area-graph></app-widgets-area-graph>
+      </div>
+      <br />
+      <mat-divider></mat-divider>
+      <br />
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="20px"
+        class="stats-cards"
+      >
+        <mat-card fxFlex="25">
+          <app-widgets-card
+            label="users"
+            total="15k"
+            percentage="80"
+          ></app-widgets-card>
+        </mat-card>
+        <mat-card fxFlex="25">
+          <app-widgets-card
+            label="users"
+            total="15k"
+            percentage="80"
+          ></app-widgets-card>
+        </mat-card>
+        <mat-card fxFlex="25">
+          <app-widgets-card
+            label="users"
+            total="15k"
+            percentage="80"
+          ></app-widgets-card>
+        </mat-card>
+        <mat-card fxFlex="25">
+          <app-widgets-card
+            label="users"
+            total="15k"
+            percentage="80"
+          ></app-widgets-card>
+        </mat-card>
+      </div>
+      <br />
+      <mat-divider></mat-divider>
+      <br />
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="20px"
+      >
+        <div fxFlex="50">
+          <app-widgets-network-graph></app-widgets-network-graph>
+        </div>
+        <div fxFlex="50" #target><app-widgets-pie></app-widgets-pie></div>
+      </div>
+      <br />
+      <mat-divider></mat-divider>
+      <br />
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="20px"
+      >
+        <div fxFlex="50">
+          table
+        </div>
+        <div fxFlex="50" >
+          <app-widgets-percentage-data></app-widgets-percentage-data>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

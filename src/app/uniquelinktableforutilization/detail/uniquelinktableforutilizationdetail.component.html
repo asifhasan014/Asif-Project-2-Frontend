@@ -1,0 +1,490 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'uniquelinktableforutilization' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'uniquelinktableforutilization' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'uniquelinktableforutilization_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="uniquelinktableforutilizationdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="uniquelinktableforutilization.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_system_link_code' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.system_link_code" formControlName="system_link_code" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_vendor' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.vendor" formControlName="vendor" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_ne_name" formControlName="source_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_board" formControlName="source_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_port" formControlName="source_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_card_name" formControlName="source_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_sink_ne_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.sink_ne_name" formControlName="sink_ne_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_sink_board' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.sink_board" formControlName="sink_board" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_sink_port' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.sink_port" formControlName="sink_port" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_sink_card_name' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.sink_card_name" formControlName="sink_card_name" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_protect_type' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_protect_type" formControlName="source_protect_type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_protection_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_protection_group_id" formControlName="source_protection_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_xpic_group_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_xpic_group_id" formControlName="source_xpic_group_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_xpic_group_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_xpic_group_capacity" formControlName="source_xpic_group_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_ne_frequency" formControlName="source_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_sink_ne_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.sink_ne_frequency" formControlName="sink_ne_frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_source_ne_radio_work_mode' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.source_ne_radio_work_mode" formControlName="source_ne_radio_work_mode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_packet_link_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.packet_link_capacity" formControlName="packet_link_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_max_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.max_capacity" formControlName="max_capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_max_modulation' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.max_modulation" formControlName="max_modulation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_link_code_a_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.link_code_a_end" formControlName="link_code_a_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_link_code_z_end' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.link_code_z_end" formControlName="link_code_z_end" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_link_code_combination' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.link_code_combination" formControlName="link_code_combination" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_ldma_link_id' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.ldma_link_id" formControlName="ldma_link_id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_system_link_code_main' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.system_link_code_main" formControlName="system_link_code_main" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_system_link_code_protection' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.system_link_code_protection" formControlName="system_link_code_protection" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_dataforDATE' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="dataforDate" name="dataforDate" [(ngModel)]="uniquelinktableforutilization.dataforDate" class="form-control" formControlName="dataforDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent0to5' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent0to5" formControlName="percent0to5" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent5to10' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent5to10" formControlName="percent5to10" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent10to15' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent10to15" formControlName="percent10to15" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent15to20' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent15to20" formControlName="percent15to20" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent20to25' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent20to25" formControlName="percent20to25" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent25to30' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent25to30" formControlName="percent25to30" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent30to35' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent30to35" formControlName="percent30to35" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent35to40' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent35to40" formControlName="percent35to40" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent40to45' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent40to45" formControlName="percent40to45" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent45to50' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent45to50" formControlName="percent45to50" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent50to55' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent50to55" formControlName="percent50to55" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent55to60' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent55to60" formControlName="percent55to60" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent60to65' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent60to65" formControlName="percent60to65" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent65to70' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent65to70" formControlName="percent65to70" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent70to75' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent70to75" formControlName="percent70to75" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent75to80' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent75to80" formControlName="percent75to80" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent80to85' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent80to85" formControlName="percent80to85" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent85to90' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent85to90" formControlName="percent85to90" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent90to95' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent90to95" formControlName="percent90to95" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_percent95to100' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.percent95to100" formControlName="percent95to100" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent0to5' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent0to5" formControlName="otherPercent0to5" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent5to10' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent5to10" formControlName="otherPercent5to10" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent10to15' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent10to15" formControlName="otherPercent10to15" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent15to20' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent15to20" formControlName="otherPercent15to20" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent20to25' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent20to25" formControlName="otherPercent20to25" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent25to30' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent25to30" formControlName="otherPercent25to30" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent30to35' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent30to35" formControlName="otherPercent30to35" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent35to40' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent35to40" formControlName="otherPercent35to40" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent40to45' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent40to45" formControlName="otherPercent40to45" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent45to50' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent45to50" formControlName="otherPercent45to50" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent50to55' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent50to55" formControlName="otherPercent50to55" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent55to60' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent55to60" formControlName="otherPercent55to60" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent60to65' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent60to65" formControlName="otherPercent60to65" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent65to70' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent65to70" formControlName="otherPercent65to70" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent70to75' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent70to75" formControlName="otherPercent70to75" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent75to80' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent75to80" formControlName="otherPercent75to80" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent80to85' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent80to85" formControlName="otherPercent80to85" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent85to90' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent85to90" formControlName="otherPercent85to90" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent90to95' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent90to95" formControlName="otherPercent90to95" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_otherPercent95to100' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.otherPercent95to100" formControlName="otherPercent95to100" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent0to5' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent0to5" formControlName="finalPercent0to5" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent5to10' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent5to10" formControlName="finalPercent5to10" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent10to15' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent10to15" formControlName="finalPercent10to15" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent15to20' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent15to20" formControlName="finalPercent15to20" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent20to25' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent20to25" formControlName="finalPercent20to25" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent25to30' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent25to30" formControlName="finalPercent25to30" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent30to35' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent30to35" formControlName="finalPercent30to35" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent35to40' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent35to40" formControlName="finalPercent35to40" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent40to45' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent40to45" formControlName="finalPercent40to45" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent45to50' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent45to50" formControlName="finalPercent45to50" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent50to55' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent50to55" formControlName="finalPercent50to55" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent55to60' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent55to60" formControlName="finalPercent55to60" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent60to65' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent60to65" formControlName="finalPercent60to65" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent65to70' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent65to70" formControlName="finalPercent65to70" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent70to75' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent70to75" formControlName="finalPercent70to75" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent75to80' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent75to80" formControlName="finalPercent75to80" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent80to85' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent80to85" formControlName="finalPercent80to85" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent85to90' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent85to90" formControlName="finalPercent85to90" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent90to95' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent90to95" formControlName="finalPercent90to95" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_finalPercent95to100' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.finalPercent95to100" formControlName="finalPercent95to100" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_division' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_district' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_pmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.pmfZone" formControlName="pmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'uniquelinktableforutilization_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="uniquelinktableforutilization.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						uniquelinktableforutilization.componentId >= 0 &&
+						uniquelinktableforutilization.uploadedAttachment != null &&
+						uniquelinktableforutilization.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "uniquelinktableforutilization_uploadedAttachment" | translate }} :
+							{{ uniquelinktableforutilization.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="uniquelinktableforutilization.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="uniquelinktableforutilization.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

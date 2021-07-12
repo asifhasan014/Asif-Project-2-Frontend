@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+  text-align: center;
+}
+
+/*
+   src/styles.css (i.e. your global style)
+*/
+.dataTables_empty {
+  display: none;
+}
+
+div.dt-buttons{
+  clear: both;
+  margin: 15px 0 15px 0;
+}
+
+.dataTables_filter {
+  float: right;
+}
+
+.dataTables_length {
+  float: left;
+}
+
+.login-page{
+  background-color: #990011 ;
+  color: #fff;
+}
+
+.skin-blue .main-header .navbar {
+  background-color: #990011 !important;
+}
+
+.btn-primary {
+    background-color: rgb(148, 10, 51)  !important;
+    border-color: #fff  !important;
+}
+
+.skin-blue .main-header .logo {
+  background-color: #990011;
+  color: #fff;
+  border-bottom: 0 solid transparent;
+}
+/* html, body { height: 100%; } 
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* html, body { height: 100%; } */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* html, body { height: 100%; } */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.sick-days-warning {
+  background-color: lightcoral !important;
+}
+.sick-days-breach {
+  background-color: sandybrown !important;
+}
+
+html, body{
+  height: 100% !important;
+  max-width: 100% !important;
+}
+
+
+/* html, body { height: 100%; } */
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.required-field {
+	color: red;
+}
+
+.is-invalid {
+	border: solid 1px red;
+}
+
+.ag-header-cell-label {
+  font-weight: bold;
+  color: maroon;
+  font-size: small;
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: rgb(148, 10, 51); 
+}
+ .mat-list-item { 
+  height: 25px !important;
+}
+
+.mat-list-item-content {
+  padding: 0 0px !important;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(/assets/fonts/Roboto/Roboto-Medium.ttf) format('ttf');
+}
+
+/* @font-face {
+  font-family: 'Sans Pro';
+  font-style: normal;
+  src: local('Sans Pro'), local('source-sans-pro-v14-latin-regular'), url('../src/assets/fonts/Roboto/source-sans-pro-v14-latin-regular.woff2') format('woff2');
+} */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  /* -webkit-font-feature-settings: 'liga'; */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* .custom-font-size .multiselect-dropdown .dropdown-btn {
+  width: 300px !important;
+  height: 100% !important;
+} */
+
+/* .mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: #05ce417a;
+} */
+
+.alert-red{
+  padding: 20px;
+  background-color: rgb(119, 0, 0);
+  color: white;
+}
+
+.default-snackbar {
+	text-align: center !important;
+	background: white !important;
+	min-width: 250px !important;
+	min-height: 64px !important;
+	font-size: 16px !important;
+	color: black !important;
+}

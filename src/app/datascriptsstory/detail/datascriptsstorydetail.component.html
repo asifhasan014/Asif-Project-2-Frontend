@@ -1,0 +1,177 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'datascriptsstory' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'datascriptsstory' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'datascriptsstory_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="datascriptsstorydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="datascriptsstory.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'datascriptsstory_tableName' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.tableName" formControlName="tableName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_previousTableData' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.previousTableData" formControlName="previousTableData" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_afterTableData' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.afterTableData" formControlName="afterTableData" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_sourceName' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.sourceName" formControlName="sourceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_sourceCount' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.sourceCount" formControlName="sourceCount" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_isSuccessful' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="datascriptsstory.isSuccessful" formControlName="isSuccessful" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_executionTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="executionTime" name="executionTime" [(ngModel)]="datascriptsstory.executionTime" class="form-control" formControlName="executionTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'datascriptsstory_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="datascriptsstory.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						datascriptsstory.componentId >= 0 &&
+						datascriptsstory.uploadedAttachment != null &&
+						datascriptsstory.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "datascriptsstory_uploadedAttachment" | translate }} :
+							{{ datascriptsstory.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="datascriptsstory.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="datascriptsstory.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+				<!-- show password as type="password" -->
+					
+						<!-- div *ngIf="!showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'datascriptsstory_password' | translate }}</label>
+							<input type="password"
+									[(ngModel)]="datascriptsstory.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="datascriptsstory.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-open form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div>
+						
+						<div *ngIf="showPassword"
+								class="form-group has-feedback">
+							<label>{{ 'datascriptsstory_password' | translate }}</label>
+							<input type="text"
+									[(ngModel)]="datascriptsstory.password"
+									class="form-control"
+									formControlName="password" 
+									placeholder="type something here...">
+							<span *ngIf="emsfiledirectoryrepository.password"
+								(click)="toggleShowPassword()"
+								class="glyphicon glyphicon-eye-close form-control-feedback" 
+								style="cursor: pointer; pointer-events: all;">
+							</span>
+						</div> -->
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

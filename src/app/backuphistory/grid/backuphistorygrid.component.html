@@ -1,0 +1,27 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">{{ 'backuphistory_list' | translate }}</h3>
+	</div>
+	<!-- /.box-header -->
+	
+	<div class="box-body">
+		<app-alert></app-alert>
+		<div class="form-group">
+			<!-- <button class="btn btn-primary" (click)="onAddBackuphistory()"><i class="fa fa-plus"></i> {{ 'btn_add_text' | translate }}</button> 
+			&nbsp; -->
+			<input type="text" [(ngModel)]="fromDate" placeholder="From" name="fromDate"    bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }" autocomplete="off" />&nbsp;
+			<input type="text" [(ngModel)]="toDate" placeholder="To"  name="toDate" 
+			bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }" autocomplete="off" />&nbsp;
+			<button class="btn btn-primary" (click)="onSearch()"><i class="fa fa-search-plus"></i> {{ 'btn_search_text' | translate }}</button> 
+			&nbsp;
+			<button class="btn btn-primary text-right" (click)="onDownload()"><i class="fa fa-download"></i>{{ "btn_download_text" | translate }}</button>
+		</div>
+		<div style="width: 100%;">
+			<ag-grid-angular #agGrid style="width: 100%; height: 600px" class="ag-theme-alpine" [gridOptions]="gridOptions"
+		        [defaultColDef]="defaultColDef" [enableRangeSelection]="true" [enableCellTextSelection]=true
+		        >
+		      </ag-grid-angular>
+		</div>
+	</div>
+	
+</div>

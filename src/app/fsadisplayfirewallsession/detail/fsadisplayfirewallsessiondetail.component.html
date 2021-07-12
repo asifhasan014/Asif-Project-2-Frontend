@@ -1,0 +1,149 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'fsadisplayfirewallsession' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'fsadisplayfirewallsession' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'fsadisplayfirewallsession_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="fsadisplayfirewallsessiondetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="fsadisplayfirewallsession.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_deviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.deviceName" formControlName="deviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_deviceIp' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.deviceIp" formControlName="deviceIp" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_vpn' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.vpn" formControlName="vpn" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_dataOcsId' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.dataOcsId" formControlName="dataOcsId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_publicId' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.publicId" formControlName="publicId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_zone' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.zone" formControlName="zone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_trustTtl' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.trustTtl" formControlName="trustTtl" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_trustTtlLeft' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.trustTtlLeft" formControlName="trustTtlLeft" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_recvInterface' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.recvInterface" formControlName="recvInterface" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_interfaceName' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.interfaceName" formControlName="interfaceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_nextHop' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.nextHop" formControlName="nextHop" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_mac' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.mac" formControlName="mac" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_packets' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.packets" formControlName="packets" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_bytes' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.bytes" formControlName="bytes" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_policyName' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.policyName" formControlName="policyName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_sourceAddress' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.sourceAddress" formControlName="sourceAddress" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_destinationAddress' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.destinationAddress" formControlName="destinationAddress" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_tcpState' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.tcpState" formControlName="tcpState" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_deviceType' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.deviceType" formControlName="deviceType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_accessedFromDeviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.accessedFromDeviceName" formControlName="accessedFromDeviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_accessedFromDeviceIP' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.accessedFromDeviceIP" formControlName="accessedFromDeviceIP" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_accessDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="accessDate" name="accessDate" [(ngModel)]="fsadisplayfirewallsession.accessDate" class="form-control" formControlName="accessDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_accessedBy' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.accessedBy" formControlName="accessedBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_isScheduled' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="fsadisplayfirewallsession.isScheduled" formControlName="isScheduled" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'fsadisplayfirewallsession_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="fsadisplayfirewallsession.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="fsadisplayfirewallsession.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="fsadisplayfirewallsession.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

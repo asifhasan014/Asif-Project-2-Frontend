@@ -1,0 +1,146 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'qosericssontneth' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'qosericssontneth' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'qosericssontneth_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="qosericssontnethdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="qosericssontneth.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'qosericssontneth_id' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.id" formControlName="id" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_lcAend' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.lcAend" formControlName="lcAend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_lcZend' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.lcZend" formControlName="lcZend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_lcCombination' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.lcCombination" formControlName="lcCombination" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_lcAendOrZend' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.lcAendOrZend" formControlName="lcAendOrZend" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_createdAt' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="createdAt" name="createdAt" [(ngModel)]="qosericssontneth.createdAt" class="form-control" formControlName="createdAt" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_updatedAt' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="updatedAt" name="updatedAt" [(ngModel)]="qosericssontneth.updatedAt" class="form-control" formControlName="updatedAt" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'qosericssontneth_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="qosericssontneth.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						qosericssontneth.componentId >= 0 &&
+						qosericssontneth.uploadedAttachment != null &&
+						qosericssontneth.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "qosericssontneth_uploadedAttachment" | translate }} :
+							{{ qosericssontneth.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="qosericssontneth.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="qosericssontneth.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

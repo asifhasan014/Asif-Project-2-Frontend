@@ -1,0 +1,65 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">
+      {{ "ldsettlementsiteprioritykpi_list" | translate }}
+    </h3>
+  </div>
+  <!-- /.box-header -->
+
+  <div class="box-body">
+    <div class="form-group">
+      <button
+        class="btn btn-primary"
+        (click)="onAddLdsettlementsiteprioritykpi()"
+      >
+        <i class="fa fa-plus"></i> {{ "btn_add_text" | translate }}
+      </button>
+      &nbsp; &nbsp;
+      <input
+        type="text"
+        name="uniqueCode"
+        [(ngModel)]="ldsettlementsiteprioritykpi.uniqueCode"
+      />
+      &nbsp;
+      <input
+        type="text"
+        [(ngModel)]="fromDate"
+        placeholder="From"
+        name="accessDate"
+        bsDatepicker
+        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 00:00:00' }"
+        autocomplete="off"
+      />&nbsp;
+      <input
+        type="text"
+        [(ngModel)]="toDate"
+        placeholder="To"
+        name="accessDate"
+        bsDatepicker
+        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD 23:59:59' }"
+        autocomplete="off"
+      />&nbsp;
+      <button class="btn btn-primary" (click)="searchByParams()">
+        <i class="fa fa-search-plus"></i> {{ "btn_search_text" | translate }}
+      </button>
+      &nbsp;<button class="btn btn-primary" (click)="downloadReport()">
+        <i class="fa fa-download"></i> Report
+      </button>
+    </div>
+    <div fxLayoutAlign="center center">
+      <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+    </div>
+    <div style="width: 100%">
+      <ag-grid-angular
+        #agGrid
+        style="width: 100%; height: 600px"
+        class="ag-theme-alpine"
+        [defaultColDef]="defaultColDef"
+        [enableRangeSelection]="true"
+        [enableCellTextSelection]="true"
+        [gridOptions]="gridOptions"
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>

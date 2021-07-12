@@ -1,0 +1,158 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ericssontsl' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ericssontsl' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ericssontsl_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ericssontsldetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ericssontsl.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ericssontsl_neAlias' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.neAlias" formControlName="neAlias" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_radioTerminalName' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.radioTerminalName" formControlName="radioTerminalName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_protectionModeAdminStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.protectionModeAdminStatus" formControlName="protectionModeAdminStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_capacity' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.capacity" formControlName="capacity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_txFreq' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.txFreq" formControlName="txFreq" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_rxFreq' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.rxFreq" formControlName="rxFreq" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_txOperStatusRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.txOperStatusRf1" formControlName="txOperStatusRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_txAdminStatusRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.txAdminStatusRf1" formControlName="txAdminStatusRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_currentOutputPowerRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.currentOutputPowerRf1" formControlName="currentOutputPowerRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_minOutputPowerRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.minOutputPowerRf1" formControlName="minOutputPowerRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_maxOutputPowerRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.maxOutputPowerRf1" formControlName="maxOutputPowerRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_selectedOutputPowerRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.selectedOutputPowerRf1" formControlName="selectedOutputPowerRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_currentInputPowerRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.currentInputPowerRf1" formControlName="currentInputPowerRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_inputAlarmThresholdRf1' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.inputAlarmThresholdRf1" formControlName="inputAlarmThresholdRf1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_txOperStatusRf2' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.txOperStatusRf2" formControlName="txOperStatusRf2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_currentInputPowerRf2' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.currentInputPowerRf2" formControlName="currentInputPowerRf2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_farEndNeIp' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.farEndNeIp" formControlName="farEndNeIp" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_farEndNeName' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.farEndNeName" formControlName="farEndNeName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_farEndNeSlot' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.farEndNeSlot" formControlName="farEndNeSlot" class="form-control"  autocomplete="off" />
+					</div>
+
+					<!-- newly added field start -->
+					<div class="form-group">
+						<label>{{ 'ericssontsl_aEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.aEnd" formControlName="aEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_zEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.zEnd" formControlName="zEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_systemCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.systemCode" formControlName="systemCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_ldmaLinkCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.ldmaLinkCode" formControlName="ldmaLinkCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_deviation' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.deviation" formControlName="deviation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ericssontsl_category' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.category" formControlName="category" class="form-control"  autocomplete="off" />
+					</div>
+					
+					<!-- newly added field end-->
+
+					<div class="form-group">
+						<label>{{ 'ericssontsl_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ericssontsl.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ericssontsl.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ericssontsl.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

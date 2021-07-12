@@ -1,0 +1,316 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "trafficpathanalysis" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "home" | translate }}</a>
+      </li>
+      <li class="active">{{ "trafficpathanalysis" | translate }}</li>
+      <li class="active">{{ "onDemandTrafficPathAnalysis" | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+
+  <div>
+    <section class="content">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">On Demand Traffic PathAnalysis</h3>
+        </div>
+        <div class="box-body">
+          <form [formGroup]="trafficpathanalysisdetailForm" autocomplete="off">
+            <div
+              class="form-group"
+              fxLayout="row"
+              fxLayoutAlign="start center"
+              fxLayoutGap="20px"
+            >
+              <div>
+                <input
+                  type="text"
+                  placeholder="Source IP"
+                  [(ngModel)]="trafficpathanalysis.sourceIp"
+                  formControlName="sourceIp"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Destination IP"
+                  [(ngModel)]="trafficpathanalysis.destinationIp"
+                  formControlName="destinationIp"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+              <div fxLayoutAlign="end center">
+                <button class="btn btn-primary" (click)="submitFormValue()">
+                  {{ "btn_execute_text" | translate }}
+                </button>
+              </div>
+            </div>
+          </form>
+          <br />
+          <app-alert
+            [hidden]="showSpinner || showSpinnerForDashboard"
+          ></app-alert>
+          <br />
+          <div fxLayoutAlign="center center">
+            <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+          </div>
+          <br />
+          <div [hidden]="showSpinner" style="width: 100%">
+            <ag-grid-angular
+              #agGrid
+              style="width: 100%; height: 200px"
+              class="ag-theme-balham"
+              [gridOptions]="gridOptions"
+              rowSelection="single"
+              [suppressRowClickSelection]="true"
+            >
+            </ag-grid-angular>
+          </div>
+          <br />
+          <div fxLayoutAlign="end center">
+            <button class="btn btn-primary" (click)="getSelectedRowData()">
+              {{ "btn_execute_text" | translate }}
+            </button>
+          </div>
+
+          <div fxLayoutAlign="center center">
+            <mat-spinner
+              *ngIf="showSpinnerForDashboard"
+              color="accent"
+            ></mat-spinner>
+          </div>
+          <div [hidden]="showSpinnerForDashboard || dataRetrive">
+            <!-- <div>{{receiveExecutedCommandStatus}}</div> -->
+            <mat-divider></mat-divider>
+            <br />
+            <div>
+              <textArea disabled> {{ notificationData }} </textArea>
+            </div>
+            <br />
+            <mat-divider></mat-divider>
+            <br />
+            <!-- dahboard design start -->
+
+            <!--           <highcharts-chart
+            [Highcharts]="Highcharts"
+            [constructorType]="chartConstructorForServicePath"
+            [options]="chartOptionsForServicePath"
+            [callbackFunction]="chartCallbackForServicePath"
+            [(update)]="updateFlagForServicePath"
+            [oneToOne]="oneToOneFlag"
+            [runOutsideAngular]="runOutsideAngularFlag"
+            style="width: 100%; height: 600px; display: block"
+            class="custom"
+          ></highcharts-chart>
+          <highcharts-chart
+                  [Highcharts]="Highcharts"
+                  [options]="chartOptionsForTopology"
+                  style="width: 100%; height: 800px; display: block"
+                ></highcharts-chart>
+          <mat-divider></mat-divider>
+          <br />
+
+          <highcharts-chart
+            [Highcharts]="Highchartstopo"
+            [constructorType]="chartConstructorForTopology"
+            [options]="chartOptionsForTopology"
+            [callbackFunction]="chartCallbackForTopology"
+            [(update)]="updateFlagForTopology"
+            [oneToOne]="oneToOneFlag"
+            [runOutsideAngular]="runOutsideAngularFlag"
+            style="width: 100%; height: 600px; display: block"
+            class="custom"
+          ></highcharts-chart> -->
+
+            <div
+              fxLayout="column"
+              fxLayoutAlign="space-between start"
+              fxLayoutGap="20px"
+            >
+              <!-- service path -->
+
+              <div
+                fxLayout="row"
+                fxLayoutAlign="space-between start"
+                fxLayoutGap="20px"
+              >
+                <div>
+                  <!-- <mat-label class="customFont"> <u>Service Path</u> </mat-label>
+            <mat-list role="list" *ngFor="let item of trafficpathanalysisData">
+              <mat-list-item role="listitem">{{ item.routerIp }}</mat-list-item>
+            </mat-list> -->
+
+                  <highcharts-chart
+                    [Highcharts]="Highcharts"
+                    [options]="chartOptionsForServicePath"
+                    style="width: 100%; height: 800px; display: block"
+                  ></highcharts-chart>
+                </div>
+
+                <!-- topology -->
+                <div>
+                  <!-- <mat-label class="customFont"> <u>Service Topology</u> </mat-label>
+    
+            <div class="vertical-divider">
+              <div>
+                <div
+                  class="center-element"
+                  *ngFor="let item of trafficpathanalysisData"
+                >
+                  {{ item.routerIp }} <br />
+                  {{ item.routerName }}
+                </div>
+              </div>
+            </div> -->
+
+                  <highcharts-chart
+                    [Highcharts]="Highcharts"
+                    [options]="chartOptionsForTopology"
+                    style="width: 100%; height: 800px; display: block"
+                  ></highcharts-chart>
+                </div>
+              </div>
+
+              
+              <!-- report -->
+              <div *ngIf="kpiReportData">
+                <mat-label class="customFont">
+                  <u>Hop by Hop Link KPI</u>
+                </mat-label>
+                <br />
+
+                <table
+                  mat-table
+                  matTableExporter
+                  [dataSource]="kpiReportData"
+                  class="mat-elevation-z8 pad"
+                  #exporter="matTableExporter"
+                >
+                  <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="linkName">
+                    <th mat-header-cell *matHeaderCellDef>Link Name</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.linkName }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="inboundUtilization">
+                    <th mat-header-cell *matHeaderCellDef>
+                      Inbound Utilization
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.inboundUtilization }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="outboundUtilization">
+                    <th mat-header-cell *matHeaderCellDef>
+                      Outbound Utilization
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.outboundUtilization }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="udpJitterDelay">
+                    <th mat-header-cell *matHeaderCellDef>UDP Jitter Delay</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.udpJitterDelay }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="updJitterAvgDelay">
+                    <th mat-header-cell *matHeaderCellDef>
+                      UDP Jitter AVG Delay
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.updJitterAvgDelay }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="updJitterPacketLoss">
+                    <th mat-header-cell *matHeaderCellDef>
+                      UDP jitter packet loss
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.updJitterPacketLoss }}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="accessDate">
+                    <th mat-header-cell *matHeaderCellDef>Collection Time</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.accessDate | date: "dd-MM-yyyy HH:mm:ss" }}
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+                <br />
+                <div>
+                  <button
+                    mat-raised-button
+                    (click)="
+                      exporter.exportTable('xlsx', {
+                        fileName: 'KPI Report',
+                        sheet: 'KPI Report',
+                        Props: { Author: 'Together Initiatives Limited' }
+                      })
+                    "
+                  >
+                    Download as Excel
+                  </button>
+                  <button
+                    mat-raised-button
+                    (click)="
+                      exporter.exportTable('csv', {
+                        fileName: 'KPI Report',
+                        sheet: 'KPI Report',
+                        Props: { Author: 'Together Initiatives Limited' }
+                      })
+                    "
+                  >
+                    Download as CSV
+                  </button>
+                  &nbsp; <b style="color: blue;">Note : '*' marks denotes multiple links are present</b>
+                </div>
+              </div>
+            </div>
+            <br>
+            <mat-divider></mat-divider>
+              <br />
+              <div>
+                <textArea disabled> {{ notificationDataKPI }} </textArea>
+              </div>
+
+              <mat-divider></mat-divider>
+              <br />
+            <!-- end for validation -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

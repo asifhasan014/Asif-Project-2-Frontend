@@ -1,0 +1,213 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ldsettlementdclow' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ldsettlementdclow' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ldsettlementdclow_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ldsettlementdclowdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ldsettlementdclow.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ldsettlementdclow_serial' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.serial" formControlName="serial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_node' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.node" formControlName="node" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_manager' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.manager" formControlName="manager" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_alertKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.alertKey" formControlName="alertKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_severity' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.severity" formControlName="severity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_summary' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.summary" formControlName="summary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_firstOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="firstOccurrence" name="firstOccurrence" [(ngModel)]="ldsettlementdclow.firstOccurrence" class="form-control" formControlName="firstOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_lastOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="lastOccurrence" name="lastOccurrence" [(ngModel)]="ldsettlementdclow.lastOccurrence" class="form-control" formControlName="lastOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_clearTimeStamp' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="clearTimeStamp" name="clearTimeStamp" [(ngModel)]="ldsettlementdclow.clearTimeStamp" class="form-control" formControlName="clearTimeStamp" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_location' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_at' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.at" formControlName="at" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_x733EventType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.x733EventType" formControlName="x733EventType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_equipmentKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.equipmentKey" formControlName="equipmentKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_srcemsIdentifier' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.srcemsIdentifier" formControlName="srcemsIdentifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_ttSequence' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.ttSequence" formControlName="ttSequence" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_ttStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.ttStatus" formControlName="ttStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_customattr3' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.customattr3" formControlName="customattr3" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_clusterName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.clusterName" formControlName="clusterName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_division' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_edotcoPmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.edotcoPmfZone" formControlName="edotcoPmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_district' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteName" formControlName="siteName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_sharedStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.sharedStatus" formControlName="sharedStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_hvcStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.hvcStatus" formControlName="hvcStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteDistance' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteDistance" formControlName="siteDistance" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteCategory' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteCategory" formControlName="siteCategory" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_siteClass' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.siteClass" formControlName="siteClass" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_processState' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.processState" formControlName="processState" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.frequency" formControlName="frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_technology' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.technology" formControlName="technology" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_bcch' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.bcch" formControlName="bcch" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_customattr2' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.customattr2" formControlName="customattr2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_customattr1' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.customattr1" formControlName="customattr1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_tally' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.tally" formControlName="tally" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_parentPointer' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.parentPointer" formControlName="parentPointer" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementdclow_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementdclow.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ldsettlementdclow.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ldsettlementdclow.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

@@ -1,0 +1,186 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'huaweiqos' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'huaweiqos' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'huaweiqos_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="huaweiqosdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="huaweiqos.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'huaweiqos_deviceId' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.deviceId" formControlName="deviceId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_deviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.deviceName" formControlName="deviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_resourceName' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.resourceName" formControlName="resourceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_azEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.azEnd" formControlName="azEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_collectionTime' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="collectionTime" name="collectionTime" [(ngModel)]="huaweiqos.collectionTime" class="form-control" formControlName="collectionTime" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_granularityPeriod' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.granularityPeriod" formControlName="granularityPeriod" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_qosPriDroppkts' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.qosPriDroppkts" formControlName="qosPriDroppkts" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_qosPriDropBytes' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.qosPriDropBytes" formControlName="qosPriDropBytes" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_qosPriBandwidthUtilisation' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.qosPriBandwidthUtilisation" formControlName="qosPriBandwidthUtilisation" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_portPriSndpkts' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.portPriSndpkts" formControlName="portPriSndpkts" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_portPriSndbytes' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.portPriSndbytes" formControlName="portPriSndbytes" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_qosPortqueueDropratio' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.qosPortqueueDropratio" formControlName="qosPortqueueDropratio" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_ecmprsRatio' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.ecmprsRatio" formControlName="ecmprsRatio" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_txpkts' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.txpkts" formControlName="txpkts" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_txoctets' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.txoctets" formControlName="txoctets" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_portPriTxBps' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.portPriTxBps" formControlName="portPriTxBps" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_portPriTxPps' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.portPriTxPps" formControlName="portPriTxPps" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_uploadedAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.uploadedAttachment" formControlName="uploadedAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_uploadedAttachmentFileId' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.uploadedAttachmentFileId" formControlName="uploadedAttachmentFileId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_downloadAttachment' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'huaweiqos_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="huaweiqos.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<!-- file Attachment html start  workRequest-->
+					<div
+						class="form-group"
+						*ngIf="
+						huaweiqos.componentId >= 0 &&
+						huaweiqos.uploadedAttachment != null &&
+						huaweiqos.uploadedAttachment.trim() != ''
+						"
+						>
+						<label
+							>{{ "huaweiqos_uploadedAttachment" | translate }} :
+							{{ huaweiqos.uploadedAttachment }}</label
+						>
+						&nbsp;
+						<button
+							class="btn btn-primary text-right"
+							(click)="onDownload()"
+						>
+							<i class="fa fa-download"></i>
+							{{ "btn_download_text" | translate }}
+						</button>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+							<input
+								type="file"
+								(change)="onFileChange($event)"
+								placeholder="{{ 'select_file' | translate }}"
+								accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+								#inputFile
+							/>
+							<span *ngIf="fileUploadExecutionDone">
+								<small *ngIf="fileAttached"
+								><font color="green">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+								<small *ngIf="!fileAttached"
+								><font color="red">{{
+									fileAttachedMessage
+								}}</font></small
+								>
+							</span>
+						</div>
+							<!--<div class="col-md-2">
+								<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+								</div>-->
+						</div>
+					</div>
+						<!-- file Attachment html end  workRequest-->
+						
+						<div *ngIf="huaweiqos.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="huaweiqos.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

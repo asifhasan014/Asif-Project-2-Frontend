@@ -1,0 +1,93 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'padhdisplaydevicehealthprediction' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'padhdisplaydevicehealthprediction' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'padhdisplaydevicehealthprediction_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="padhdisplaydevicehealthpredictiondetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="padhdisplaydevicehealthprediction.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_deviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.deviceName" formControlName="deviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_deviceIp' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.deviceIp" formControlName="deviceIp" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_slot' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.slot" formControlName="slot" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_type' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.type" formControlName="type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_online' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.online" formControlName="online" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_currentRegisterStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.currentRegisterStatus" formControlName="currentRegisterStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_currentRegisterHealth' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.currentRegisterHealth" formControlName="currentRegisterHealth" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_predictedRegisterHealth' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.predictedRegisterHealth" formControlName="predictedRegisterHealth" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_currentDeviceStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.currentDeviceStatus" formControlName="currentDeviceStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_currentDeviceHealth' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.currentDeviceHealth" formControlName="currentDeviceHealth" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'padhdisplaydevicehealthprediction_predictedDeviceHealth' | translate }}</label>
+						<input type="text" [(ngModel)]="padhdisplaydevicehealthprediction.predictedDeviceHealth" formControlName="predictedDeviceHealth" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="padhdisplaydevicehealthprediction.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="padhdisplaydevicehealthprediction.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

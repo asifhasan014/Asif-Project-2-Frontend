@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="row" style="margin-top: 50px;">
+    <div
+      class="col-md-5 leftReg"
+      style="
+        background-image: url('assets/img/virtual-reality 1.jpg');
+        margin-top: 100px;
+        display: none;
+      "
+    ></div>
+
+    <div class="col-md-12" style="text-align: center;"></div>
+    <div class="col-md-6 rightReg">
+      <h2>Robi Automation Tool V 1.0</h2>
+      <br />
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">
+              First Name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <input type="gender" formControlName="gender" class="form-control" />
+          <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+            <div *ngIf="f.gender.errors.required">Gender is required</div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <select formControlName="userType" >
+            <option value="">Choose User Type</option>
+            <option value="Robi">Robi</option>
+            <option value="Vendor">Vendor</option>
+          </select>
+        
+          <div class="error-block" *ngIf="submitted && handleError('userType', 'required')">
+            You must provide a value!
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <button class="btn btn-warning">CREATE A ACCOUNT</button>
+          <img
+            *ngIf="loading"
+            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+          />
+          &nbsp; &nbsp;
+          <a [routerLink]="['/login']" class="btn btn-danger">Cancel</a>
+        </div>
+
+        <div class="form-group">
+          <hr />
+          <span>Already Created Account</span>&nbsp;<a
+            [routerLink]="['/signin']"
+            class="btn btn-danger"
+            >Sign In
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

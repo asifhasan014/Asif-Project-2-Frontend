@@ -1,0 +1,107 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'mpbnassetinventory' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'mpbnassetinventory' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'mpbnassetinventory_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="mpbnassetinventorydetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="mpbnassetinventory.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'mpbnassetinventory_neName' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.neName" formControlName="neName" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.neName.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.neName.errors" class="invalid-feedback">
+							<div *ngIf="f.neName.errors.required">{{ 'mpbnassetinventory_neName' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_type' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.type" formControlName="type" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_neType' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.neType" formControlName="neType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_neIpAddress' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.neIpAddress" formControlName="neIpAddress" class="form-control" [ngClass]="{ 'is-invalid': isFormCheckRequired && f.neIpAddress.errors }" autocomplete="off" />
+						<div *ngIf="isFormCheckRequired && f.neIpAddress.errors" class="invalid-feedback">
+							<div *ngIf="f.neIpAddress.errors.required">{{ 'mpbnassetinventory_neIpAddress' | translate }} {{'is_required' | translate }}</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_location' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_softwareVersion' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.softwareVersion" formControlName="softwareVersion" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_deviceType' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.deviceType" formControlName="deviceType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_domain' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.domain" formControlName="domain" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_category' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.category" formControlName="category" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_subCategory' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.subCategory" formControlName="subCategory" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_role' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.role" formControlName="role" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'mpbnassetinventory_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="mpbnassetinventory.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="mpbnassetinventory.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="mpbnassetinventory.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

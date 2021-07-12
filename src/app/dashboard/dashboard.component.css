@@ -1,0 +1,154 @@
+.dummyDiv{
+    width: 80%;
+    height: 80vh;
+}
+.previous-tab,
+.next-tab{
+	display: inline-block;
+	border: 1px solid #444348;
+	border-radius: 3px;
+	margin: 5px;
+	color: #444348;
+	font-size: 14px;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.applyfor{
+    width: 700px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+
+}
+ h1{
+    color:#000;
+    font-size:68px;
+    font-weight: 800;
+}
+h3{
+    color: #000;
+    font-size:26px;
+    font-weight: 600;
+}
+.applyst{
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.table-borderless{
+    width: 700px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.btn-dark{
+    border: 3px solid rgb(49, 41, 41);
+}
+ol li{
+    color:#000;
+    font-weight: 600;;
+}
+ul li{
+    text-align: left;
+    list-style: none;
+}
+.applynd{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.lows{
+    width: 700px;
+    border: 3px solid #fff;
+    padding:5px;
+    text-align: left;
+    margin: auto;
+}
+
+.applyrd{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.applyth{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.applyfth{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.applysth{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.applsvn{
+    width: 800px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.applsvn1{
+    width: 1000px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.appleight{
+    width: 1000px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.tabl{
+    width: 1000px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.table-borderless1{
+    width: 700px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    border-color: #e08e0b;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 20px !important;
+}
+.btn-danger {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 20px !important;
+}
+.btn-info {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 20px !important;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0px;
+    height: 30px;
+    width: 59px;
+}
+.tabl tr td{
+    border:1px solid#555;
+    text-align: left;
+}

@@ -1,0 +1,213 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'ldsettlementmainsfailure' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'ldsettlementmainsfailure' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'ldsettlementmainsfailure_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="ldsettlementmainsfailuredetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="ldsettlementmainsfailure.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_serial' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.serial" formControlName="serial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_node' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.node" formControlName="node" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_manager' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.manager" formControlName="manager" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_alertKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.alertKey" formControlName="alertKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_severity' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.severity" formControlName="severity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_summary' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.summary" formControlName="summary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_firstOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="firstOccurrence" name="firstOccurrence" [(ngModel)]="ldsettlementmainsfailure.firstOccurrence" class="form-control" formControlName="firstOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_lastOccurrence' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="lastOccurrence" name="lastOccurrence" [(ngModel)]="ldsettlementmainsfailure.lastOccurrence" class="form-control" formControlName="lastOccurrence" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_clearTimeStamp' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="clearTimeStamp" name="clearTimeStamp" [(ngModel)]="ldsettlementmainsfailure.clearTimeStamp" class="form-control" formControlName="clearTimeStamp" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD HH:mm:ss' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_location' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.location" formControlName="location" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_at' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.at" formControlName="at" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_x733EventType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.x733EventType" formControlName="x733EventType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_equipmentKey' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.equipmentKey" formControlName="equipmentKey" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_srcemsIdentifier' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.srcemsIdentifier" formControlName="srcemsIdentifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_ttSequence' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.ttSequence" formControlName="ttSequence" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_ttStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.ttStatus" formControlName="ttStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_customattr3' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.customattr3" formControlName="customattr3" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_clusterName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.clusterName" formControlName="clusterName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_division' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_edotcoPmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.edotcoPmfZone" formControlName="edotcoPmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_district' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteName' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteName" formControlName="siteName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_sharedStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.sharedStatus" formControlName="sharedStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_hvcStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.hvcStatus" formControlName="hvcStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteDistance' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteDistance" formControlName="siteDistance" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteCategory' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteCategory" formControlName="siteCategory" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_siteClass' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.siteClass" formControlName="siteClass" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_processState' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.processState" formControlName="processState" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_frequency' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.frequency" formControlName="frequency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_technology' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.technology" formControlName="technology" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_bcch' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.bcch" formControlName="bcch" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_customattr2' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.customattr2" formControlName="customattr2" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_customattr1' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.customattr1" formControlName="customattr1" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_tally' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.tally" formControlName="tally" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_parentPointer' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.parentPointer" formControlName="parentPointer" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'ldsettlementmainsfailure_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="ldsettlementmainsfailure.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="ldsettlementmainsfailure.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="ldsettlementmainsfailure.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

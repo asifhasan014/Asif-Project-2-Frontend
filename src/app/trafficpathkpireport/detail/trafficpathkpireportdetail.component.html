@@ -1,0 +1,105 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'trafficpathkpireport' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'trafficpathkpireport' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'trafficpathkpireport_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="trafficpathkpireportdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="trafficpathkpireport.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'trafficpathkpireport_sourceIp' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.sourceIp" formControlName="sourceIp" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_destinationIp' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.destinationIp" formControlName="destinationIp" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_linkName' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.linkName" formControlName="linkName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_inboundUtilization' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.inboundUtilization" formControlName="inboundUtilization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_outboundUtilization' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.outboundUtilization" formControlName="outboundUtilization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_udpJitterDelay' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.udpJitterDelay" formControlName="udpJitterDelay" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_updJitterAvgDelay' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.updJitterAvgDelay" formControlName="updJitterAvgDelay" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_updJitterPacketLoss' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.updJitterPacketLoss" formControlName="updJitterPacketLoss" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_accessedFromDeviceName' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.accessedFromDeviceName" formControlName="accessedFromDeviceName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_accessedFromDeviceIP' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.accessedFromDeviceIP" formControlName="accessedFromDeviceIP" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_accessDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="accessDate" name="accessDate" [(ngModel)]="trafficpathkpireport.accessDate" class="form-control" formControlName="accessDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_accessedBy' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.accessedBy" formControlName="accessedBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_isScheduled' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="trafficpathkpireport.isScheduled" formControlName="isScheduled" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'trafficpathkpireport_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="trafficpathkpireport.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="trafficpathkpireport.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="trafficpathkpireport.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

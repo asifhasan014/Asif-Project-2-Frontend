@@ -1,0 +1,436 @@
+<div class="content-wrapper" *ngIf="this.router.url === '/dashboard'">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Dashboard
+    </h1>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <!-- Small boxes (Stat box) -->
+     
+<!--      <div class="row">-->
+<!--      <div class="col-lg-6 col-xs-6">-->
+<!--        <div class="small-box bg-blue-gradient" style="text-align: center;">-->
+<!--          <div class="inner">-->
+<!--           <a href="../../baseproject/assets/clients/Humanity Demo Client.zip"> -->
+<!--              <img src="../../baseproject/assets/img/download-icon-green.jpg"/></a>-->
+<!--          </div>-->
+<!--          <div class="icon">-->
+<!--            <i class="ion ion-bag"></i>-->
+<!--          </div>-->
+<!--          <a href="../../baseproject/assets/clients/Humanity Demo Client.zip"-->
+<!--           class="small-box-footer">Download Game Client <i class="fa fa-arrow-circle-down"></i></a>-->
+<!--        </div>-->
+<!--      </div>  -->
+<!--    </div>-->
+
+    <div class="row dummyDiv"></div>
+  </section>
+  <!-- /.content -->
+</div>
+
+
+<div id="mfpform" style="min-height: 100vh;background-image: url('assets/img/backi.jpg');background-color: #000;background-position: center;background-repeat: no-repeat;background-size: cover;" class="content-wrapper" *ngIf="this.router.url === '/mminfo'">
+  <form  [formGroup]="cityzenForm" >
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTabs" role="tablist" style="display: none;">
+            <li role="presentation" class="active"><a href="#step1" aria-controls="step1" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step2" aria-controls="step2" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step3" aria-controls="step3" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step4" aria-controls="step4" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step5" aria-controls="step5" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step6" aria-controls="step6" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step7" aria-controls="step7" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step8" aria-controls="step8" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step9" aria-controls="step9" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step10" aria-controls="step10" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step11" aria-controls="step11" role="tab" data-toggle="tab"></a></li>
+            <li role="presentation"><a href="#step12" aria-controls="step12" role="tab" data-toggle="tab"></a></li>
+        </ul>
+      <div class="tab-content" >
+        <div role="tabpanel" class="tab-pane active" id="step1" style="margin-top:100px;">
+            <div class="container applyfor">
+                <h1>Welcome to Angular 8 Base Project V 1.0</h1>
+                <h3>To Start Your Journy, You need to apply for citizenship first </h3>
+                <br>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="APPLY FOR CITIZENSHIP"/>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step2">
+            <div class="container applyst">
+                <h1>CITIZENSHIP</h1>
+                <h3>This is a very importan step. By becomming, you take on the responsibility of following the laws of the land. We have synthesized the latest insghts of philosophy. Religian ethis and developed three legal codes to goven all the virtual nations. </h3>
+                <br>
+                <div class="table-responsive-sm">  
+                    <table class="table-borderless">
+                        <tr>
+                            <td></td>
+                            <td><button type="button" class="btn btn-dark btn-lg">Supermy Lows</button></td>
+                            <td></td>
+                        </tr>
+                        <br><br><br>
+                        <tr>
+                            <td><button type="button" class="btn btn-dark btn-lg">Univarsel Laws</button></td>
+                            <td><button type="button" class="btn btn-dark btn-lg">Social Laws</button></td>
+                            <td><button type="button" class="btn btn-dark btn-lg">Internet Laws</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <br><br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <span class="next-tab btn btn-warning btn-lg">NEXT</span>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane actives2" id="step3">
+            <div class="container applynd formGroup" >
+                <h1>UNIVARSEL LAWS</h1>
+                <br>
+                <div class="lows">  
+                  <ol>
+                    <li><h3>The World is one, Whole and indivisible</h3></li>
+                    <li><h3>Time is indivisiable and is the measure of all that exists</h3></li>
+                    <li><h3>Everything changes "PANTA RHEI" (Everything - Heraclitus)</h3></li>
+                    <li><h3>Everythig has a cause and effect</h3></li>
+                    <li><h3>For every action there is a reaction</h3></li>
+                    <li><h3>Life is sacred</h3></li>
+                  </ol>
+                </div>
+                <br>
+                <div class="table-responsive-sm">  
+                    <table class="table-borderless">
+                      <tr>
+                        <td> <h3><input type="radio" formControlName="uAccepts" name="uAccepts"  value="accept"> Accepts</h3></td>
+                        <td> <h3><input type="radio" formControlName="uAccepts" name="uAccepts"  value="reject"> Reject</h3></td>
+                      </tr>
+                    </table>
+                </div>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <span class="next-tab btn btn-warning btn-lg">NEXT</span>
+              </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step4">
+          <div class="container applyrd formGroup">
+              <h1>SOCIAL LAWS</h1>
+              <br>
+              <div class="lows">  
+                  <ol>
+                      <li><h3>The world is our common home so take care of it</h3></li>
+                      <li><h3>Time is indivisiable and is the measure of all that exists</h3></li>
+                      <li><h3>Everything changes "PANTA RHEI" (Everything - Heraclitus)</h3></li>
+                      <li><h3>Everythig has a cause and effect</h3></li>
+                      <li><h3>For every action there is a reaction</h3></li>
+                      <li><h3>Life is sacred</h3></li>
+                  </ol>
+              </div>
+              <br>
+              <div class="table-responsive-sm">  
+                      <table class="table-borderless formGroup">
+                          <tr>
+                              <td> <h3><input type="radio"  formControlName="saccepts"  name="accepts" value="accept"> Accepts</h3></td>
+                              <td> <h3><input type="radio"  formControlName="saccepts" name="accepts" value="reject"> Reject</h3></td>
+                          </tr>
+                      </table>
+              </div>
+              <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <span class="next-tab btn btn-warning btn-lg">NEXT</span>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step5">
+            <div class="container applyth formGroup">
+                <h1>INTERNET LAWS</h1>
+                <br>
+                <div class="lows">  
+                  <ol>
+                    <li><h3>The worl is our common home so take care of it</h3></li>
+                    <li><h3>Time is indivisiable and is the measure of all that exists</h3></li>
+                    <li><h3>Everything changes "PANTA RHEI" (Everything - Heraclitus)</h3></li>
+                    <li><h3>Everythig has a cause and effect</h3></li>
+                    <li><h3>For every action there is a reaction</h3></li>
+                    <li><h3>Life is sacred</h3></li>
+                  </ol>
+                </div>
+                <br>
+                <div class="table-responsive-sm">  
+                    <table class="table-borderless">
+                      <tr>
+                        <td> <h3><input type="radio" 
+                           formControlName="iaccepts" 
+                           name="accepts" 
+                           value="accept"> 
+                           Accepts</h3></td>
+                        <td> <h3><input type="radio"
+                           formControlName="iaccepts" 
+                           name="accepts"
+                            value="reject"> 
+                            Reject</h3></td>
+                      </tr>
+                    </table>
+                </div>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+          
+                <input  type="submit"  (click)= "onSubmitLawCheck()"  name="apply" class="btn btn-warning btn-lg" value="NEXT"/>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step6" style="margin-top:50px;">
+            <div class="container applyth formGroup">
+            <h1>SELECT OR INPUT YOUR COUNTRY</h1>
+            <div class="col-md-4">
+                <select class="form-control" name="country">
+                    <option>--Select from user country---</option>
+                    <option>DDD</option>
+                    <option>BBB</option>
+                    <option>CCC</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-control" name="country">
+                    <option>--Select from existing country---</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                  </select>
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="accepts" class="form-control" placeholder="Input your desire country">
+            </div>
+            <br><br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="NEXT"/>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step7">
+            <div class="container applyfth formGroup">
+                <h1>CONGRATULATIONS</h1>
+                <br>
+                <div>  
+                    <img src="../../assets/img/cong.png"/>
+                </div>
+                <br>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="FORWORD TO THE FUTURE"/>
+            </div>
+            <div class="container applyfth">
+                <h1>SORRY FOR FAIL</h1>
+                <br>
+                <div>  
+                    <img src="../../assets/img/cong.png"/>
+                </div>
+                
+                <br>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg previous-tab" value="FORWORD TO THE START"/>
+           </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step12">
+          <div class="container applyfth formGroup">
+              <h1>CONGRATULATIONS</h1>
+              <br>
+              <div>  
+                  <img src="../../assets/img/cong.png"/>
+              </div>
+              <br>
+              <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="FORWORD TO THE FUTURE"/>
+          </div>
+          <div class="container applyfth">
+              <h1>SORRY FOR FAIL</h1>
+              <br>
+              <div>  
+                  <img src="../../assets/img/cong.png"/>
+              </div>
+              
+              <br>
+              <input type="submit" name="apply" class="btn btn-warning btn-lg previous-tab" value="FORWORD TO THE START"/>
+         </div>
+      </div>
+        <div role="tabpanel" class="tab-pane" id="step8">
+            <div class="container applysth formGroup">
+                <h1>CONSTITUTION</h1>
+                <br>
+                <div class="lows">  
+                    <ol>
+                        <li><h3>The Establishment </h3></li>
+                        <li><h3>Or input your desire country</h3></li>
+                    </ol>
+                </div>
+                <br>
+                <ul>
+                    <li><h3><input type="radio"  formControlName="conAccept" name="accept" value="accept" selected> Accepts</h3></li>
+                    <li><h3><input type="radio"  formControlName="conReject" name="accept" value="reject"> Rejects</h3></li>
+                    <li><h3><input type="radio"  formControlName="conAcceptAndComment" name="accept" value="accept"> Accepts & Comments</h3></li>
+                    <li><h3><input type="radio" formControlName="jonConstitutionalCmty"  name="accept" value="reject"> Join Constitutional Committee</h3></li>
+                </ul>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="NEXT"/>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step9">
+            <div class="container applsvn1 formGroup">
+                <h1>PROFESSIONAL SELECTION</h1>
+                <br>
+                <div class="lows">  
+                    <ol>
+                        <li><h3>After Choosing the proffesioal</h3></li>
+                        <li><h3>Or input your desire country</h3></li>
+                    </ol>
+                </div>
+                <br>
+                <div class="table-responsive-sm formGroup">  
+                  
+                        <table class="table-borderless tabl">
+                            <tr>
+                               <td><h3><input type="checkbox"  formControlName="politics" 
+                                 name="Politice" value="politics">&nbsp; Politics</h3></td>
+
+                               <td><h3><input type="checkbox"  formControlName="finance" 
+                                 name="Finance" value="Finance">&nbsp; Finance</h3></td>
+
+                               <td><h3><input type="checkbox"  formControlName="businness" 
+                                 name="Business" value="Business">&nbsp; Business</h3></td>
+                            </tr>
+
+                            <tr>
+                                <td><h3><input type="checkbox"  formControlName="science" 
+                                   name="Scinice" value="Scinice">&nbsp; Scinice</h3></td>
+                                   
+                                <td><h3><input type="checkbox"  formControlName="nonProfit"
+                                    name="Nonprofit" value="Nonprofit">&nbsp; Nonprofit</h3></td>
+
+                                <td><h3><input type="checkbox"  formControlName="education" 
+                                   name="Education" value="Education">&nbsp; Education</h3></td>
+                            </tr>
+
+                            <tr>
+                                <td><h3><input type="checkbox"  formControlName="medicine" 
+                                   name="Madicine" value="Medicine">&nbsp; Medicine</h3></td>
+
+                                <td><h3><input type="checkbox"  formControlName="security" 
+                                   name="Security" value="Security">&nbsp; Security</h3></td> 
+
+                                <td><h3><input type="checkbox"  formControlName="massMedia" 
+                                   name="massmedia" value="Mass Media">&nbsp; Mass Media</h3></td>
+                            </tr>
+                            <tr>
+                                <td><h3><input type="checkbox"  formControlName="sports"  
+                                  name="Sports" value="Sports">&nbsp; Sports</h3></td>
+
+                                <td><h3><input type="checkbox"  formControlName="cultural" 
+                                   name="Cultural" value="Cultural">&nbsp; Cultural</h3></td>
+
+                                <td><h3><input type="checkbox"   formControlName="religion"
+                                   name="Religion" value="Religion">&nbsp;Religion</h3></td>
+                            </tr>
+
+
+                            <tr>
+                                
+                                <td colspan="3"><h3><input type="text"  formControlName="conAccept"
+                                   name="otherporf">&nbsp; Other Proffesional</h3></td>
+                                
+                            </tr>
+                        </table>
+                  
+                </div>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="NEXT"/>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step10">
+            <div class="container applsvn">
+                <h1>AREA OF ACTIVITES</h1>
+                <br>
+                <div class="lows">  
+                  <ol>
+                    <li><h3>After Choosing the proffesioal</h3></li>
+                    <li><h3>Or input your desire country</h3></li>
+                  </ol>
+                </div>
+                <br>
+                <div class="table-responsive-sm">  
+                  <form>
+                    <table class="table-borderless">
+                       
+                    </table>
+                  </form>
+                </div>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <input type="submit" name="apply" class="btn btn-warning btn-lg next-tab" value="ACKNOWLODGE"/>
+			        </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="step11">
+            <div class="container appleight formGroup">
+                <h1>MOTIVATION SELECTION</h1>
+                <br>
+                <div class="lows">  
+                  <ol>
+                    <li><h3>After Choosing the proffesioal</h3></li>
+                    <li><h3>Or input your desire country</h3></li>
+                  </ol>
+                </div>
+                <br>
+                <div class="table-responsive-sm">  
+                
+                    <table class="table-borderless tabl">
+                      <tr>
+                         <td><h3><input type="checkbox"  formControlName="training" 
+                           name="Training" value="Training">&nbsp; Training</h3></td>
+
+                         <td><h3><input type="checkbox"  formControlName="play" 
+                           name="Play" value="Play">&nbsp; Play</h3></td>
+                      </tr>
+
+                      <tr>
+                        <td><h3><input type="checkbox"  formControlName="jobsearch"
+                           name="jobsearch" value="jobsearch">&nbsp; Jobsearch</h3></td>
+
+                        <td><h3><input type="checkbox"  formControlName="SearchForPartner"
+                           name="SearchForPartner" value="SearchForPartner">&nbsp; Search For Partner</h3></td>
+                        
+                      </tr>
+                      <tr>
+                        <td><h3><input type="checkbox"  formControlName="startingBusiness"
+                           name="StratingBusiness" value="StratingBusiness">&nbsp; Strating Business</h3></td>
+                        
+                           <td><h3><input type="checkbox"  formControlName="philanthrophy"
+                           name="PhinalThorpy" value="PhinalThorpy">&nbsp; PhinalThorpy</h3></td>
+                        
+                      </tr>
+                      <tr>
+                        <td><h3><input type="checkbox"  formControlName="governmentWork"
+                           name="govtmentwork" value="govtmentwork">&nbsp; Govtment Work</h3></td>
+                        
+                           <td><h3><input type="checkbox"  formControlName="creativeActivity"
+                           name="creativeactivity" value="creativeactivity">&nbsp; Ceative Activity</h3></td>
+                        
+                      </tr>
+                      <tr>
+                          <td><h3><input type="checkbox"   formControlName="internationalAffires"
+                             name="internationalAffiers" value="internationalAffiers">&nbsp; International Affiers </h3></td>
+                          
+                             <td><h3><input type="checkbox"  formControlName="precosition"
+                             name="Precosition" value="Precosition">&nbsp; Precosition</h3></td>
+                          
+                        </tr>
+                      <tr>
+                        
+                        <td colspan="2"><h3><input type="text"  formControlName="otherGoalAndMotivition"
+                           name="otherporf">&nbsp; Other Goul And Motivition</h3></td>
+                        
+                      </tr>
+                    </table>
+                  
+                </div>
+                <br>
+                <span class="previous-tab btn btn-danger btn-lg">PREVIOUS</span>
+                <input type="submit"   (click)= "onSubmitTest()" name="finished" class="btn btn-info btn-lg next-tab" value="FINISHED"/>
+              </div>
+        </div>
+      </div>
+  </div>
+</form>
+</div>

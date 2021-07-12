@@ -1,0 +1,62 @@
+<aside class="main-sidebar" id="sidebarId" style="background-color: #4e1a20">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img
+          src="assets/img/user2-160x160.jpg"
+          class="img-circle"
+          alt="User Image"
+        />
+      </div>
+      <div class="pull-left info">
+        <p>{{ userDisplayName }}</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu scroll">
+      <!-- <li class="header">MAIN NAVIGATION</li> -->
+
+      <li
+        class="treeview"
+        *ngFor="let item of menuItems"
+        [ngClass]="{ active: item.id === selectedMenuItemId }"
+        style="background-color: #4e1a20"
+      >
+        <a
+          [routerLink]="[item.url]"
+          (click)="onItemSelection($event, item)"
+          style="background-color: #4e1a20"
+        >
+          <i class="{{ item.class }}"></i>
+          <span>{{ item.text | translate }}</span>
+          <span
+            *ngIf="item.child && item.child.length > 0"
+            class="pull-right-container"
+          >
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul *ngIf="item.child && item.child.length > 0" class="treeview-menu">
+          <li
+            *ngFor="let childItem of item.child"
+            [ngClass]="{ active: childItem.id === selectedMenuItemId }"
+            style="background-color: #4e1a20"
+          >
+            <a
+              [routerLink]="[childItem.url]"
+              (click)="onItemSelection($event, childItem)"
+            >
+              <i class="{{ childItem.class }}"></i>
+              <span>{{ childItem.text | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- end of sidebar menu: -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

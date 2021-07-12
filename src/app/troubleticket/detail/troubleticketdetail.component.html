@@ -1,0 +1,197 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'troubleticket' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'troubleticket' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'troubleticket_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="troubleticketdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="troubleticket.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'troubleticket_incidentId' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.incidentId" formControlName="incidentId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_azEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.azEnd" formControlName="azEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_otherEnd' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.otherEnd" formControlName="otherEnd" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_systemLinkCode' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.systemLinkCode" formControlName="systemLinkCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_systemLinkCodeMain' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.systemLinkCodeMain" formControlName="systemLinkCodeMain" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_systemLinkCodeProtection' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.systemLinkCodeProtection" formControlName="systemLinkCodeProtection" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ldmaLinkCode' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ldmaLinkCode" formControlName="ldmaLinkCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_alarmSerial' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.alarmSerial" formControlName="alarmSerial" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_alarmIdentifier' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.alarmIdentifier" formControlName="alarmIdentifier" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_alarmSeverity' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.alarmSeverity" formControlName="alarmSeverity" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketAssignedGroup' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ticketAssignedGroup" formControlName="ticketAssignedGroup" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ciName' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ciName" formControlName="ciName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Garbage</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.isGarbage" formControlName="isGarbage" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Dismantle</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.isDismantle" formControlName="isDismantle" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>IS Pat Status Pending</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.isPatPending" formControlName="isPatPending" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>Has Protection</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.hasProtection" formControlName="hasProtection" autocomplete="off" />
+					</div>
+					<!-- <div class="form-group">
+						<label>{{ 'troubleticket_isParent' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.isParent" formControlName="isParent" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_parentTicketId' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.parentTicketId" formControlName="parentTicketId" class="form-control"  autocomplete="off" />
+					</div> -->
+					<div class="form-group">
+						<label>{{ 'troubleticket_alarmName' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.alarmName" formControlName="alarmName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_alarmType' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.alarmType" formControlName="alarmType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_childAlarmNames' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.childAlarmNames" formControlName="childAlarmNames" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketSummary' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ticketSummary" formControlName="ticketSummary" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketNotes' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ticketNotes" formControlName="ticketNotes" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.ticketStatus" formControlName="ticketStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketCreationDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ticketCreationDate" name="ticketCreationDate" [(ngModel)]="troubleticket.ticketCreationDate" class="form-control" formControlName="ticketCreationDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketLastUpdateDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ticketLastUpdateDate" name="ticketLastUpdateDate" [(ngModel)]="troubleticket.ticketLastUpdateDate" class="form-control" formControlName="ticketLastUpdateDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_ticketClearDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="ticketClearDate" name="ticketClearDate" [(ngModel)]="troubleticket.ticketClearDate" class="form-control" formControlName="ticketClearDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_impact' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.impact" formControlName="impact" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_urgency' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.urgency" formControlName="urgency" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_serviceType' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.serviceType" formControlName="serviceType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_serviceCI' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.serviceCI" formControlName="serviceCI" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_customerCompany' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.customerCompany" formControlName="customerCompany" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_supportCompany' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.supportCompany" formControlName="supportCompany" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_supportOrganization' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.supportOrganization" formControlName="supportOrganization" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_supportGroupName' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.supportGroupName" formControlName="supportGroupName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>isCreatedBySystem</label>
+<br/>						<input type="checkbox" [(ngModel)]="troubleticket.isCreatedBySystem" formControlName="isCreatedBySystem" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'troubleticket_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="troubleticket.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="troubleticket.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="troubleticket.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

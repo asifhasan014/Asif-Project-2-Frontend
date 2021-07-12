@@ -1,0 +1,116 @@
+.layer{
+	color: black;
+	opacity: 1;
+}
+.overlay {
+  position:absolute;
+  top:0px;
+  left:0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.leftReg{
+  /* background-color:#fff; */
+  padding:50px;
+  height:490px;
+  border-radius:5px;
+  z-index: 2;
+}
+.rightReg{
+  background-color:#3c8dbc;
+  padding:30px;
+  height:490px;
+  border-radius:5px;
+  z-index: 2;
+}
+.leftReg h2{
+  text-align:left;
+  font-weight:800;
+}
+.rightReg h2{
+  text-align:center;
+  font-weight:800;
+}
+.btn-warning{
+  color:#000;
+  font-weight:800;
+  font-size:20px;
+  text-align: center;
+}
+.btn-info{
+  color:#000;
+  font-weight:800;
+  font-size:20px;
+}
+label{
+  font-weight:800;
+}
+.leftReg span{
+  color:#000;
+}
+.leftReg h2{
+  color:#000;
+}
+.leftReg label{
+  color:#000;
+}
+
+.clog{
+  text-align: center;
+}
+
+
+.landingpage ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333e3;
+}
+
+.landingpage li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+.landingpage li:last-child {
+  border-right: none;
+}
+
+.landingpage li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.landingpage li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+h1{
+  color: #d3f5ffed;
+  font-size: 80px;
+  font-weight: 800;
+  text-shadow: -1px 0px 13px black;
+}
+
+h2{
+  color: #d3f5ffed;
+ font-size:58px;
+ font-weight: 600;
+ text-shadow: -1px 0px 13px black;
+}
+
+h3{
+  color:#000;
+ font-size:33px;
+ font-weight: 600;
+}

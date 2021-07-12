@@ -1,0 +1,141 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'microwavelinkreport' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'microwavelinkreport' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'microwavelinkreport_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="microwavelinkreportdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="microwavelinkreport.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'microwavelinkreport_linkName' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.linkName" formControlName="linkName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNEName' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNEName" formControlName="sourceNEName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNEId' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNEId" formControlName="sourceNEId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceBoard' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceBoard" formControlName="sourceBoard" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourcePort' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourcePort" formControlName="sourcePort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkNEName' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkNEName" formControlName="sinkNEName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkNEId' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkNEId" formControlName="sinkNEId" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkBoard' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkBoard" formControlName="sinkBoard" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkPort' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkPort" formControlName="sinkPort" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceProtectType' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceProtectType" formControlName="sourceProtectType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkProtectType' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkProtectType" formControlName="sinkProtectType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceProtectUnitType' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceProtectUnitType" formControlName="sourceProtectUnitType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkProtectUnitType' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkProtectUnitType" formControlName="sinkProtectUnitType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceProtectionGroupActiveWorkUnit' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceProtectionGroupActiveWorkUnit" formControlName="sourceProtectionGroupActiveWorkUnit" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkProtectionGroupActiveWorkUnit' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkProtectionGroupActiveWorkUnit" formControlName="sinkProtectionGroupActiveWorkUnit" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNEPresetValueofTransmitPower' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNEPresetValueofTransmitPower" formControlName="sourceNEPresetValueofTransmitPower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkNEPresetValueofTransmitPower' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkNEPresetValueofTransmitPower" formControlName="sinkNEPresetValueofTransmitPower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNECurrentValueofTransmitPower' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNECurrentValueofTransmitPower" formControlName="sourceNECurrentValueofTransmitPower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkNECurrentValueofTransmitPower' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkNECurrentValueofTransmitPower" formControlName="sinkNECurrentValueofTransmitPower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNEPresetValueofReceivePower' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNEPresetValueofReceivePower" formControlName="sourceNEPresetValueofReceivePower" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sourceNEAMStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sourceNEAMStatus" formControlName="sourceNEAMStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_sinkNEAMStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.sinkNEAMStatus" formControlName="sinkNEAMStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'microwavelinkreport_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="microwavelinkreport.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="microwavelinkreport.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="microwavelinkreport.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

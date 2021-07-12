@@ -1,0 +1,125 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ 'locationhierarchyoss' | translate }}
+      <small>{{ 'control_panel' | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-cogs"></i> {{ 'home' | translate }}</a></li>
+      <li class="active">{{ 'locationhierarchyoss' | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">{{ 'locationhierarchyoss_detail' | translate }}</h3>
+		</div>
+		<!-- /.box-header -->
+		
+		<div class="box-body">		
+			<app-alert></app-alert>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="locationhierarchyossdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="locationhierarchyoss.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'locationhierarchyoss_siteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.siteCode" formControlName="siteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_siteName' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.siteName" formControlName="siteName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_division' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.division" formControlName="division" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_commercialZone' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.commercialZone" formControlName="commercialZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_district' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.district" formControlName="district" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_thana' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.thana" formControlName="thana" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_unionName' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.unionName" formControlName="unionName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_latitude' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.latitude" formControlName="latitude" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_longitude' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.longitude" formControlName="longitude" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_siteType' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.siteType" formControlName="siteType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_sharedStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.sharedStatus" formControlName="sharedStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_eDOTcoCporNCP' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.eDOTcoCporNCP" formControlName="eDOTcoCporNCP" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_pmfZone' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.pmfZone" formControlName="pmfZone" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_hvcStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.hvcStatus" formControlName="hvcStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_siteDistance' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.siteDistance" formControlName="siteDistance" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_clusterName' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.clusterName" formControlName="clusterName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_siteCategory' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.siteCategory" formControlName="siteCategory" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_priority' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.priority" formControlName="priority" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'locationhierarchyoss_remarks' | translate }}</label>
+						<input type="text" [(ngModel)]="locationhierarchyoss.remarks" formControlName="remarks" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="locationhierarchyoss.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="locationhierarchyoss.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </section>
+</div>

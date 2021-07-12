@@ -1,0 +1,277 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "informationrepository" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "home" | translate }}</a>
+      </li>
+      <li class="active">{{ "informationrepository" | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div fxLayout="row" >
+      <div class="box" fxFlex="30">
+        <div class="box-header">
+          <h3 class="box-title">
+            {{ "informationrepository_detail" | translate }}
+          </h3>
+        </div>
+        <!-- /.box-header -->
+
+        <div class="box-body">
+          <app-alert></app-alert>
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              <form
+                [formGroup]="informationrepositorydetailForm"
+                autocomplete="off"
+              >
+                <input
+                  type="hidden"
+                  [(ngModel)]="informationrepository.csrfNonce"
+                  formControlName="csrfNonce"
+                />
+
+                <div class="form-group">
+                  <label>{{
+                    "informationrepository_fileName" | translate
+                  }}</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="informationrepository.fileName"
+                    formControlName="fileName"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': isFormCheckRequired && f.fileName.errors
+                    }"
+                    autocomplete="off"
+                  />
+                  <div
+                    *ngIf="isFormCheckRequired && f.fileName.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.fileName.errors.required">
+                      {{ "informationrepository_fileName" | translate }}
+                      {{ "is_required" | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>{{
+                    "informationrepository_analyzeFile" | translate
+                  }}</label>
+                  <br />
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="informationrepository.analyzeFile"
+                    formControlName="analyzeFile"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>{{
+                    "informationrepository_uploadedAttachment" | translate
+                  }}</label>
+                  <input
+                    type="text"
+                    readonly
+                    [(ngModel)]="informationrepository.uploadedAttachment"
+                    formControlName="uploadedAttachment"
+                    class="form-control"
+                    autocomplete="off"
+                  />
+                </div>
+                <!-- <div class="form-group">
+                  <label>{{
+                    "informationrepository_uploadedAttachmentFileId" | translate
+                  }}</label>
+                  <input
+                    type="text"
+                    readonly
+                    [(ngModel)]="informationrepository.uploadedAttachmentFileId"
+                    formControlName="uploadedAttachmentFileId"
+                    class="form-control"
+                    autocomplete="off"
+                  />
+                </div> -->
+                <!-- <div class="form-group">
+							<label>{{ 'informationrepository_downloadAttachment' | translate }}</label>
+							<input type="text" readonly [(ngModel)]="informationrepository.downloadAttachment" formControlName="downloadAttachment" class="form-control"  autocomplete="off" />
+						</div> -->
+                <div class="form-group">
+                  <label>{{
+                    "informationrepository_remarks" | translate
+                  }}</label>
+                  <textarea
+                    rows="4"
+                    cols="50"
+                    [(ngModel)]="informationrepository.remarks"
+                    formControlName="remarks"
+                    class="form-control"
+                    autocomplete="off"
+                  ></textarea>
+                  <!-- 
+							<input type="text" [(ngModel)]="informationrepository.remarks" formControlName="remarks" class="form-control"  autocomplete="off" /> -->
+                </div>
+
+                <!-- file Attachment html start  workRequest-->
+                <div
+                  class="form-group"
+                  *ngIf="
+                    informationrepository.componentId >= 0 &&
+                    informationrepository.uploadedAttachment != null &&
+                    informationrepository.uploadedAttachment.trim() != ''
+                  "
+                >
+                  <label
+                    >{{
+                      "informationrepository_uploadedAttachment" | translate
+                    }}
+                    : {{ informationrepository.uploadedAttachment }}</label
+                  >
+                  &nbsp;
+                  <button
+                    class="btn btn-primary text-right"
+                    (click)="onDownload()"
+                  >
+                    <i class="fa fa-download"></i>
+                    {{ "btn_download_text" | translate }}
+                  </button>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <input
+                        type="file"
+                        (change)="onFileChange($event)"
+                        placeholder="{{ 'select_file' | translate }}"
+                        accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.xls,.xlsx"
+                        #inputFile
+                      />
+                      <span *ngIf="fileUploadExecutionDone">
+                        <small *ngIf="fileAttached"
+                          ><font color="green">{{
+                            fileAttachedMessage
+                          }}</font></small
+                        >
+                        <small *ngIf="!fileAttached"
+                          ><font color="red">{{
+                            fileAttachedMessage
+                          }}</font></small
+                        >
+                      </span>
+                    </div>
+                    <!--<div class="col-md-2">
+									<button [disabled]="submitted" class="btn btn-primary text-right" (click)="onAttachClick()"><i class="fa fa-paperclip"></i> {{ 'btn_attach_text' | translate }}</button>
+									</div>-->
+                  </div>
+                </div>
+                <!-- file Attachment html end  workRequest-->
+
+                <div
+                  *ngIf="informationrepository.componentId < 0"
+                  class="form-group"
+                >
+                  <button
+                    class="btn btn-primary"
+                    [disabled]="isSubmitted"
+                    (click)="onSubmit()"
+                  >
+                    <i class="fa fa-save"></i> {{ "btn_save_text" | translate }}
+                  </button>
+                </div>
+
+                <div
+                  *ngIf="informationrepository.componentId >= 0"
+                  class="form-group"
+                >
+                  <button
+                    class="btn btn-primary"
+                    [disabled]="isSubmitted"
+                    (click)="onSubmit()"
+                  >
+                    <i class="fa fa-save"></i> {{ "btn_save_text" | translate }}
+                  </button>
+                  &nbsp;
+                  <button
+                    class="btn btn-primary"
+                    [disabled]="isSubmitted"
+                    (click)="onDelete()"
+                  >
+                    <i class="fa fa-remove"></i>
+                    {{ "btn_delete_text" | translate }}
+                  </button>
+                </div>
+              </form>
+              <button class="btn btn-primary" (click)="goBack()">
+                <i class="fa fa-arrow-left"></i>
+                {{ "btn_go_back_text" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="informationrepository.analyzeFile == true" class="box" fxLayout="column" fxFlex="70">
+		<!-- <button
+		class="btn btn-primary"
+		(click)="showCharts()"
+	  >
+		 show graph
+	  </button> -->
+        <div>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [callbackFunction]="chartCallback"
+            [options]="chartOptionsForEMSNameWiseBarChart"
+            [constructorType]="chartConstructor"
+            [(update)]="updateFromInput"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          ></highcharts-chart>
+        </div>
+        <div>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [callbackFunction]="chartCallback"
+            [options]="chartOptionsForDeptNameWiseBarChart"
+            [constructorType]="chartConstructor"
+            [(update)]="updateFromInput"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          ></highcharts-chart>
+        </div>
+        <div>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [callbackFunction]="chartCallback"
+            [options]="chartOptionsForRedefinedUnitWiseBarChart"
+            [constructorType]="chartConstructor"
+            [(update)]="updateFromInput"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          ></highcharts-chart>
+        </div>
+        <div>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [callbackFunction]="chartCallback"
+            [options]="chartOptionsForUserPrivilegeWiseBarChart"
+            [constructorType]="chartConstructor"
+            [(update)]="updateFromInput"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          ></highcharts-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,405 @@
+<!-- main app container -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{ "warrantysupportclaim" | translate }}
+      <small>{{ "control_panel" | translate }}</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#"><i class="fa fa-cogs"></i> {{ "home" | translate }}</a>
+      </li>
+      <li class="active">{{ "warrantysupportclaim" | translate }}</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content fullpage">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">
+          {{ "warrantysupportclaim_detail" | translate }}
+        </h3>
+      </div>
+      <!-- /.box-header -->
+
+      <div class="box-body">
+        <app-alert></app-alert>
+        <!-- <div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form [formGroup]="warrantysupportclaimdetailForm" autocomplete="off">
+						<input type="hidden" [(ngModel)]="warrantysupportclaim.csrfNonce" formControlName="csrfNonce"/>
+	
+						<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestID' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestID" formControlName="workRequestID" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestType' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestType" formControlName="workRequestType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestDeviceType' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestDeviceType" formControlName="workRequestDeviceType" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestDendor' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestDendor" formControlName="workRequestDendor" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestProblemStatment' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestProblemStatment" formControlName="workRequestProblemStatment" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestSiteCode' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestSiteCode" formControlName="workRequestSiteCode" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestRegion' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workRequestRegion" formControlName="workRequestRegion" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workRequestCreatedDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="workRequestCreatedDate" name="workRequestCreatedDate" [(ngModel)]="warrantysupportclaim.workRequestCreatedDate" class="form-control" formControlName="workRequestCreatedDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_SLATimeInDays' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.SLATimeInDays" formControlName="SLATimeInDays" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_isAcknowledged' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.isAcknowledged" formControlName="isAcknowledged" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_acknowledgementReason' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.acknowledgementReason" formControlName="acknowledgementReason" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_acknowledgementplanDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="acknowledgementplanDate" name="acknowledgementplanDate" [(ngModel)]="warrantysupportclaim.acknowledgementplanDate" class="form-control" formControlName="acknowledgementplanDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_acceptedOrCancelledBy' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.acceptedOrCancelledBy" formControlName="acceptedOrCancelledBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="activityDate" name="activityDate" [(ngModel)]="warrantysupportclaim.activityDate" class="form-control" formControlName="activityDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityFindings' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityFindings" formControlName="activityFindings" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityAction' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityAction" formControlName="activityAction" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityStatus" formControlName="activityStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityDoneBy' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityDoneBy" formControlName="activityDoneBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityRemarks' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityRemarks" formControlName="activityRemarks" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnDismantledItem' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnDismantledItem" formControlName="materialsReturnDismantledItem" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnGoodOrFaulty' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.materialsReturnGoodOrFaulty" formControlName="materialsReturnGoodOrFaulty" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnReturnTo' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnReturnTo" formControlName="materialsReturnReturnTo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnRemarks' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.materialsReturnRemarks" formControlName="materialsReturnRemarks" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnAttachmentName' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnAttachmentName" formControlName="materialsReturnAttachmentName" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_isApproved' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.isApproved" formControlName="isApproved" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_approvalReason' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.approvalReason" formControlName="approvalReason" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_approvalApprovedBy' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.approvalApprovedBy" formControlName="approvalApprovedBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_approvalDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="approvalDate" name="approvalDate" [(ngModel)]="warrantysupportclaim.approvalDate" class="form-control" formControlName="approvalDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_approvalRemarks' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.approvalRemarks" formControlName="approvalRemarks" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_workflowStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.workflowStatus" formControlName="workflowStatus" class="form-control"  autocomplete="off" />
+					</div>
+
+						
+						<div *ngIf="warrantysupportclaim.componentId < 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+						</div>
+						
+						<div *ngIf="warrantysupportclaim.componentId >= 0" class="form-group">
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onSubmit()"><i class="fa fa-save"></i> {{ 'btn_save_text' | translate }}</button>
+							&nbsp;
+							<button class="btn btn-primary" [disabled]="isSubmitted" (click)="onDelete()"><i class="fa fa-remove"></i> {{ 'btn_delete_text' | translate }}</button>
+						</div>
+					</form>
+					<button class="btn btn-primary" (click)="goBack()"><i class="fa fa-arrow-left"></i> {{ 'btn_go_back_text' | translate }}</button>				
+				</div>
+			</div> -->
+
+        <!-- stepper design starts here -->
+        <div>
+          <mat-vertical-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel
+                  ><label class="customFont">Work Request</label></ng-template
+                >
+                <div>
+                  <select
+                    formControlName="workRequestType"
+                    [(ngModel)]="warrantysupportclaim.workRequestType"
+                    class="form-control form-control-inline"
+                  >
+                    <option value="">
+                      Select Request Type
+                    </option>
+                    <option value="volvo">Installation</option>
+                    <option value="saab">Warranty support</option>
+                    <option value="mercedes">Dismantle</option>
+                    <option value="audi">Theft report </option>
+                  </select>
+				</div>
+				<br>
+				<div>
+					<select
+					  formControlName="workRequestDeviceType"
+					  [(ngModel)]="warrantysupportclaim.workRequestDeviceType"
+					  class="form-control form-control-inline"
+					>
+					  <option value="">
+						Select Device Type
+					  </option>
+					  <option value="volvo">Rectifier</option>
+					  <option value="saab">battery</option>
+					  <option value="mercedes">ODC</option>
+					  <option value="audi">IVS</option>
+					  <option value="volvo">Air-con</option>
+					  <option value="saab">DG</option>
+					  <option value="mercedes">Solar</option>
+					  <option value="audi">grounding</option>
+					  <option value="mercedes">shade</option>
+					  <option value="audi">others</option>
+					</select>
+				  </div>
+				  <br>
+				  <div>
+					<select
+					  formControlName="workRequestDendor"
+					  [(ngModel)]="warrantysupportclaim.workRequestDendor"
+					  class="form-control form-control-inline"
+					>
+					  <option value="">
+						Select Vendor
+					  </option>
+					  <option value="volvo">Huawei</option>
+					  <option value="saab">Ericsson</option>
+					  <option value="mercedes">NEC</option>
+					</select>
+				  </div><br>
+				  <div class="form-group">
+					<label>Problem Statement</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.workRequestProblemStatment" formControlName="workRequestProblemStatment" class="form-control"  autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_workRequestCreatedDate' | translate }}</label>
+					<input type="text" placeholder="YYYY-MM-DD" id="workRequestCreatedDate" name="workRequestCreatedDate" [(ngModel)]="warrantysupportclaim.workRequestCreatedDate" class="form-control" formControlName="workRequestCreatedDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+				</div>
+				
+
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_workRequestSiteCode' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.workRequestSiteCode" formControlName="workRequestSiteCode" class="form-control"  autocomplete="off" />
+				</div>
+
+				<div>
+					<select
+					  formControlName="workRequestRegion"
+					  [(ngModel)]="warrantysupportclaim.workRequestRegion"
+					  class="form-control form-control-inline"
+					>
+					  <option value="">
+						Select Region
+					  </option>
+					  <option value="volvo">Dhaka</option>
+					  <option value="saab">Sylhet</option>
+					  <option value="mercedes">Mymensing</option>
+					</select>
+				  </div>
+				  <br>
+				  <div class="form-group">
+					<label>{{ 'warrantysupportclaim_SLATimeInDays' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.SLATimeInDays" formControlName="SLATimeInDays" class="form-control"  autocomplete="off" />
+				</div>
+
+                <div>
+                  <button mat-button matStepperNext class="btn btn-primary">Create Work Request</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel><label class="customFont">Acknowledgement</label></ng-template>
+                <div>
+					  <input type="checkbox" [(ngModel)]="warrantysupportclaim.isAcknowledged" formControlName="isAcknowledged" value="Bike">
+					  <label for="isAcknowledged"> Acknowledge This Request</label><br>
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_acknowledgementReason' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.acknowledgementReason" formControlName="acknowledgementReason" class="form-control"  autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_acknowledgementplanDate' | translate }}</label>
+					<input type="text" placeholder="YYYY-MM-DD" id="acknowledgementplanDate" name="acknowledgementplanDate" [(ngModel)]="warrantysupportclaim.acknowledgementplanDate" class="form-control" formControlName="acknowledgementplanDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_acceptedOrCancelledBy' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.acceptedOrCancelledBy" formControlName="acceptedOrCancelledBy" class="form-control"  autocomplete="off" />
+				</div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                  <button mat-button matStepperNext class="btn btn-primary">Save Acknowledgement</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup">
+              <form [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel><label class="customFont">Activity</label></ng-template>
+                <div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityDate' | translate }}</label>
+						<input type="text" placeholder="YYYY-MM-DD" id="activityDate" name="activityDate" [(ngModel)]="warrantysupportclaim.activityDate" class="form-control" formControlName="activityDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityFindings' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityFindings" formControlName="activityFindings" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityAction' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityAction" formControlName="activityAction" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityStatus' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityStatus" formControlName="activityStatus" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityDoneBy' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityDoneBy" formControlName="activityDoneBy" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_activityRemarks' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.activityRemarks" formControlName="activityRemarks" class="form-control"  autocomplete="off" />
+					</div>
+				</div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                  <button mat-button matStepperNext class="btn btn-primary">Save Activity Status</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="fourthFormGroup">
+              <form [formGroup]="fourthFormGroup">
+                <ng-template matStepLabel><label class="customFont">Materials Return</label></ng-template>
+                <div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnDismantledItem' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnDismantledItem" formControlName="materialsReturnDismantledItem" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnGoodOrFaulty' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.materialsReturnGoodOrFaulty" formControlName="materialsReturnGoodOrFaulty" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnReturnTo' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnReturnTo" formControlName="materialsReturnReturnTo" class="form-control"  autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnRemarks' | translate }}</label>
+<br/>						<input type="checkbox" [(ngModel)]="warrantysupportclaim.materialsReturnRemarks" formControlName="materialsReturnRemarks" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label>{{ 'warrantysupportclaim_materialsReturnAttachmentName' | translate }}</label>
+						<input type="text" [(ngModel)]="warrantysupportclaim.materialsReturnAttachmentName" formControlName="materialsReturnAttachmentName" class="form-control"  autocomplete="off" />
+					</div>
+				</div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                  <button mat-button matStepperNext class="btn btn-primary">Save Material Return Status</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="fifthFormGroup">
+              <form [formGroup]="fifthFormGroup">
+                <ng-template matStepLabel><label class="customFont">Approval</label></ng-template>
+                <div>
+                <div>
+					  <input type="checkbox" [(ngModel)]="warrantysupportclaim.isApproved" formControlName="isApproved" value="Bike">
+					  <label for="isAcknowledged"> Approve This Request</label><br>
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_approvalReason' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.approvalReason" formControlName="approvalReason" class="form-control"  autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_approvalApprovedBy' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.approvalApprovedBy" formControlName="approvalApprovedBy" class="form-control"  autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_approvalDate' | translate }}</label>
+					<input type="text" placeholder="YYYY-MM-DD" id="approvalDate" name="approvalDate" [(ngModel)]="warrantysupportclaim.approvalDate" class="form-control" formControlName="approvalDate" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" autocomplete="off" />
+				</div>
+				<div class="form-group">
+					<label>{{ 'warrantysupportclaim_approvalRemarks' | translate }}</label>
+					<input type="text" [(ngModel)]="warrantysupportclaim.approvalRemarks" formControlName="approvalRemarks" class="form-control"  autocomplete="off" />
+				</div>
+				</div>
+                <div>
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                  <button mat-button matStepperNext class="btn btn-primary">Approve</button>
+                </div>
+              </form>
+            </mat-step>
+            <!-- <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              <p>You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step> -->
+          </mat-vertical-stepper>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
